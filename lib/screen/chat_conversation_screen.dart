@@ -1,8 +1,18 @@
+import 'dart:io';
+
+import 'package:app_hogar_ya/models/property.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class ChatConversationScreen extends StatefulWidget {
-  const ChatConversationScreen({super.key});
+  final Property? property;
+  final Map<String, dynamic>? chat;
+
+  const ChatConversationScreen({
+    super.key,
+    this.property,
+    this.chat,
+  });
 
   @override
   State<ChatConversationScreen> createState() =>
@@ -88,6 +98,18 @@ class _ChatConversationScreenState
   @override
   Widget build(BuildContext context) {
 
+    final owner = widget.property?.owner;
+
+    final chatName =
+        owner?.name ??
+            widget.chat?["name"] ??
+            "Pedro Almonte";
+
+    final chatAvatar =
+        owner?.avatar ??
+            widget.chat?["image"] ??
+            "https://i.pravatar.cc/150?img=3";
+
     return Scaffold(
       backgroundColor: Colors.white,
 
@@ -141,11 +163,11 @@ class _ChatConversationScreenState
                   Stack(
                     children: [
 
-                      const CircleAvatar(
+                      CircleAvatar(
                         radius: 23,
                         backgroundImage:
-                            NetworkImage(
-                          "https://i.pravatar.cc/150?img=3",
+                            _imageProvider(
+                          chatAvatar,
                         ),
                       ),
 
@@ -174,7 +196,7 @@ class _ChatConversationScreenState
                   const SizedBox(width: 12),
 
                   /// 📝 INFO
-                  const Expanded(
+                  Expanded(
                     child: Column(
                       crossAxisAlignment:
                           CrossAxisAlignment.start,
@@ -182,9 +204,9 @@ class _ChatConversationScreenState
                       children: [
 
                         Text(
-                          "Pedro Almonte",
+                          chatName,
 
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 17,
                             fontWeight:
                                 FontWeight.w700,
@@ -192,9 +214,9 @@ class _ChatConversationScreenState
                           ),
                         ),
 
-                        SizedBox(height: 2),
+                        const SizedBox(height: 2),
 
-                        Text(
+                        const Text(
                           "Activo ahora",
 
                           style: TextStyle(
@@ -459,6 +481,16 @@ class _ChatConversationScreenState
         size: 20,
         color: Colors.black87,
       ),
+    );
+  }
+
+  ImageProvider _imageProvider(String image) {
+    if (image.startsWith('http')) {
+      return NetworkImage(image);
+    }
+
+    return FileImage(
+      File(image),
     );
   }
 }

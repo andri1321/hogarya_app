@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 
 class RegistrarUbicacionScreen
     extends StatefulWidget {
+  final void Function(
+    String? provincia,
+    String? ciudad,
+    String? sector,
+  )? onLocationChanged;
+
   const RegistrarUbicacionScreen({
     super.key,
+    this.onLocationChanged,
   });
 
   @override
@@ -135,6 +142,12 @@ class _RegistrarUbicacionScreenState
 
               sector = null;
             });
+
+            widget.onLocationChanged?.call(
+              provincia,
+              ciudad,
+              sector,
+            );
           },
         ),
 
@@ -163,6 +176,12 @@ class _RegistrarUbicacionScreenState
 
               sector = null;
             });
+
+            widget.onLocationChanged?.call(
+              provincia,
+              ciudad,
+              sector,
+            );
           },
         ),
 
@@ -189,6 +208,12 @@ class _RegistrarUbicacionScreenState
 
               sector = v;
             });
+
+            widget.onLocationChanged?.call(
+              provincia,
+              ciudad,
+              sector,
+            );
           },
         ),
 

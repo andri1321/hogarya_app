@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:app_hogar_ya/data/user_data.dart';
+import 'package:app_hogar_ya/models/property.dart';
 import 'package:app_hogar_ya/screen/registrar_ubicacion_screen.dart';
 import 'package:app_hogar_ya/screen/registro_propiedad_screen.dart';
 import 'package:flutter/material.dart';
@@ -99,6 +101,13 @@ class _AddNewPublicationScreenState
     final screenWidth =
         MediaQuery.of(context).size.width;
 
+    final ImageProvider userAvatarImage =
+        UserData.profileImage != null
+            ? FileImage(UserData.profileImage!)
+            : NetworkImage(
+                UserData.networkImage,
+              );
+
     return Scaffold(
       backgroundColor: const Color(0xFFF4F4F4),
 
@@ -170,13 +179,11 @@ class _AddNewPublicationScreenState
               Row(
                 children: [
 
-                  const CircleAvatar(
+                  CircleAvatar(
                     radius: 22,
 
                     backgroundImage:
-                        NetworkImage(
-                      "https://i.pravatar.cc/150?img=12",
-                    ),
+                        userAvatarImage,
                   ),
 
                   const SizedBox(width: 12),
@@ -185,12 +192,12 @@ class _AddNewPublicationScreenState
                     crossAxisAlignment:
                         CrossAxisAlignment.start,
 
-                    children: const [
+                    children: [
 
                       Text(
-                        "Richie",
+                        UserData.userName,
 
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 22,
 
                           fontWeight:
@@ -206,7 +213,7 @@ class _AddNewPublicationScreenState
                       Text(
                         "nueva publicacion",
 
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black54,
 
                           fontSize: 12,
@@ -278,7 +285,7 @@ class _AddNewPublicationScreenState
                       height: 48,
 
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: _publishProperty,
 
                         style:
                             ElevatedButton.styleFrom(
@@ -819,12 +826,118 @@ class _AddNewPublicationScreenState
               const SizedBox(height: 25),
 
               /// 📍 UBICACIÓN
-              RegistrarUbicacionScreen(),
+              RegistrarUbicacionScreen(
+                onLocationChanged: (
+                  selectedProvincia,
+                  selectedCiudad,
+                  selectedSector,
+                ) {
+
+                  provincia = selectedProvincia;
+                  ciudad = selectedCiudad;
+                  sector = selectedSector;
+                },
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void _publishProperty() {
+
+    final title = titleController.text.trim();
+    final description =
+        descriptionController.text.trim();
+    final price = double.tryParse(
+      priceController.text
+          .replaceAll(',', '')
+          .trim(),
+    );
+
+    if (images.isEmpty ||
+        title.isEmpty ||
+        description.isEmpty ||
+        price == null ||
+        selectedCategory ==
+            "Selecciona una categoría") {
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            "Completa título, precio, categoría, descripción y al menos una foto.",
+          ),
+        ),
+      );
+
+      return;
+    }
+
+    final property = Property(
+      id: DateTime.now()
+          .microsecondsSinceEpoch
+          .toString(),
+
+      title: title,
+
+      description: description,
+
+      city: ciudad ??
+          provincia ??
+          "Sin ubicación",
+
+      type: _normalizedPropertyType(),
+
+      price: price,
+
+      images: images
+          .map((image) => image.path)
+          .toList(),
+
+      likes: 0,
+      comments: 0,
+      shares: 0,
+      views: 0,
+
+      owner: Owner(
+        id: UserData.userId,
+        name: UserData.userName,
+        avatar: UserData.ownerAvatar,
+        verified: UserData.verified,
+      ),
+
+      isFavorite: false,
+    );
+
+    UserData.addPublication(property);
+
+    setState(() {
+      titleController.clear();
+      priceController.clear();
+      descriptionController.clear();
+      selectedCategory =
+          "Selecciona una categoría";
+      selectedOperation =
+          "Selecciona operación";
+      images.clear();
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text(
+          "Publicación creada correctamente.",
+        ),
+      ),
+    );
+  }
+
+  String _normalizedPropertyType() {
+    if (selectedCategory == "Apto") {
+      return "Apartamento";
+    }
+
+    return selectedCategory;
   }
 
   /// 🔥 MODAL OPERACIÓN

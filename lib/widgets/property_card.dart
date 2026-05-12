@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:app_hogar_ya/data/user_data.dart';
 import 'package:app_hogar_ya/models/property.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -5,10 +8,12 @@ import 'package:go_router/go_router.dart';
 class PropertyCard extends StatelessWidget {
 
   final Property property;
+  final bool allowFavoriteToggle;
 
   const PropertyCard({
     super.key,
     required this.property,
+    this.allowFavoriteToggle = false,
   });
 
   @override
@@ -32,21 +37,50 @@ class PropertyCard extends StatelessWidget {
 
             Positioned.fill(
               child: Image(
-                image: NetworkImage(
+                image: _propertyImage(
                   property.images.first,
                 ),
                 fit: BoxFit.cover,
               ),
             ),
 
-            const Positioned(
+            Positioned(
               top: 10,
               right: 10,
-              child: Icon(
-                Icons.favorite_border,
-                color: Colors.white,
+              child: allowFavoriteToggle
+                  ? ValueListenableBuilder<int>(
+                      valueListenable:
+                          UserData.notifier,
+                      builder: (
+                        context,
+                        value,
+                        child,
+                      ) {
+                        final isFavorite =
+                            UserData.isFavorite(
+                          property.id,
+                        );
+
+                        return GestureDetector(
+                          onTap: () {
+                            UserData.toggleFavorite(
+                              property,
+                            );
+                          },
+                          child: Icon(
+                            isFavorite
+                                ? Icons.favorite
+                                : Icons.favorite_border,
+                            color: Colors.white,
+                          ),
+                        );
+                      },
+                    )
+                  : const Icon(
+                      Icons.favorite_border,
+                      color: Colors.white,
+                    ),
               ),
-            ),
 
             Positioned(
               bottom: 0,
@@ -118,6 +152,16 @@ class PropertyCard extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  ImageProvider _propertyImage(String image) {
+    if (image.startsWith('http')) {
+      return NetworkImage(image);
+    }
+
+    return FileImage(
+      File(image),
     );
   }
 }

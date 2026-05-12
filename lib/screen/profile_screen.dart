@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
+import '../data/user_data.dart';
 import '../models/property.dart';
 import '../widgets/stat_item.dart';
 import '../widgets/property_card.dart';
@@ -18,16 +19,43 @@ class ProfileScreen extends StatefulWidget {
  class _ProfileScreenState
     extends State<ProfileScreen> {
 
-  File? profileImage;
-
   final ImagePicker picker = ImagePicker();
 
-  String userName = "Richie";
+  File? get profileImage => UserData.profileImage;
 
-  String fullName = "pull name";
+  String get userName => UserData.userName;
 
-  String description =
-      "Se entiende por usuario a aquella persona que emplea un producto o servicio, bien de forma esporádica, bien de forma habitual, y todo ello a través de una interfaz adecuada para este fin.";
+  String get fullName => UserData.fullName;
+
+  String get description => UserData.description;
+
+  bool _showingFavorites = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    UserData.notifier.addListener(
+      _refreshUserData,
+    );
+  }
+
+  @override
+  void dispose() {
+    UserData.notifier.removeListener(
+      _refreshUserData,
+    );
+
+    super.dispose();
+  }
+
+  void _refreshUserData() {
+    if (!mounted) {
+      return;
+    }
+
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -788,35 +816,97 @@ class ProfileScreen extends StatefulWidget {
   ),
  ),
 
-            /// 🔥 GRID
-            SliverPadding(
-              padding:
-                  const EdgeInsets.all(16),
-
-              sliver: SliverGrid(
-                delegate:
-                    SliverChildBuilderDelegate(
-                  (context, index) {
-
-                    return PropertyCard(
-                      property:
-                          exampleProperty,
-                    );
-                  },
-
-                  childCount: 6,
-                ),
-
-                gridDelegate:
-                    const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-
-                  mainAxisSpacing: 16,
-                  crossAxisSpacing: 16,
-
-                  childAspectRatio: 0.75,
+            /// 🔥 BOTONES
+    SliverToBoxAdapter(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 24,
+          vertical: 12,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _showingFavorites = false;
+                });
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: _showingFavorites
+                    ? Colors.grey.shade400
+                    : const Color.fromARGB(255, 84, 147, 198),
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
                 ),
               ),
+              child: const Text('Mis publicaciones'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _showingFavorites = true;
+                });
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: _showingFavorites
+                    ? const Color.fromARGB(255, 193, 75, 67)
+                    : Colors.grey.shade400,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              child: const Text('Mis favoritos'),
+            ),
+          ],
+        ),
+      ),
+    ),
+
+            /// 🔥 GRID
+            ValueListenableBuilder<int>(
+              valueListenable: UserData.notifier,
+              builder: (context, value, child) {
+                final properties = _showingFavorites
+                    ? UserData.favoriteProperties
+                    : UserData.userPublications;
+
+                return SliverPadding(
+                  padding: const EdgeInsets.all(16),
+                  sliver: SliverGrid(
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) {
+                        if (index < properties.length) {
+                          return PropertyCard(
+                            property: properties[index],
+                            allowFavoriteToggle: _showingFavorites,
+                          );
+                        }
+
+                        if (!_showingFavorites) {
+                          return PropertyCard(
+                            property: exampleProperty,
+                          );
+                        }
+
+                        return const SizedBox.shrink();
+                      },
+                      childCount: _showingFavorites
+                          ? properties.length
+                          : properties.length + 6,
+                    ),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 16,
+                      crossAxisSpacing: 16,
+                      childAspectRatio: 0.75,
+                    ),
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -922,14 +1012,14 @@ class ProfileScreen extends StatefulWidget {
 
                 setState(() {
 
-                  userName =
+                  UserData.userName =
                       nameController.text;
 
-                  fullName =
+                  UserData.fullName =
                       fullNameController
                           .text;
 
-                  description =
+                  UserData.description =
                       descriptionController
                           .text;
                 });
@@ -942,6 +1032,116 @@ class ProfileScreen extends StatefulWidget {
               ),
             ),
           ],
+        );
+      },
+    );
+  }
+
+  void _openFavorites() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor:
+          Colors.transparent,
+      builder: (_) {
+        return DraggableScrollableSheet(
+          initialChildSize: 0.85,
+          minChildSize: 0.5,
+          maxChildSize: 0.95,
+          builder: (
+            context,
+            scrollController,
+          ) {
+            return ValueListenableBuilder<int>(
+              valueListenable: UserData.notifier,
+              builder: (context, value, child) {
+                final favorites =
+                    UserData.favoriteProperties;
+
+                return Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius:
+                        BorderRadius.vertical(
+                      top: Radius.circular(25),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 12),
+
+                      Container(
+                        width: 45,
+                        height: 5,
+                        decoration: BoxDecoration(
+                          color:
+                              Colors.grey.shade300,
+                          borderRadius:
+                              BorderRadius.circular(
+                            20,
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 18),
+
+                      const Text(
+                        "Mis favoritos",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+
+                      const SizedBox(height: 12),
+
+                      Expanded(
+                        child: favorites.isEmpty
+                            ? const Center(
+                                child: Text(
+                                  "No tienes favoritos todavía",
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              )
+                            : GridView.builder(
+                                controller:
+                                    scrollController,
+                                physics:
+                                    const BouncingScrollPhysics(),
+                                padding:
+                                    const EdgeInsets.all(
+                                  16,
+                                ),
+                                itemCount:
+                                    favorites.length,
+                                itemBuilder:
+                                    (_, index) {
+                                  return PropertyCard(
+                                    property:
+                                        favorites[
+                                            index],
+                                    allowFavoriteToggle:
+                                        true,
+                                  );
+                                },
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  mainAxisSpacing: 16,
+                                  crossAxisSpacing: 16,
+                                  childAspectRatio:
+                                      0.75,
+                                ),
+                              ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+          },
         );
       },
     );
@@ -981,7 +1181,7 @@ void _showImagePickerOptions() {
 
                   setState(() {
 
-                    profileImage =
+                    UserData.profileImage =
                         File(image.path);
                   });
                 }
@@ -1011,7 +1211,7 @@ void _showImagePickerOptions() {
 
                   setState(() {
 
-                    profileImage =
+                    UserData.profileImage =
                         File(image.path);
                   });
                 }
@@ -1024,4 +1224,3 @@ void _showImagePickerOptions() {
   );
 }
 }
-

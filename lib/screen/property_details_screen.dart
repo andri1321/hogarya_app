@@ -1,7 +1,12 @@
 /// 🔥 PROPERTY DETAILS SCREEN COMPLETA
 
+import 'dart:io';
+
+import 'package:app_hogar_ya/data/user_data.dart';
 import 'package:app_hogar_ya/models/property.dart';
+import 'package:app_hogar_ya/widgets/property_social_actions.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class PropertyDetailsScreen extends StatefulWidget {
 
@@ -22,6 +27,32 @@ class _PropertyDetailsScreenState
 
   int currentPage = 0;
 
+  @override
+  void initState() {
+    super.initState();
+
+    UserData.notifier.addListener(
+      _refreshProperty,
+    );
+  }
+
+  @override
+  void dispose() {
+    UserData.notifier.removeListener(
+      _refreshProperty,
+    );
+
+    super.dispose();
+  }
+
+  void _refreshProperty() {
+    if (!mounted) {
+      return;
+    }
+
+    setState(() {});
+  }
+
   String formatPrice(double price) {
     return "RD\$${price.toInt().toString().replaceAllMapped(
           RegExp(r'\B(?=(\d{3})+(?!\d))'),
@@ -32,7 +63,15 @@ class _PropertyDetailsScreenState
   @override
   Widget build(BuildContext context) {
 
-    final property = widget.property;
+    final property =
+        UserData.propertyById(widget.property.id) ??
+            widget.property;
+
+    final isLiked =
+        UserData.isLiked(property.id);
+
+    final isFavorite =
+        UserData.isFavorite(property.id);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -71,11 +110,17 @@ class _PropertyDetailsScreenState
                   backgroundColor:
                       Colors.black.withOpacity(0.4),
                   child: IconButton(
-                    icon: const Icon(
-                      Icons.favorite_border,
-                      color: Colors.white,
+                    icon: Icon(
+                      isFavorite
+                          ? Icons.favorite
+                          : Icons.favorite_border,
+                      color: isFavorite
+                          ? Colors.red
+                          : Colors.white,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      UserData.toggleFavorite(property);
+                    },
                   ),
                 ),
               ),
@@ -99,8 +144,10 @@ class _PropertyDetailsScreenState
 
                       return Hero(
                         tag: property.id,
-                        child: Image.network(
-                          property.images[index],
+                        child: Image(
+                          image: _imageProvider(
+                            property.images[index],
+                          ),
                           fit: BoxFit.cover,
                         ),
                       );
@@ -211,18 +258,41 @@ class _PropertyDetailsScreenState
                     children: [
 
                       _stat(
-                        Icons.favorite,
+                        isLiked
+                            ? Icons.favorite
+                            : Icons.favorite_border,
                         property.likes.toString(),
+                        color: isLiked
+                            ? Colors.red
+                            : Colors.black,
+                        onTap: () {
+                          PropertySocialActions.toggleLike(
+                            property,
+                          );
+                        },
                       ),
 
                       _stat(
                         Icons.chat,
                         property.comments.toString(),
+                        onTap: () {
+                          PropertySocialActions
+                              .showCommentsModal(
+                            context,
+                            property,
+                          );
+                        },
                       ),
 
                       _stat(
                         Icons.send,
                         property.shares.toString(),
+                        onTap: () {
+                          PropertySocialActions.sharePost(
+                            context,
+                            property,
+                          );
+                        },
                       ),
 
                       _stat(
@@ -279,7 +349,7 @@ class _PropertyDetailsScreenState
 
                         CircleAvatar(
                           radius: 30,
-                          backgroundImage: NetworkImage(
+                          backgroundImage: _imageProvider(
                             property.owner.avatar,
                           ),
                         ),
@@ -329,7 +399,12 @@ class _PropertyDetailsScreenState
                         ),
 
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context.push(
+                              '/chatConversation',
+                              extra: property,
+                            );
+                          },
 
                           style: ElevatedButton.styleFrom(
                             backgroundColor:
@@ -364,24 +439,43 @@ class _PropertyDetailsScreenState
     );
   }
 
+  ImageProvider _imageProvider(String image) {
+    if (image.startsWith('http')) {
+      return NetworkImage(image);
+    }
+
+    return FileImage(
+      File(image),
+    );
+  }
+
   Widget _stat(
     IconData icon,
     String value,
-  ) {
-    return Column(
-      children: [
+    {
+    Color color = Colors.black,
+    VoidCallback? onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
 
-        Icon(icon),
-
-        const SizedBox(height: 6),
-
-        Text(
-          value,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
+          Icon(
+            icon,
+            color: color,
           ),
-        ),
-      ],
+
+          const SizedBox(height: 6),
+
+          Text(
+            value,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

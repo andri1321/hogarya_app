@@ -314,7 +314,10 @@ class _ChatScreenState extends State<ChatScreen> {
     return InkWell(
       onTap: () {
         /// abrir conversación
-        context.push('/chatConversation');
+        context.push(
+          '/chatConversation',
+          extra: chat,
+        );
       },
 
       borderRadius:

@@ -39,13 +39,15 @@ class Property {
 
 
 class Owner {
+  final String id;
   final String name;
   final String avatar;
   final bool verified;
 
   Owner({
+    String? id,
     required this.name,
     required this.avatar,
     required this.verified,
-  });
+  }) : id = id ?? name;
 }

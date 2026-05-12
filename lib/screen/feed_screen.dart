@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:app_hogar_ya/data/user_data.dart';
 import 'package:app_hogar_ya/models/property.dart';
 import 'package:app_hogar_ya/widgets/property_feed_card.dart';
 import 'package:flutter/material.dart';
@@ -171,11 +174,23 @@ class _FeedScreenState
   void initState() {
     super.initState();
 
-    filtered = allProperties;
+    UserData.setInitialPublications(
+      allProperties,
+    );
+
+    filtered = UserData.allPublications;
+
+    UserData.notifier.addListener(
+      applyFilters,
+    );
   }
 
   @override
   void dispose() {
+    UserData.notifier.removeListener(
+      applyFilters,
+    );
+
     searchController.dispose();
     super.dispose();
   }
@@ -185,7 +200,7 @@ class _FeedScreenState
 
     setState(() {
 
-      filtered = allProperties.where((p) {
+      filtered = UserData.allPublications.where((p) {
 
         final searchMatch = p.title
             .toLowerCase()
@@ -622,18 +637,32 @@ class _FeedScreenState
             ),
           ),
 
-          GestureDetector(
-            onTap: () {
+          AnimatedBuilder(
+            animation: UserData.notifier,
+            builder: (context, _) {
 
-              context.go('/profile');
+              final File? profileImage =
+                  UserData.profileImage;
+
+              final ImageProvider avatarImage =
+                  profileImage != null
+                      ? FileImage(profileImage)
+                      : NetworkImage(
+                          UserData.networkImage,
+                        );
+
+              return GestureDetector(
+                onTap: () {
+
+                  context.go('/profile');
+                },
+
+                child: CircleAvatar(
+                  backgroundImage:
+                      avatarImage,
+                ),
+              );
             },
-
-            child: const CircleAvatar(
-              backgroundImage:
-                  NetworkImage(
-                'https://i.pravatar.cc/150',
-              ),
-            ),
           ),
         ],
       ),

@@ -53,8 +53,19 @@ final router = GoRouter(
 
         GoRoute(
           path: '/chatConversation',
-          builder: (context, state) =>
-              const ChatConversationScreen(),
+          builder: (context, state) {
+
+            final extra = state.extra;
+
+            return ChatConversationScreen(
+              property: extra is Property
+                  ? extra
+                  : null,
+              chat: extra is Map<String, dynamic>
+                  ? extra
+                  : null,
+            );
+          },
         ),
 
         /// 🔥 ADD

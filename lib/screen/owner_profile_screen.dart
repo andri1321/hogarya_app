@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:app_hogar_ya/models/property.dart';
 import 'package:flutter/material.dart';
 // Importamos el widget PropertyCard para mantener la consistencia visual
@@ -41,7 +43,7 @@ class OwnerProfileScreen extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 50,
-                    backgroundImage: NetworkImage(owner.avatar),
+                    backgroundImage: _imageProvider(owner.avatar),
                   ),
                   const SizedBox(height: 14),
                   Row(
@@ -130,6 +132,16 @@ class OwnerProfileScreen extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  ImageProvider _imageProvider(String image) {
+    if (image.startsWith('http')) {
+      return NetworkImage(image);
+    }
+
+    return FileImage(
+      File(image),
     );
   }
 }
