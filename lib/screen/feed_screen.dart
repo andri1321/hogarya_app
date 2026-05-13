@@ -23,8 +23,8 @@ class _FeedScreenState
   String selectedType = "Todos";
   String selectedCity = "Todos";
 
-  double minPrice = 0;
-  double maxPrice = 15000000;
+  double minPrice = 10000;
+  double maxPrice = 2000000;
 
   /// 🔥 PROPIEDADES
   final List<Property> allProperties = [
@@ -62,6 +62,10 @@ class _FeedScreenState
       ),
 
       isFavorite: false,
+      bedrooms: 3,
+      bathrooms: 2,
+      hasKitchen: true,
+      hasBalcony: true,
     ),
 
     Property(
@@ -97,6 +101,11 @@ class _FeedScreenState
       ),
 
       isFavorite: true,
+      bedrooms: 4,
+      bathrooms: 3,
+      hasPatio: true,
+      parking: 2,
+      size: 450,
     ),
 
     Property(
@@ -131,6 +140,10 @@ class _FeedScreenState
       ),
 
       isFavorite: false,
+      bedrooms: 1,
+      bathrooms: 1,
+      hasKitchen: true,
+      size: 45,
     ),
 
     Property(
@@ -165,6 +178,11 @@ class _FeedScreenState
       ),
 
       isFavorite: false,
+      bedrooms: 3,
+      bathrooms: 2,
+      hasPatio: true,
+      parking: 1,
+      size: 200,
     ),
   ];
 
@@ -509,6 +527,8 @@ class _FeedScreenState
 
                   _chip("Todos"),
                   _chip("Casa"),
+                  _chip("Habitación"),
+                  _chip("Villa"),
                   _chip("Apartamento"),
                   _chip("Solar"),
                   _chip("Local"),
@@ -644,22 +664,23 @@ class _FeedScreenState
               final File? profileImage =
                   UserData.profileImage;
 
-              final ImageProvider avatarImage =
-                  profileImage != null
-                      ? FileImage(profileImage)
-                      : NetworkImage(
-                          UserData.networkImage,
-                        );
-
               return GestureDetector(
                 onTap: () {
-
                   context.go('/profile');
                 },
-
                 child: CircleAvatar(
-                  backgroundImage:
-                      avatarImage,
+                  radius: 20,
+                  backgroundColor: Colors.grey.shade300,
+                  backgroundImage: profileImage != null
+                      ? FileImage(profileImage)
+                      : null,
+                  child: profileImage == null
+                      ? Icon(
+                          Icons.person,
+                          color: Colors.grey.shade600,
+                          size: 24,
+                        )
+                      : null,
                 ),
               );
             },

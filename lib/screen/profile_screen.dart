@@ -94,6 +94,13 @@ class ProfileScreen extends StatefulWidget {
       comments: 0,
       shares: 0,
       views: 0,
+
+      bedrooms: 3,
+      bathrooms: 2,
+      parking: 2,
+      hasKitchen: true,
+      hasPatio: true,
+      size: 250,
     );
 
     return Scaffold(
@@ -290,7 +297,7 @@ class ProfileScreen extends StatefulWidget {
         height: 135,
 
         decoration: BoxDecoration(
-          color: Colors.grey,
+          color: Colors.grey.shade300,
           shape: BoxShape.circle,
 
           image: profileImage != null
@@ -302,10 +309,10 @@ class ProfileScreen extends StatefulWidget {
         ),
 
         child: profileImage == null
-            ? const Icon(
-                Icons.add_a_photo_outlined,
-                size: 60,
-                color: Colors.white,
+            ? Icon(
+                Icons.person,
+                size: 80,
+                color: Colors.grey.shade600,
               )
             : null,
       ),

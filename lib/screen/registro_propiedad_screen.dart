@@ -1,95 +1,270 @@
 import 'package:flutter/material.dart';
 
-class RegistroPropiedadScreen extends StatefulWidget {
-  final String propertyType;
+class RegistroPropiedadScreen
+    extends
+        StatefulWidget {
+  final String
+  propertyType;
+  final Function(
+    Map<
+      String,
+      dynamic
+    >,
+  )?
+  onPropertyDetailsChanged;
 
   const RegistroPropiedadScreen({
     super.key,
     required this.propertyType,
+    this.onPropertyDetailsChanged,
   });
 
   @override
-  State<RegistroPropiedadScreen> createState() =>
+  State<
+    RegistroPropiedadScreen
+  >
+  createState() =>
       _RegistroPropiedadScreenState();
 }
 
 class _RegistroPropiedadScreenState
-    extends State<RegistroPropiedadScreen> {
-
+    extends
+        State<
+          RegistroPropiedadScreen
+        > {
   /// =========================================================
   /// CONTADORES
   /// =========================================================
 
-  int habitaciones = 3;
-  int banos = 2;
-  int parqueos = 1;
-  int niveles = 1;
-  int habitacionesServicio = 1;
+  int
+  habitaciones =
+      3;
+  int
+  banos =
+      2;
+  int
+  parqueos =
+      1;
+  int
+  niveles =
+      1;
+  int
+  habitacionesServicio =
+      1;
 
   /// =========================================================
   /// CHECKBOX / SWITCH
   /// =========================================================
 
-  bool cocinaEquipada = false;
-  bool balcon = false;
-  bool patio = false;
-  bool terraza = false;
-  bool amueblado = false;
-  bool wifi = false;
-  bool deslindado = false;
-  bool calleAsfaltada = false;
-  bool frenteVidrio = false;
+  bool
+  cocinaEquipada =
+      false;
+  bool
+  balcon =
+      false;
+  bool
+  patio =
+      false;
+  bool
+  terraza =
+      false;
+  bool
+  amueblado =
+      false;
+  bool
+  wifi =
+      false;
+  bool
+  deslindado =
+      false;
+  bool
+  calleAsfaltada =
+      false;
+  bool
+  frenteVidrio =
+      false;
 
-  bool salaSeparada = true;
-  bool comedorSeparado = false;
+  bool
+  salaSeparada =
+      true;
+  bool
+  comedorSeparado =
+      false;
 
   /// SOLAR
-  bool titulo = false;
-  bool actoVenta = false;
+  bool
+  titulo =
+      false;
+  bool
+  actoVenta =
+      false;
 
   /// VILLA
-  bool piscina = false;
-  bool jacuzzi = false;
-  bool bbq = false;
-  bool vistaMar = false;
-  bool vistaMontana = false;
+  bool
+  piscina =
+      false;
+  bool
+  jacuzzi =
+      false;
+  bool
+  bbq =
+      false;
+  bool
+  vistaMar =
+      false;
+  bool
+  vistaMontana =
+      false;
 
-  bool mesaBillar = false;
-  bool cine = false;
-  bool bar = false;
-  bool areaJuegos = false;
+  bool
+  mesaBillar =
+      false;
+  bool
+  cine =
+      false;
+  bool
+  bar =
+      false;
+  bool
+  areaJuegos =
+      false;
 
-  bool seguridadPrivada = false;
-  bool residencialCerrado = false;
-  bool camaras = false;
+  bool
+  seguridadPrivada =
+      false;
+  bool
+  residencialCerrado =
+      false;
+  bool
+  camaras =
+      false;
 
   /// =========================================================
   /// DROPDOWNS
   /// =========================================================
 
-  String? tipoUsoSolar;
-  String? idealParaLocal;
+  String?
+  tipoUsoSolar;
+  String?
+  idealParaLocal;
+
+  void
+  _emitPropertyDetails() {
+    final details =
+        <
+          String,
+          dynamic
+        >{};
+
+    if (widget.propertyType ==
+        'Apto') {
+      details['bedrooms'] = habitaciones;
+      details['bathrooms'] = banos;
+      details['floor'] = niveles;
+      details['parking'] = parqueos;
+      details['hasElevator'] = false;
+      details['hasBalcony'] = balcon;
+      details['hasKitchen'] = cocinaEquipada;
+      details['size'] = 0.0;
+    } else if (widget.propertyType ==
+        'Casa') {
+      details['bedrooms'] = habitaciones;
+      details['bathrooms'] = banos;
+      details['parking'] = parqueos;
+      details['hasKitchen'] = cocinaEquipada;
+      details['hasPatio'] = patio;
+      details['hasTerrace'] = terraza;
+      details['size'] = 0.0;
+    } else if (widget.propertyType ==
+        'Solar') {
+      details['size'] = 0.0;
+      details['landType'] =
+          tipoUsoSolar ??
+          '';
+      details['setback'] = deslindado
+          ? 'Deslindado'
+          : '';
+      details['landAccess'] = calleAsfaltada
+          ? 'Calle Asfaltada'
+          : '';
+    } else if (widget.propertyType ==
+        'Habitación') {
+      details['bathrooms'] = banos;
+      details['isFurnished'] = amueblado;
+      details['hasWifi'] = wifi;
+      details['hasAirConditioning'] = false;
+    } else if (widget.propertyType ==
+        'Villa') {
+      details['bedrooms'] = habitaciones;
+      details['bathrooms'] = banos;
+      details['parking'] = parqueos;
+      details['hasKitchen'] = cocinaEquipada;
+      details['hasPatio'] = patio;
+      details['hasTerrace'] = terraza;
+      details['size'] = 0.0;
+    }
+
+    widget.onPropertyDetailsChanged?.call(
+      details,
+    );
+  }
+
+  void
+  _updateState(
+    VoidCallback
+    fn,
+  ) {
+    setState(
+      fn,
+    );
+    _emitPropertyDetails();
+  }
 
   @override
-  Widget build(BuildContext context) {
+  void didUpdateWidget(covariant RegistroPropiedadScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.propertyType != widget.propertyType) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _emitPropertyDetails();
+      });
+    }
+  }
 
+  @override
+  void
+  initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((
+      _,
+    ) {
+      _emitPropertyDetails();
+    });
+  }
+
+  @override
+  Widget
+  build(
+    BuildContext
+    context,
+  ) {
     return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(
+        milliseconds: 300,
+      ),
 
       child: Column(
-        key: ValueKey(widget.propertyType),
+        key: ValueKey(
+          widget.propertyType,
+        ),
 
         crossAxisAlignment: CrossAxisAlignment.start,
 
         children: [
-
           /// ======================================================
           /// 🚫 SIN CATEGORÍA
           /// ======================================================
-
           if (widget.propertyType ==
               "Selecciona una categoría") ...[
-
             const Center(
               child: Padding(
                 padding: EdgeInsets.symmetric(
@@ -111,119 +286,158 @@ class _RegistroPropiedadScreenState
           /// ======================================================
           /// 🏢 APARTAMENTO
           /// ======================================================
-
-          if (widget.propertyType == "Apto") ...[
-
+          if (widget.propertyType ==
+              "Apto") ...[
             _buildSectionHeader(
               "1",
               "Detalles del Apartamento",
             ),
 
-            const SizedBox(height: 18),
+            const SizedBox(
+              height: 18,
+            ),
 
             Row(
               children: [
-
                 Expanded(
                   child: _buildCounter(
                     "Habitaciones",
                     habitaciones,
-                    (val) {
-                      setState(() {
-                        habitaciones = val;
-                      });
+                    (
+                      val,
+                    ) {
+                      _updateState(
+                        () {
+                          habitaciones = val;
+                        },
+                      );
                     },
                   ),
                 ),
 
-                const SizedBox(width: 14),
+                const SizedBox(
+                  width: 14,
+                ),
 
                 Expanded(
                   child: _buildCounter(
                     "Baños",
                     banos,
-                    (val) {
-                      setState(() {
-                        banos = val;
-                      });
+                    (
+                      val,
+                    ) {
+                      _updateState(
+                        () {
+                          banos = val;
+                        },
+                      );
                     },
                   ),
                 ),
               ],
             ),
 
-            const SizedBox(height: 18),
+            const SizedBox(
+              height: 18,
+            ),
 
             Row(
               children: [
-
                 Expanded(
                   child: _buildCounter(
                     "Parqueos",
                     parqueos,
-                    (val) {
-                      setState(() {
-                        parqueos = val;
-                      });
+                    (
+                      val,
+                    ) {
+                      _updateState(
+                        () {
+                          parqueos = val;
+                        },
+                      );
                     },
                   ),
                 ),
 
-                const SizedBox(width: 14),
+                const SizedBox(
+                  width: 14,
+                ),
 
                 Expanded(
                   child: _buildCounter(
                     "Niveles",
                     niveles,
-                    (val) {
-                      setState(() {
-                        niveles = val;
-                      });
+                    (
+                      val,
+                    ) {
+                      _updateState(
+                        () {
+                          niveles = val;
+                        },
+                      );
                     },
                   ),
                 ),
               ],
             ),
 
-            const SizedBox(height: 18),
+            const SizedBox(
+              height: 18,
+            ),
 
             _buildCheckbox(
               "Cocina Equipada",
               cocinaEquipada,
-              (val) {
-                setState(() {
-                  cocinaEquipada = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    cocinaEquipada = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Balcón",
               balcon,
-              (val) {
-                setState(() {
-                  balcon = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    balcon = val!;
+                  },
+                );
               },
             ),
 
             _buildSwitch(
               "Sala Separada",
               salaSeparada,
-              (val) {
-                setState(() {
-                  salaSeparada = val;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    salaSeparada = val;
+                  },
+                );
               },
             ),
 
             _buildSwitch(
               "Comedor Separado",
               comedorSeparado,
-              (val) {
-                setState(() {
-                  comedorSeparado = val;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    comedorSeparado = val;
+                  },
+                );
               },
             ),
 
@@ -237,115 +451,152 @@ class _RegistroPropiedadScreenState
               "Ej: 5",
             ),
 
-            const SizedBox(height: 35),
+            const SizedBox(
+              height: 35,
+            ),
           ],
 
           /// ======================================================
           /// 🏠 CASA
           /// ======================================================
-
-          if (widget.propertyType == "Casa") ...[
-
+          if (widget.propertyType ==
+              "Casa") ...[
             _buildSectionHeader(
               "1",
               "Detalles de la Casa",
             ),
 
-            const SizedBox(height: 18),
+            const SizedBox(
+              height: 18,
+            ),
 
             Row(
               children: [
-
                 Expanded(
                   child: _buildCounter(
                     "Habitaciones",
                     habitaciones,
-                    (val) {
-                      setState(() {
-                        habitaciones = val;
-                      });
+                    (
+                      val,
+                    ) {
+                      _updateState(
+                        () {
+                          habitaciones = val;
+                        },
+                      );
                     },
                   ),
                 ),
 
-                const SizedBox(width: 14),
+                const SizedBox(
+                  width: 14,
+                ),
 
                 Expanded(
                   child: _buildCounter(
                     "Baños",
                     banos,
-                    (val) {
-                      setState(() {
-                        banos = val;
-                      });
+                    (
+                      val,
+                    ) {
+                      _updateState(
+                        () {
+                          banos = val;
+                        },
+                      );
                     },
                   ),
                 ),
               ],
             ),
 
-            const SizedBox(height: 18),
+            const SizedBox(
+              height: 18,
+            ),
 
             Row(
               children: [
-
                 Expanded(
                   child: _buildCounter(
                     "Parqueos",
                     parqueos,
-                    (val) {
-                      setState(() {
-                        parqueos = val;
-                      });
+                    (
+                      val,
+                    ) {
+                      _updateState(
+                        () {
+                          parqueos = val;
+                        },
+                      );
                     },
                   ),
                 ),
 
-                const SizedBox(width: 14),
+                const SizedBox(
+                  width: 14,
+                ),
 
                 Expanded(
                   child: _buildCounter(
                     "Niveles",
                     niveles,
-                    (val) {
-                      setState(() {
-                        niveles = val;
-                      });
+                    (
+                      val,
+                    ) {
+                      _updateState(
+                        () {
+                          niveles = val;
+                        },
+                      );
                     },
                   ),
                 ),
               ],
             ),
 
-            const SizedBox(height: 18),
+            const SizedBox(
+              height: 18,
+            ),
 
             _buildCheckbox(
               "Patio",
               patio,
-              (val) {
-                setState(() {
-                  patio = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    patio = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Terraza",
               terraza,
-              (val) {
-                setState(() {
-                  terraza = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    terraza = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Balcón",
               balcon,
-              (val) {
-                setState(() {
-                  balcon = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    balcon = val!;
+                  },
+                );
               },
             ),
 
@@ -359,21 +610,24 @@ class _RegistroPropiedadScreenState
               "Ej: 400",
             ),
 
-            const SizedBox(height: 35),
+            const SizedBox(
+              height: 35,
+            ),
           ],
 
           /// ======================================================
           /// 🌳 SOLAR
           /// ======================================================
-
-          if (widget.propertyType == "Solar") ...[
-
+          if (widget.propertyType ==
+              "Solar") ...[
             _buildSectionHeader(
               "1",
               "Detalles del Solar",
             ),
 
-            const SizedBox(height: 14),
+            const SizedBox(
+              height: 14,
+            ),
 
             _buildTextField(
               "Tamaño Total",
@@ -398,14 +652,21 @@ class _RegistroPropiedadScreenState
                 "Comercial",
                 "Agrícola",
               ],
-              onChanged: (value) {
-                setState(() {
-                  tipoUsoSolar = value;
-                });
-              },
+              onChanged:
+                  (
+                    value,
+                  ) {
+                    _updateState(
+                      () {
+                        tipoUsoSolar = value;
+                      },
+                    );
+                  },
             ),
 
-            const SizedBox(height: 24),
+            const SizedBox(
+              height: 24,
+            ),
 
             /// 📄 DOCUMENTACIÓN
             const Text(
@@ -413,134 +674,179 @@ class _RegistroPropiedadScreenState
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF1976D2),
+                color: Color(
+                  0xFF1976D2,
+                ),
               ),
             ),
 
-            const SizedBox(height: 12),
+            const SizedBox(
+              height: 12,
+            ),
 
             _buildCheckbox(
               "Deslindado",
               deslindado,
-              (val) {
-                setState(() {
-                  deslindado = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    deslindado = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Título",
               titulo,
-              (val) {
-                setState(() {
-                  titulo = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    titulo = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Acto de venta",
               actoVenta,
-              (val) {
-                setState(() {
-                  actoVenta = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    actoVenta = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Calle Asfaltada",
               calleAsfaltada,
-              (val) {
-                setState(() {
-                  calleAsfaltada = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    calleAsfaltada = val!;
+                  },
+                );
               },
             ),
 
-            const SizedBox(height: 35),
+            const SizedBox(
+              height: 35,
+            ),
           ],
 
           /// ======================================================
           /// 🏡 VILLA
           /// ======================================================
-
-          if (widget.propertyType == "Villa") ...[
-
+          if (widget.propertyType ==
+              "Villa") ...[
             _buildSectionHeader(
               "1",
               "Detalles de la Villa",
             ),
 
-            const SizedBox(height: 18),
+            const SizedBox(
+              height: 18,
+            ),
 
             /// HABITACIONES
             Row(
               children: [
-
                 Expanded(
                   child: _buildCounter(
                     "Habitaciones",
                     habitaciones,
-                    (val) {
-                      setState(() {
-                        habitaciones = val;
-                      });
+                    (
+                      val,
+                    ) {
+                      _updateState(
+                        () {
+                          habitaciones = val;
+                        },
+                      );
                     },
                   ),
                 ),
 
-                const SizedBox(width: 14),
+                const SizedBox(
+                  width: 14,
+                ),
 
                 Expanded(
                   child: _buildCounter(
                     "Baños",
                     banos,
-                    (val) {
-                      setState(() {
-                        banos = val;
-                      });
+                    (
+                      val,
+                    ) {
+                      _updateState(
+                        () {
+                          banos = val;
+                        },
+                      );
                     },
                   ),
                 ),
               ],
             ),
 
-            const SizedBox(height: 18),
+            const SizedBox(
+              height: 18,
+            ),
 
             Row(
               children: [
-
                 Expanded(
                   child: _buildCounter(
                     "Niveles",
                     niveles,
-                    (val) {
-                      setState(() {
-                        niveles = val;
-                      });
+                    (
+                      val,
+                    ) {
+                      _updateState(
+                        () {
+                          niveles = val;
+                        },
+                      );
                     },
                   ),
                 ),
 
-                const SizedBox(width: 14),
+                const SizedBox(
+                  width: 14,
+                ),
 
                 Expanded(
                   child: _buildCounter(
                     "Hab. Servicio",
                     habitacionesServicio,
-                    (val) {
-                      setState(() {
-                        habitacionesServicio = val;
-                      });
+                    (
+                      val,
+                    ) {
+                      _updateState(
+                        () {
+                          habitacionesServicio = val;
+                        },
+                      );
                     },
                   ),
                 ),
               ],
             ),
 
-            const SizedBox(height: 28),
+            const SizedBox(
+              height: 28,
+            ),
 
             /// AMENIDADES
             const Text(
@@ -548,73 +854,103 @@ class _RegistroPropiedadScreenState
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF1976D2),
+                color: Color(
+                  0xFF1976D2,
+                ),
               ),
             ),
 
-            const SizedBox(height: 10),
+            const SizedBox(
+              height: 10,
+            ),
 
             _buildCheckbox(
               "Piscina",
               piscina,
-              (val) {
-                setState(() {
-                  piscina = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    piscina = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Jacuzzi",
               jacuzzi,
-              (val) {
-                setState(() {
-                  jacuzzi = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    jacuzzi = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "BBQ",
               bbq,
-              (val) {
-                setState(() {
-                  bbq = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    bbq = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Terraza",
               terraza,
-              (val) {
-                setState(() {
-                  terraza = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    terraza = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Vista al mar",
               vistaMar,
-              (val) {
-                setState(() {
-                  vistaMar = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    vistaMar = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Vista a montaña",
               vistaMontana,
-              (val) {
-                setState(() {
-                  vistaMontana = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    vistaMontana = val!;
+                  },
+                );
               },
             ),
 
-            const SizedBox(height: 28),
+            const SizedBox(
+              height: 28,
+            ),
 
             /// ENTRETENIMIENTO
             const Text(
@@ -622,53 +958,75 @@ class _RegistroPropiedadScreenState
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF1976D2),
+                color: Color(
+                  0xFF1976D2,
+                ),
               ),
             ),
 
-            const SizedBox(height: 10),
+            const SizedBox(
+              height: 10,
+            ),
 
             _buildCheckbox(
               "Mesa de billar",
               mesaBillar,
-              (val) {
-                setState(() {
-                  mesaBillar = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    mesaBillar = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Cine",
               cine,
-              (val) {
-                setState(() {
-                  cine = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    cine = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Bar",
               bar,
-              (val) {
-                setState(() {
-                  bar = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    bar = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Área de juegos",
               areaJuegos,
-              (val) {
-                setState(() {
-                  areaJuegos = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    areaJuegos = val!;
+                  },
+                );
               },
             ),
 
-            const SizedBox(height: 28),
+            const SizedBox(
+              height: 28,
+            ),
 
             /// SEGURIDAD
             const Text(
@@ -676,57 +1034,76 @@ class _RegistroPropiedadScreenState
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF1976D2),
+                color: Color(
+                  0xFF1976D2,
+                ),
               ),
             ),
 
-            const SizedBox(height: 10),
+            const SizedBox(
+              height: 10,
+            ),
 
             _buildCheckbox(
               "Seguridad privada",
               seguridadPrivada,
-              (val) {
-                setState(() {
-                  seguridadPrivada = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    seguridadPrivada = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Residencial cerrado",
               residencialCerrado,
-              (val) {
-                setState(() {
-                  residencialCerrado = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    residencialCerrado = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Cámaras",
               camaras,
-              (val) {
-                setState(() {
-                  camaras = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    camaras = val!;
+                  },
+                );
               },
             ),
 
-            const SizedBox(height: 35),
+            const SizedBox(
+              height: 35,
+            ),
           ],
 
           /// ======================================================
           /// 🛏 HABITACIÓN
           /// ======================================================
-
-          if (widget.propertyType == "Habitación") ...[
-
+          if (widget.propertyType ==
+              "Habitación") ...[
             _buildSectionHeader(
               "1",
               "Detalles de la Habitación",
             ),
 
-            const SizedBox(height: 18),
+            const SizedBox(
+              height: 18,
+            ),
 
             _buildTextField(
               "Tamaño",
@@ -736,30 +1113,42 @@ class _RegistroPropiedadScreenState
             _buildCheckbox(
               "Baño Privado",
               cocinaEquipada,
-              (val) {
-                setState(() {
-                  cocinaEquipada = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    cocinaEquipada = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Amueblada",
               amueblado,
-              (val) {
-                setState(() {
-                  amueblado = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    amueblado = val!;
+                  },
+                );
               },
             ),
 
             _buildCheckbox(
               "Incluye Wifi",
               wifi,
-              (val) {
-                setState(() {
-                  wifi = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    wifi = val!;
+                  },
+                );
               },
             ),
 
@@ -768,54 +1157,68 @@ class _RegistroPropiedadScreenState
               "Ej: 2",
             ),
 
-            const SizedBox(height: 35),
+            const SizedBox(
+              height: 35,
+            ),
           ],
 
           /// ======================================================
           /// 🏬 LOCAL
           /// ======================================================
-
-          if (widget.propertyType == "Local") ...[
-
+          if (widget.propertyType ==
+              "Local") ...[
             _buildSectionHeader(
               "1",
               "Detalles del Local",
             ),
 
-            const SizedBox(height: 18),
+            const SizedBox(
+              height: 18,
+            ),
 
             Row(
               children: [
-
                 Expanded(
                   child: _buildCounter(
                     "Baños",
                     banos,
-                    (val) {
-                      setState(() {
-                        banos = val;
-                      });
+                    (
+                      val,
+                    ) {
+                      _updateState(
+                        () {
+                          banos = val;
+                        },
+                      );
                     },
                   ),
                 ),
 
-                const SizedBox(width: 14),
+                const SizedBox(
+                  width: 14,
+                ),
 
                 Expanded(
                   child: _buildCounter(
                     "Parqueos",
                     parqueos,
-                    (val) {
-                      setState(() {
-                        parqueos = val;
-                      });
+                    (
+                      val,
+                    ) {
+                      _updateState(
+                        () {
+                          parqueos = val;
+                        },
+                      );
                     },
                   ),
                 ),
               ],
             ),
 
-            const SizedBox(height: 18),
+            const SizedBox(
+              height: 18,
+            ),
 
             _buildTextField(
               "Metros Cuadrados",
@@ -837,24 +1240,35 @@ class _RegistroPropiedadScreenState
                 "Barbería",
                 "Farmacia",
               ],
-              onChanged: (value) {
-                setState(() {
-                  idealParaLocal = value;
-                });
-              },
+              onChanged:
+                  (
+                    value,
+                  ) {
+                    _updateState(
+                      () {
+                        idealParaLocal = value;
+                      },
+                    );
+                  },
             ),
 
             _buildCheckbox(
               "Frente de Vidrio",
               frenteVidrio,
-              (val) {
-                setState(() {
-                  frenteVidrio = val!;
-                });
+              (
+                val,
+              ) {
+                _updateState(
+                  () {
+                    frenteVidrio = val!;
+                  },
+                );
               },
             ),
 
-            const SizedBox(height: 35),
+            const SizedBox(
+              height: 35,
+            ),
           ],
         ],
       ),
@@ -865,17 +1279,20 @@ class _RegistroPropiedadScreenState
   /// HEADER
   /// =========================================================
 
-  Widget _buildSectionHeader(
-    String index,
-    String title,
+  Widget
+  _buildSectionHeader(
+    String
+    index,
+    String
+    title,
   ) {
-
     return Row(
       children: [
-
         CircleAvatar(
           radius: 12,
-          backgroundColor: const Color(0xFF1976D2),
+          backgroundColor: const Color(
+            0xFF1976D2,
+          ),
           child: Text(
             index,
             style: const TextStyle(
@@ -885,14 +1302,18 @@ class _RegistroPropiedadScreenState
           ),
         ),
 
-        const SizedBox(width: 8),
+        const SizedBox(
+          width: 8,
+        ),
 
         Text(
           title,
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF1976D2),
+            color: Color(
+              0xFF1976D2,
+            ),
           ),
         ),
       ],
@@ -903,23 +1324,24 @@ class _RegistroPropiedadScreenState
   /// INPUT
   /// =========================================================
 
-  Widget _buildTextField(
-    String label,
-    String hint, {
-    int maxLines = 1,
+  Widget
+  _buildTextField(
+    String
+    label,
+    String
+    hint, {
+    int maxLines =
+        1,
   }) {
-
     return Padding(
       padding: const EdgeInsets.symmetric(
         vertical: 8,
       ),
 
       child: Column(
-        crossAxisAlignment:
-            CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
 
         children: [
-
           Text(
             label,
             style: const TextStyle(
@@ -927,7 +1349,9 @@ class _RegistroPropiedadScreenState
             ),
           ),
 
-          const SizedBox(height: 6),
+          const SizedBox(
+            height: 6,
+          ),
 
           TextField(
             maxLines: maxLines,
@@ -935,15 +1359,15 @@ class _RegistroPropiedadScreenState
             decoration: InputDecoration(
               hintText: hint,
 
-              contentPadding:
-                  const EdgeInsets.symmetric(
+              contentPadding: const EdgeInsets.symmetric(
                 horizontal: 14,
                 vertical: 12,
               ),
 
               border: OutlineInputBorder(
-                borderRadius:
-                    BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(
+                  10,
+                ),
               ),
             ),
           ),
@@ -956,18 +1380,21 @@ class _RegistroPropiedadScreenState
   /// COUNTER
   /// =========================================================
 
-  Widget _buildCounter(
-    String label,
-    int value,
-    Function(int) onChanged,
+  Widget
+  _buildCounter(
+    String
+    label,
+    int
+    value,
+    Function(
+      int,
+    )
+    onChanged,
   ) {
-
     return Column(
-      crossAxisAlignment:
-          CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
 
       children: [
-
         Text(
           label,
           style: const TextStyle(
@@ -975,7 +1402,9 @@ class _RegistroPropiedadScreenState
           ),
         ),
 
-        const SizedBox(height: 6),
+        const SizedBox(
+          height: 6,
+        ),
 
         Container(
           padding: const EdgeInsets.symmetric(
@@ -988,21 +1417,23 @@ class _RegistroPropiedadScreenState
               color: Colors.black12,
             ),
 
-            borderRadius:
-                BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(
+              10,
+            ),
           ),
 
           child: Row(
-            mainAxisAlignment:
-                MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
             children: [
-
               IconButton(
                 onPressed: () {
-
-                  if (value > 0) {
-                    onChanged(value - 1);
+                  if (value >
+                      0) {
+                    onChanged(
+                      value -
+                          1,
+                    );
                   }
                 },
 
@@ -1021,7 +1452,10 @@ class _RegistroPropiedadScreenState
 
               IconButton(
                 onPressed: () {
-                  onChanged(value + 1);
+                  onChanged(
+                    value +
+                        1,
+                  );
                 },
 
                 icon: const Icon(
@@ -1039,24 +1473,30 @@ class _RegistroPropiedadScreenState
   /// DROPDOWN
   /// =========================================================
 
-  Widget _buildDropdown({
-    required String label,
-    required List<String> options,
-    required String? value,
-    required Function(String?) onChanged,
+  Widget
+  _buildDropdown({
+    required String
+    label,
+    required List<
+      String
+    >
+    options,
+    required String?
+    value,
+    required Function(
+      String?,
+    )
+    onChanged,
   }) {
-
     return Padding(
       padding: const EdgeInsets.symmetric(
         vertical: 8,
       ),
 
       child: Column(
-        crossAxisAlignment:
-            CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
 
         children: [
-
           Text(
             label,
             style: const TextStyle(
@@ -1064,25 +1504,35 @@ class _RegistroPropiedadScreenState
             ),
           ),
 
-          const SizedBox(height: 6),
+          const SizedBox(
+            height: 6,
+          ),
 
-          DropdownButtonFormField<String>(
+          DropdownButtonFormField<
+            String
+          >(
             value: value,
 
             decoration: InputDecoration(
               border: OutlineInputBorder(
-                borderRadius:
-                    BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(
+                  10,
+                ),
               ),
             ),
 
-            items: options.map((e) {
-
-              return DropdownMenuItem(
-                value: e,
-                child: Text(e),
-              );
-            }).toList(),
+            items: options.map(
+              (
+                e,
+              ) {
+                return DropdownMenuItem(
+                  value: e,
+                  child: Text(
+                    e,
+                  ),
+                );
+              },
+            ).toList(),
 
             onChanged: onChanged,
           ),
@@ -1095,18 +1545,24 @@ class _RegistroPropiedadScreenState
   /// CHECKBOX
   /// =========================================================
 
-  Widget _buildCheckbox(
-    String title,
-    bool value,
-    Function(bool?) onChanged,
+  Widget
+  _buildCheckbox(
+    String
+    title,
+    bool
+    value,
+    Function(
+      bool?,
+    )
+    onChanged,
   ) {
-
     return CheckboxListTile(
-      title: Text(title),
+      title: Text(
+        title,
+      ),
       value: value,
       onChanged: onChanged,
-      controlAffinity:
-          ListTileControlAffinity.leading,
+      controlAffinity: ListTileControlAffinity.leading,
       contentPadding: EdgeInsets.zero,
     );
   }
@@ -1115,14 +1571,21 @@ class _RegistroPropiedadScreenState
   /// SWITCH
   /// =========================================================
 
-  Widget _buildSwitch(
-    String title,
-    bool value,
-    Function(bool) onChanged,
+  Widget
+  _buildSwitch(
+    String
+    title,
+    bool
+    value,
+    Function(
+      bool,
+    )
+    onChanged,
   ) {
-
     return SwitchListTile(
-      title: Text(title),
+      title: Text(
+        title,
+      ),
       value: value,
       onChanged: onChanged,
       contentPadding: EdgeInsets.zero,

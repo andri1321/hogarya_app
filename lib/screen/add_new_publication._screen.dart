@@ -8,31 +8,47 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 
-class AddNewPublicationScreen extends StatefulWidget {
-  const AddNewPublicationScreen({super.key});
+class AddNewPublicationScreen
+    extends
+        StatefulWidget {
+  const AddNewPublicationScreen({
+    super.key,
+  });
 
   @override
-  State<AddNewPublicationScreen> createState() =>
+  State<
+    AddNewPublicationScreen
+  >
+  createState() =>
       _AddNewPublicationScreenState();
 }
 
 class _AddNewPublicationScreenState
-    extends State<AddNewPublicationScreen> {
-
-  final TextEditingController titleController =
+    extends
+        State<
+          AddNewPublicationScreen
+        > {
+  final TextEditingController
+  titleController =
       TextEditingController();
 
-  final TextEditingController priceController =
+  final TextEditingController
+  priceController =
       TextEditingController();
 
-  final TextEditingController descriptionController =
+  final TextEditingController
+  descriptionController =
       TextEditingController();
 
   /// 🏷️ CATEGORÍA
-  String selectedCategory =
+  String
+  selectedCategory =
       "Selecciona una categoría";
 
-  final List<String> categories = [
+  final List<
+    String
+  >
+  categories = [
     "Apto",
     "Solar",
     "Casa",
@@ -42,50 +58,81 @@ class _AddNewPublicationScreenState
   ];
 
   /// 🔥 OPERACIÓN
-  String selectedOperation =
+  String
+  selectedOperation =
       "Selecciona operación";
 
-  final List<String> operations = [
+  final List<
+    String
+  >
+  operations = [
     "Venta",
     "Alquiler",
   ];
 
   /// 📸 IMÁGENES
-  final List<XFile> images = [];
+  final List<
+    XFile
+  >
+  images =
+      [];
 
-  final ImagePicker picker = ImagePicker();
-  String? provincia;
-  String? ciudad;
-  String? sector;
+  final ImagePicker
+  picker =
+      ImagePicker();
+  String?
+  provincia;
+  String?
+  ciudad;
+  String?
+  sector;
 
-  Future<void> pickImages() async {
+  /// 🏠 PROPERTY DETAILS
+  final Map<
+    String,
+    dynamic
+  >
+  propertyDetails =
+      {};
 
-    final List<XFile> picked =
+  Future<
+    void
+  >
+  pickImages() async {
+    final List<
+      XFile
+    >
+    picked =
         await picker.pickMultiImage();
 
     if (picked.isNotEmpty) {
+      setState(
+        () {
+          if (images.length +
+                  picked.length <=
+              10) {
+            images.addAll(
+              picked,
+            );
+          } else {
+            final remaining =
+                10 -
+                images.length;
 
-      setState(() {
-
-        if (images.length + picked.length <= 10) {
-
-          images.addAll(picked);
-
-        } else {
-
-          final remaining = 10 - images.length;
-
-          images.addAll(
-            picked.take(remaining),
-          );
-        }
-      });
+            images.addAll(
+              picked.take(
+                remaining,
+              ),
+            );
+          }
+        },
+      );
     }
   }
 
   @override
-  void dispose() {
-
+  void
+  dispose() {
     titleController.dispose();
 
     priceController.dispose();
@@ -96,20 +143,21 @@ class _AddNewPublicationScreenState
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget
+  build(
+    BuildContext
+    context,
+  ) {
+    final screenWidth = MediaQuery.of(
+      context,
+    ).size.width;
 
-    final screenWidth =
-        MediaQuery.of(context).size.width;
-
-    final ImageProvider userAvatarImage =
-        UserData.profileImage != null
-            ? FileImage(UserData.profileImage!)
-            : NetworkImage(
-                UserData.networkImage,
-              );
+    // ImageProvider removed as we use CircleAvatar child logic
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF4F4F4),
+      backgroundColor: const Color(
+        0xFFF4F4F4,
+      ),
 
       body: SafeArea(
         child: SingleChildScrollView(
@@ -121,25 +169,20 @@ class _AddNewPublicationScreenState
           ),
 
           child: Column(
-            crossAxisAlignment:
-                CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
 
             children: [
-
               /// 🔝 HEADER
               Row(
                 children: [
-
                   GestureDetector(
                     onTap: () {
-
                       if (context.canPop()) {
-
                         context.pop();
-
                       } else {
-
-                        context.go('/');
+                        context.go(
+                          '/',
+                        );
                       }
                     },
 
@@ -150,21 +193,22 @@ class _AddNewPublicationScreenState
                     ),
                   ),
 
-                  const SizedBox(width: 18),
+                  const SizedBox(
+                    width: 18,
+                  ),
 
                   Expanded(
                     child: Text(
                       "Nueva Publicacion",
 
-                      overflow:
-                          TextOverflow.ellipsis,
+                      overflow: TextOverflow.ellipsis,
 
                       style: TextStyle(
                         fontSize:
-                            screenWidth * 0.08,
+                            screenWidth *
+                            0.08,
 
-                        fontWeight:
-                            FontWeight.w900,
+                        fontWeight: FontWeight.w900,
 
                         color: Colors.black,
                       ),
@@ -173,42 +217,51 @@ class _AddNewPublicationScreenState
                 ],
               ),
 
-              const SizedBox(height: 35),
+              const SizedBox(
+                height: 35,
+              ),
 
               /// 👤 USER INFO
               Row(
                 children: [
-
                   CircleAvatar(
                     radius: 22,
-
-                    backgroundImage:
-                        userAvatarImage,
+                    backgroundColor: Colors.grey.shade300,
+                    backgroundImage: UserData.profileImage != null
+                        ? FileImage(UserData.profileImage!)
+                        : null,
+                    child: UserData.profileImage == null
+                        ? Icon(
+                            Icons.person,
+                            color: Colors.grey.shade600,
+                            size: 26,
+                          )
+                        : null,
                   ),
 
-                  const SizedBox(width: 12),
+                  const SizedBox(
+                    width: 12,
+                  ),
 
                   Column(
-                    crossAxisAlignment:
-                        CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
 
                     children: [
-
                       Text(
                         UserData.userName,
 
                         style: const TextStyle(
                           fontSize: 22,
 
-                          fontWeight:
-                              FontWeight.w800,
+                          fontWeight: FontWeight.w800,
 
-                          fontStyle:
-                              FontStyle.italic,
+                          fontStyle: FontStyle.italic,
                         ),
                       ),
 
-                      SizedBox(height: 2),
+                      SizedBox(
+                        height: 2,
+                      ),
 
                       Text(
                         "nueva publicacion",
@@ -218,8 +271,7 @@ class _AddNewPublicationScreenState
 
                           fontSize: 12,
 
-                          fontWeight:
-                              FontWeight.w600,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ],
@@ -227,12 +279,13 @@ class _AddNewPublicationScreenState
                 ],
               ),
 
-              const SizedBox(height: 30),
+              const SizedBox(
+                height: 30,
+              ),
 
               /// 🔥 BUTTONS
               Row(
                 children: [
-
                   /// CANCEL
                   Expanded(
                     child: SizedBox(
@@ -240,22 +293,20 @@ class _AddNewPublicationScreenState
 
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pop(context);
+                          Navigator.pop(
+                            context,
+                          );
                         },
 
-                        style:
-                            ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(
                             0xFFE95B5B,
                           ),
 
                           elevation: 0,
 
-                          shape:
-                              RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
                               30,
                             ),
                           ),
@@ -267,8 +318,7 @@ class _AddNewPublicationScreenState
                           style: TextStyle(
                             fontSize: 16,
 
-                            fontWeight:
-                                FontWeight.bold,
+                            fontWeight: FontWeight.bold,
 
                             color: Colors.black,
                           ),
@@ -277,7 +327,9 @@ class _AddNewPublicationScreenState
                     ),
                   ),
 
-                  const SizedBox(width: 14),
+                  const SizedBox(
+                    width: 14,
+                  ),
 
                   /// PUBLICAR
                   Expanded(
@@ -287,19 +339,15 @@ class _AddNewPublicationScreenState
                       child: ElevatedButton(
                         onPressed: _publishProperty,
 
-                        style:
-                            ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(
                             0xFF119BFF,
                           ),
 
                           elevation: 0,
 
-                          shape:
-                              RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
                               30,
                             ),
                           ),
@@ -311,8 +359,7 @@ class _AddNewPublicationScreenState
                           style: TextStyle(
                             fontSize: 16,
 
-                            fontWeight:
-                                FontWeight.bold,
+                            fontWeight: FontWeight.bold,
 
                             color: Colors.black,
                           ),
@@ -323,7 +370,9 @@ class _AddNewPublicationScreenState
                 ],
               ),
 
-              const SizedBox(height: 28),
+              const SizedBox(
+                height: 28,
+              ),
 
               /// 🖼️ IMAGE PICKER
               GestureDetector(
@@ -338,29 +387,28 @@ class _AddNewPublicationScreenState
                       0xFFD9D9D9,
                     ),
 
-                    borderRadius:
-                        BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(
+                      12,
+                    ),
                   ),
 
                   child: images.isEmpty
-
                       /// 🔥 VACÍO
                       ? Column(
-                          mainAxisAlignment:
-                              MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
 
                           children: const [
-
                             Icon(
-                              Icons
-                                  .add_photo_alternate_outlined,
+                              Icons.add_photo_alternate_outlined,
 
                               size: 42,
 
                               color: Colors.black45,
                             ),
 
-                            SizedBox(height: 8),
+                            SizedBox(
+                              height: 8,
+                            ),
 
                             Text(
                               "Agregar fotos",
@@ -368,235 +416,194 @@ class _AddNewPublicationScreenState
                               style: TextStyle(
                                 color: Colors.black54,
 
-                                fontWeight:
-                                    FontWeight.w600,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                           ],
                         )
-
                       /// 🔥 IMÁGENES
                       : ListView.builder(
-                          scrollDirection:
-                              Axis.horizontal,
+                          scrollDirection: Axis.horizontal,
 
                           itemCount: images.length,
 
                           itemBuilder:
-                              (context, index) {
+                              (
+                                context,
+                                index,
+                              ) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(
+                                    6,
+                                  ),
 
-                            return Padding(
-                              padding:
-                                  const EdgeInsets.all(
-                                6,
-                              ),
-
-                              child: ClipRRect(
-                                borderRadius:
-                                    BorderRadius.circular(
-                                  10,
-                                ),
-
-                                child: GestureDetector(
-                                  onTap: () {
-
-                                    showDialog(
-                                      context: context,
-
-                                      barrierColor:
-                                          Colors.black,
-
-                                      builder: (_) {
-
-                                        return StatefulBuilder(
-                                          builder:
-                                              (
-                                                context,
-                                                setDialogState,
-                                              ) {
-
-                                            final controller =
-                                                PageController(
-                                              initialPage:
-                                                  index,
-                                            );
-
-                                            int currentIndex =
-                                                index;
-
-                                            return Dialog(
-                                              backgroundColor:
-                                                  Colors.black,
-
-                                              insetPadding:
-                                                  EdgeInsets.zero,
-
-                                              child: Stack(
-                                                children: [
-
-                                                  /// 📸 GALERÍA
-                                                  PageView.builder(
-                                                    controller:
-                                                        controller,
-
-                                                    itemCount:
-                                                        images.length,
-
-                                                    onPageChanged:
-                                                        (
-                                                          value,
-                                                        ) {
-
-                                                      setDialogState(
-                                                        () {
-
-                                                          currentIndex =
-                                                              value;
-                                                        },
-                                                      );
-                                                    },
-
-                                                    itemBuilder:
-                                                        (
-                                                          context,
-                                                          i,
-                                                        ) {
-
-                                                      return InteractiveViewer(
-                                                        minScale:
-                                                            1,
-
-                                                        maxScale:
-                                                            4,
-
-                                                        child:
-                                                            Center(
-                                                          child:
-                                                              Image.file(
-                                                            File(
-                                                              images[i]
-                                                                  .path,
-                                                            ),
-
-                                                            fit:
-                                                                BoxFit.contain,
-                                                          ),
-                                                        ),
-                                                      );
-                                                    },
-                                                  ),
-
-                                                  /// ❌ CLOSE
-                                                  Positioned(
-                                                    top: 45,
-                                                    right: 18,
-
-                                                    child:
-                                                        GestureDetector(
-                                                      onTap:
-                                                          () {
-
-                                                        Navigator.pop(
-                                                          context,
-                                                        );
-                                                      },
-
-                                                      child:
-                                                          const CircleAvatar(
-                                                        radius:
-                                                            20,
-
-                                                        backgroundColor:
-                                                            Colors.black54,
-
-                                                        child:
-                                                            Icon(
-                                                          Icons.close,
-
-                                                          color:
-                                                              Colors.white,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-
-                                                  /// 🔢 CONTADOR
-                                                  Positioned(
-                                                    bottom: 30,
-                                                    left: 0,
-                                                    right: 0,
-
-                                                    child:
-                                                        Center(
-                                                      child:
-                                                          Container(
-                                                        padding:
-                                                            const EdgeInsets.symmetric(
-                                                          horizontal:
-                                                              16,
-
-                                                          vertical:
-                                                              8,
-                                                        ),
-
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color:
-                                                              Colors.black54,
-
-                                                          borderRadius:
-                                                              BorderRadius.circular(
-                                                            20,
-                                                          ),
-                                                        ),
-
-                                                        child:
-                                                            Text(
-                                                          "${currentIndex + 1}/${images.length}",
-
-                                                          style:
-                                                              const TextStyle(
-                                                            color:
-                                                                Colors.white,
-
-                                                            fontSize:
-                                                                16,
-
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        );
-                                      },
-                                    );
-                                  },
-
-                                  child: Image.file(
-                                    File(
-                                      images[index].path,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                      10,
                                     ),
 
-                                    width: 120,
-                                    height: 140,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        showDialog(
+                                          context: context,
 
-                                    fit: BoxFit.cover,
+                                          barrierColor: Colors.black,
+
+                                          builder:
+                                              (
+                                                _,
+                                              ) {
+                                                return StatefulBuilder(
+                                                  builder:
+                                                      (
+                                                        context,
+                                                        setDialogState,
+                                                      ) {
+                                                        final controller = PageController(
+                                                          initialPage: index,
+                                                        );
+
+                                                        int currentIndex = index;
+
+                                                        return Dialog(
+                                                          backgroundColor: Colors.black,
+
+                                                          insetPadding: EdgeInsets.zero,
+
+                                                          child: Stack(
+                                                            children: [
+                                                              /// 📸 GALERÍA
+                                                              PageView.builder(
+                                                                controller: controller,
+
+                                                                itemCount: images.length,
+
+                                                                onPageChanged:
+                                                                    (
+                                                                      value,
+                                                                    ) {
+                                                                      setDialogState(
+                                                                        () {
+                                                                          currentIndex = value;
+                                                                        },
+                                                                      );
+                                                                    },
+
+                                                                itemBuilder:
+                                                                    (
+                                                                      context,
+                                                                      i,
+                                                                    ) {
+                                                                      return InteractiveViewer(
+                                                                        minScale: 1,
+
+                                                                        maxScale: 4,
+
+                                                                        child: Center(
+                                                                          child: Image.file(
+                                                                            File(
+                                                                              images[i].path,
+                                                                            ),
+
+                                                                            fit: BoxFit.contain,
+                                                                          ),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                              ),
+
+                                                              /// ❌ CLOSE
+                                                              Positioned(
+                                                                top: 45,
+                                                                right: 18,
+
+                                                                child: GestureDetector(
+                                                                  onTap: () {
+                                                                    Navigator.pop(
+                                                                      context,
+                                                                    );
+                                                                  },
+
+                                                                  child: const CircleAvatar(
+                                                                    radius: 20,
+
+                                                                    backgroundColor: Colors.black54,
+
+                                                                    child: Icon(
+                                                                      Icons.close,
+
+                                                                      color: Colors.white,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+
+                                                              /// 🔢 CONTADOR
+                                                              Positioned(
+                                                                bottom: 30,
+                                                                left: 0,
+                                                                right: 0,
+
+                                                                child: Center(
+                                                                  child: Container(
+                                                                    padding: const EdgeInsets.symmetric(
+                                                                      horizontal: 16,
+
+                                                                      vertical: 8,
+                                                                    ),
+
+                                                                    decoration: BoxDecoration(
+                                                                      color: Colors.black54,
+
+                                                                      borderRadius: BorderRadius.circular(
+                                                                        20,
+                                                                      ),
+                                                                    ),
+
+                                                                    child: Text(
+                                                                      "${currentIndex + 1}/${images.length}",
+
+                                                                      style: const TextStyle(
+                                                                        color: Colors.white,
+
+                                                                        fontSize: 16,
+
+                                                                        fontWeight: FontWeight.bold,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                );
+                                              },
+                                        );
+                                      },
+
+                                      child: Image.file(
+                                        File(
+                                          images[index].path,
+                                        ),
+
+                                        width: 120,
+                                        height: 140,
+
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
-                            );
-                          },
+                                );
+                              },
                         ),
                 ),
               ),
 
-              const SizedBox(height: 8),
+              const SizedBox(
+                height: 8,
+              ),
 
               Text(
                 "Fotos: ${images.length}/10  Elige primero la foto principal de la publicación",
@@ -607,7 +614,9 @@ class _AddNewPublicationScreenState
                 ),
               ),
 
-              const SizedBox(height: 28),
+              const SizedBox(
+                height: 28,
+              ),
 
               /// 📝 TITLE
               _buildInput(
@@ -615,7 +624,9 @@ class _AddNewPublicationScreenState
                 hint: "Título",
               ),
 
-              const SizedBox(height: 18),
+              const SizedBox(
+                height: 18,
+              ),
 
               /// 💰 PRICE
               _buildInput(
@@ -623,13 +634,14 @@ class _AddNewPublicationScreenState
 
                 hint: "Precio",
 
-                keyboard:
-                    const TextInputType.numberWithOptions(
+                keyboard: const TextInputType.numberWithOptions(
                   decimal: true,
                 ),
               ),
 
-              const SizedBox(height: 18),
+              const SizedBox(
+                height: 18,
+              ),
 
               /// 🔥 OPERACIÓN
               GestureDetector(
@@ -638,8 +650,7 @@ class _AddNewPublicationScreenState
                 child: Container(
                   height: 55,
 
-                  padding:
-                      const EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     horizontal: 14,
                   ),
 
@@ -648,26 +659,27 @@ class _AddNewPublicationScreenState
                       0xFFD9D9D9,
                     ),
 
-                    borderRadius:
-                        BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(
+                      8,
+                    ),
                   ),
 
                   child: Row(
                     children: [
-
                       const Icon(
                         Icons.sell_outlined,
                         color: Colors.black45,
                       ),
 
-                      const SizedBox(width: 10),
+                      const SizedBox(
+                        width: 10,
+                      ),
 
                       Expanded(
                         child: Text(
                           selectedOperation,
 
-                          overflow:
-                              TextOverflow.ellipsis,
+                          overflow: TextOverflow.ellipsis,
 
                           style: const TextStyle(
                             fontSize: 16,
@@ -685,7 +697,9 @@ class _AddNewPublicationScreenState
                 ),
               ),
 
-              const SizedBox(height: 18),
+              const SizedBox(
+                height: 18,
+              ),
 
               /// 🏷️ CATEGORY
               GestureDetector(
@@ -694,8 +708,7 @@ class _AddNewPublicationScreenState
                 child: Container(
                   height: 55,
 
-                  padding:
-                      const EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     horizontal: 14,
                   ),
 
@@ -704,26 +717,27 @@ class _AddNewPublicationScreenState
                       0xFFD9D9D9,
                     ),
 
-                    borderRadius:
-                        BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(
+                      8,
+                    ),
                   ),
 
                   child: Row(
                     children: [
-
                       const Icon(
                         Icons.home_work_outlined,
                         color: Colors.black45,
                       ),
 
-                      const SizedBox(width: 10),
+                      const SizedBox(
+                        width: 10,
+                      ),
 
                       Expanded(
                         child: Text(
                           selectedCategory,
 
-                          overflow:
-                              TextOverflow.ellipsis,
+                          overflow: TextOverflow.ellipsis,
 
                           style: const TextStyle(
                             fontSize: 16,
@@ -741,7 +755,9 @@ class _AddNewPublicationScreenState
                 ),
               ),
 
-              const SizedBox(height: 18),
+              const SizedBox(
+                height: 18,
+              ),
 
               /// 📄 DESCRIPTION
               Container(
@@ -752,13 +768,13 @@ class _AddNewPublicationScreenState
                     0xFFD9D9D9,
                   ),
 
-                  borderRadius:
-                      BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(
+                    8,
+                  ),
                 ),
 
                 child: TextField(
-                  controller:
-                      descriptionController,
+                  controller: descriptionController,
 
                   maxLines: null,
                   expands: true,
@@ -773,13 +789,16 @@ class _AddNewPublicationScreenState
 
                     border: InputBorder.none,
 
-                    contentPadding:
-                        EdgeInsets.all(14),
+                    contentPadding: EdgeInsets.all(
+                      14,
+                    ),
                   ),
                 ),
               ),
 
-              const SizedBox(height: 35),
+              const SizedBox(
+                height: 35,
+              ),
 
               /// 📍 DIVIDER
               Container(
@@ -788,7 +807,9 @@ class _AddNewPublicationScreenState
                 color: Colors.black87,
               ),
 
-              const SizedBox(height: 30),
+              const SizedBox(
+                height: 30,
+              ),
 
               const Text(
                 "Detalle de Propiedad",
@@ -799,11 +820,25 @@ class _AddNewPublicationScreenState
                 ),
               ),
 
-              const SizedBox(height: 30),
+              const SizedBox(
+                height: 30,
+              ),
 
               /// 🏠 PROPERTY DETAILS
               RegistroPropiedadScreen(
                 propertyType: selectedCategory,
+                onPropertyDetailsChanged:
+                    (
+                      details,
+                    ) {
+                      setState(
+                        () {
+                          propertyDetails.addAll(
+                            details,
+                          );
+                        },
+                      );
+                    },
               ),
 
               Divider(
@@ -812,7 +847,9 @@ class _AddNewPublicationScreenState
                 color: Colors.black87,
               ),
 
-              const SizedBox(height: 18),
+              const SizedBox(
+                height: 18,
+              ),
 
               const Text(
                 "Ubicacion de propiedad",
@@ -823,20 +860,22 @@ class _AddNewPublicationScreenState
                 ),
               ),
 
-              const SizedBox(height: 25),
+              const SizedBox(
+                height: 25,
+              ),
 
               /// 📍 UBICACIÓN
               RegistrarUbicacionScreen(
-                onLocationChanged: (
-                  selectedProvincia,
-                  selectedCiudad,
-                  selectedSector,
-                ) {
-
-                  provincia = selectedProvincia;
-                  ciudad = selectedCiudad;
-                  sector = selectedSector;
-                },
+                onLocationChanged:
+                    (
+                      selectedProvincia,
+                      selectedCiudad,
+                      selectedSector,
+                    ) {
+                      provincia = selectedProvincia;
+                      ciudad = selectedCiudad;
+                      sector = selectedSector;
+                    },
               ),
             ],
           ),
@@ -845,25 +884,31 @@ class _AddNewPublicationScreenState
     );
   }
 
-  void _publishProperty() {
-
-    final title = titleController.text.trim();
+  void
+  _publishProperty() {
+    final title =
+        titleController.text.trim();
     final description =
         descriptionController.text.trim();
     final price = double.tryParse(
       priceController.text
-          .replaceAll(',', '')
+          .replaceAll(
+            ',',
+            '',
+          )
           .trim(),
     );
 
     if (images.isEmpty ||
         title.isEmpty ||
         description.isEmpty ||
-        price == null ||
+        price ==
+            null ||
         selectedCategory ==
             "Selecciona una categoría") {
-
-      ScaffoldMessenger.of(context).showSnackBar(
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(
         const SnackBar(
           content: Text(
             "Completa título, precio, categoría, descripción y al menos una foto.",
@@ -875,55 +920,109 @@ class _AddNewPublicationScreenState
     }
 
     final property = Property(
-      id: DateTime.now()
-          .microsecondsSinceEpoch
-          .toString(),
-
+      id: DateTime.now().microsecondsSinceEpoch.toString(),
       title: title,
-
       description: description,
-
-      city: ciudad ??
+      city:
+          ciudad ??
           provincia ??
           "Sin ubicación",
-
       type: _normalizedPropertyType(),
-
       price: price,
-
       images: images
-          .map((image) => image.path)
+          .map(
+            (
+              image,
+            ) => image.path,
+          )
           .toList(),
-
       likes: 0,
       comments: 0,
       shares: 0,
       views: 0,
-
       owner: Owner(
         id: UserData.userId,
         name: UserData.userName,
         avatar: UserData.ownerAvatar,
         verified: UserData.verified,
       ),
-
       isFavorite: false,
+      isForSale:
+          selectedOperation ==
+          'Venta',
+      bedrooms:
+          propertyDetails['bedrooms'] ??
+          0,
+      bathrooms:
+          propertyDetails['bathrooms'] ??
+          0,
+      parking:
+          propertyDetails['parking'] ??
+          0,
+      size:
+          propertyDetails['size'] ??
+          0.0,
+      location:
+          propertyDetails['location'] ??
+          '',
+      hasKitchen:
+          propertyDetails['hasKitchen'] ??
+          false,
+      floor:
+          propertyDetails['floor'] ??
+          0,
+      hasElevator:
+          propertyDetails['hasElevator'] ??
+          false,
+      hasBalcony:
+          propertyDetails['hasBalcony'] ??
+          false,
+      hasPatio:
+          propertyDetails['hasPatio'] ??
+          false,
+      hasTerrace:
+          propertyDetails['hasTerrace'] ??
+          false,
+      isFurnished:
+          propertyDetails['isFurnished'] ??
+          false,
+      hasWifi:
+          propertyDetails['hasWifi'] ??
+          false,
+      hasAirConditioning:
+          propertyDetails['hasAirConditioning'] ??
+          false,
+      landType:
+          propertyDetails['landType'] ??
+          '',
+      landAccess:
+          propertyDetails['landAccess'] ??
+          '',
+      setback:
+          propertyDetails['setback'] ??
+          '',
+      amenities:
+          propertyDetails['amenities'] ??
+          [],
     );
 
-    UserData.addPublication(property);
+    UserData.addPublication(
+      property,
+    );
 
     setState(() {
       titleController.clear();
       priceController.clear();
       descriptionController.clear();
-      selectedCategory =
-          "Selecciona una categoría";
-      selectedOperation =
-          "Selecciona operación";
+      selectedCategory = "Selecciona una categoría";
+      selectedOperation = "Selecciona operación";
       images.clear();
+      propertyDetails.clear();
     });
 
-    ScaffoldMessenger.of(context).showSnackBar(
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(
       const SnackBar(
         content: Text(
           "Publicación creada correctamente.",
@@ -932,8 +1031,10 @@ class _AddNewPublicationScreenState
     );
   }
 
-  String _normalizedPropertyType() {
-    if (selectedCategory == "Apto") {
+  String
+  _normalizedPropertyType() {
+    if (selectedCategory ==
+        "Apto") {
       return "Apartamento";
     }
 
@@ -941,264 +1042,271 @@ class _AddNewPublicationScreenState
   }
 
   /// 🔥 MODAL OPERACIÓN
-  void _showOperationModal() {
-
+  void
+  _showOperationModal() {
     showModalBottomSheet(
       context: context,
 
       isScrollControlled: true,
 
-      backgroundColor:
-          const Color(0xFFF1ECF4),
+      backgroundColor: const Color(
+        0xFFF1ECF4,
+      ),
 
-      shape:
-          const RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
-          top: Radius.circular(30),
+          top: Radius.circular(
+            30,
+          ),
         ),
       ),
 
-      builder: (_) {
+      builder:
+          (
+            _,
+          ) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 24,
+                vertical: 24,
+              ),
 
-        return Padding(
-          padding:
-              const EdgeInsets.symmetric(
-            horizontal: 24,
-            vertical: 24,
-          ),
+              child: SafeArea(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
 
-          child: SafeArea(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-
-              children: operations.map(
-                (operation) {
-
-                  final isSelected =
-                      selectedOperation ==
+                  children: operations.map(
+                    (
+                      operation,
+                    ) {
+                      final isSelected =
+                          selectedOperation ==
                           operation;
 
-                  return InkWell(
-                    borderRadius:
-                        BorderRadius.circular(18),
-
-                    onTap: () {
-
-                      setState(() {
-                        selectedOperation =
-                            operation;
-                      });
-
-                      Navigator.pop(context);
-                    },
-
-                    child: Container(
-                      margin:
-                          const EdgeInsets.only(
-                        bottom: 12,
-                      ),
-
-                      padding:
-                          const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 18,
-                      ),
-
-                      decoration: BoxDecoration(
-                        borderRadius:
-                            BorderRadius.circular(
+                      return InkWell(
+                        borderRadius: BorderRadius.circular(
                           18,
                         ),
 
-                        color: isSelected
-                            ? Colors.black
-                                .withOpacity(0.06)
-                            : Colors.transparent,
-                      ),
+                        onTap: () {
+                          setState(
+                            () {
+                              selectedOperation = operation;
+                            },
+                          );
 
-                      child: Row(
-                        children: [
+                          Navigator.pop(
+                            context,
+                          );
+                        },
 
-                          Icon(
-                            Icons.sell_outlined,
-
-                            size: 30,
-
-                            color: isSelected
-                                ? Colors.black
-                                : Colors.black54,
+                        child: Container(
+                          margin: const EdgeInsets.only(
+                            bottom: 12,
                           ),
 
-                          const SizedBox(width: 18),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 18,
+                          ),
 
-                          Expanded(
-                            child: Text(
-                              operation,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(
+                              18,
+                            ),
 
-                              overflow:
-                                  TextOverflow
-                                      .ellipsis,
+                            color: isSelected
+                                ? Colors.black.withOpacity(
+                                    0.06,
+                                  )
+                                : Colors.transparent,
+                          ),
 
-                              style: TextStyle(
-                                fontSize: 18,
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.sell_outlined,
 
-                                fontWeight:
-                                    isSelected
+                                size: 30,
+
+                                color: isSelected
+                                    ? Colors.black
+                                    : Colors.black54,
+                              ),
+
+                              const SizedBox(
+                                width: 18,
+                              ),
+
+                              Expanded(
+                                child: Text(
+                                  operation,
+
+                                  overflow: TextOverflow.ellipsis,
+
+                                  style: TextStyle(
+                                    fontSize: 18,
+
+                                    fontWeight: isSelected
                                         ? FontWeight.bold
                                         : FontWeight.w500,
 
-                                color:
-                                    Colors.black87,
+                                    color: Colors.black87,
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ).toList(),
-            ),
-          ),
-        );
-      },
+                        ),
+                      );
+                    },
+                  ).toList(),
+                ),
+              ),
+            );
+          },
     );
   }
 
   /// 🔥 MODAL CATEGORÍAS
-  void _showCategoryModal() {
-
+  void
+  _showCategoryModal() {
     showModalBottomSheet(
       context: context,
 
       isScrollControlled: true,
 
-      backgroundColor:
-          const Color(0xFFF1ECF4),
+      backgroundColor: const Color(
+        0xFFF1ECF4,
+      ),
 
-      shape:
-          const RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
-          top: Radius.circular(30),
+          top: Radius.circular(
+            30,
+          ),
         ),
       ),
 
-      builder: (_) {
+      builder:
+          (
+            _,
+          ) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 24,
+                vertical: 24,
+              ),
 
-        return Padding(
-          padding:
-              const EdgeInsets.symmetric(
-            horizontal: 24,
-            vertical: 24,
-          ),
+              child: SafeArea(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
 
-          child: SafeArea(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-
-              children: categories.map(
-                (category) {
-
-                  final isSelected =
-                      selectedCategory ==
+                  children: categories.map(
+                    (
+                      category,
+                    ) {
+                      final isSelected =
+                          selectedCategory ==
                           category;
 
-                  return InkWell(
-                    borderRadius:
-                        BorderRadius.circular(18),
-
-                    onTap: () {
-
-                      setState(() {
-                        selectedCategory =
-                            category;
-                      });
-
-                      Navigator.pop(context);
-                    },
-
-                    child: Container(
-                      margin:
-                          const EdgeInsets.only(
-                        bottom: 12,
-                      ),
-
-                      padding:
-                          const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 18,
-                      ),
-
-                      decoration: BoxDecoration(
-                        borderRadius:
-                            BorderRadius.circular(
+                      return InkWell(
+                        borderRadius: BorderRadius.circular(
                           18,
                         ),
 
-                        color: isSelected
-                            ? Colors.black
-                                .withOpacity(0.06)
-                            : Colors.transparent,
-                      ),
+                        onTap: () {
+                          setState(
+                            () {
+                              selectedCategory = category;
+                            },
+                          );
 
-                      child: Row(
-                        children: [
+                          Navigator.pop(
+                            context,
+                          );
+                        },
 
-                          Icon(
-                            Icons.home_work_outlined,
-
-                            size: 30,
-
-                            color: isSelected
-                                ? Colors.black
-                                : Colors.black54,
+                        child: Container(
+                          margin: const EdgeInsets.only(
+                            bottom: 12,
                           ),
 
-                          const SizedBox(width: 18),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 18,
+                          ),
 
-                          Expanded(
-                            child: Text(
-                              category,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(
+                              18,
+                            ),
 
-                              overflow:
-                                  TextOverflow
-                                      .ellipsis,
+                            color: isSelected
+                                ? Colors.black.withOpacity(
+                                    0.06,
+                                  )
+                                : Colors.transparent,
+                          ),
 
-                              style: TextStyle(
-                                fontSize: 18,
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.home_work_outlined,
 
-                                fontWeight:
-                                    isSelected
+                                size: 30,
+
+                                color: isSelected
+                                    ? Colors.black
+                                    : Colors.black54,
+                              ),
+
+                              const SizedBox(
+                                width: 18,
+                              ),
+
+                              Expanded(
+                                child: Text(
+                                  category,
+
+                                  overflow: TextOverflow.ellipsis,
+
+                                  style: TextStyle(
+                                    fontSize: 18,
+
+                                    fontWeight: isSelected
                                         ? FontWeight.bold
                                         : FontWeight.w500,
 
-                                color:
-                                    Colors.black87,
+                                    color: Colors.black87,
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ).toList(),
-            ),
-          ),
-        );
-      },
+                        ),
+                      );
+                    },
+                  ).toList(),
+                ),
+              ),
+            );
+          },
     );
   }
 
   /// 🔥 INPUT
-  Widget _buildInput({
-    required TextEditingController controller,
-    required String hint,
+  Widget
+  _buildInput({
+    required TextEditingController
+    controller,
+    required String
+    hint,
 
-    TextInputType keyboard =
-        TextInputType.text,
+    TextInputType
+    keyboard = TextInputType
+        .text,
   }) {
-
     return Container(
       height: 55,
 
@@ -1207,8 +1315,9 @@ class _AddNewPublicationScreenState
           0xFFD9D9D9,
         ),
 
-        borderRadius:
-            BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(
+          8,
+        ),
       ),
 
       child: TextField(
@@ -1226,8 +1335,7 @@ class _AddNewPublicationScreenState
 
           border: InputBorder.none,
 
-          contentPadding:
-              const EdgeInsets.symmetric(
+          contentPadding: const EdgeInsets.symmetric(
             horizontal: 14,
           ),
         ),
