@@ -23,8 +23,8 @@ class _FeedScreenState
   String selectedType = "Todos";
   String selectedCity = "Todos";
 
-  double minPrice = 10000;
-  double maxPrice = 2000000;
+  double minPrice = 0;
+  double maxPrice = 15000000;
 
   /// 🔥 PROPIEDADES
   final List<Property> allProperties = [
@@ -186,8 +186,6 @@ class _FeedScreenState
     ),
   ];
 
-  List<Property> filtered = [];
-
   @override
   void initState() {
     super.initState();
@@ -195,56 +193,35 @@ class _FeedScreenState
     UserData.setInitialPublications(
       allProperties,
     );
-
-    filtered = UserData.allPublications;
-
-    UserData.notifier.addListener(
-      applyFilters,
-    );
   }
 
   @override
   void dispose() {
-    UserData.notifier.removeListener(
-      applyFilters,
-    );
-
     searchController.dispose();
     super.dispose();
   }
 
   /// 🔥 FILTROS
   void applyFilters() {
+    setState(() {});
+  }
 
-    setState(() {
+  List<Property> _filteredProperties() {
+    return UserData.allPublications.where((p) {
+      final searchMatch = p.title
+          .toLowerCase()
+          .contains(
+            searchController.text.toLowerCase(),
+          );
 
-      filtered = UserData.allPublications.where((p) {
+      final typeMatch = selectedType == "Todos" || p.type == selectedType;
 
-        final searchMatch = p.title
-            .toLowerCase()
-            .contains(
-              searchController.text.toLowerCase(),
-            );
+      final cityMatch = selectedCity == "Todos" || p.city == selectedCity;
 
-        final typeMatch =
-            selectedType == "Todos" ||
-                p.type == selectedType;
+      final priceMatch = p.price >= minPrice && p.price <= maxPrice;
 
-        final cityMatch =
-            selectedCity == "Todos" ||
-                p.city == selectedCity;
-
-        final priceMatch =
-            p.price >= minPrice &&
-                p.price <= maxPrice;
-
-        return searchMatch &&
-            typeMatch &&
-            cityMatch &&
-            priceMatch;
-
-      }).toList();
-    });
+      return searchMatch && typeMatch && cityMatch && priceMatch;
+    }).toList();
   }
 
   /// 🔥 FILTROS MODAL
@@ -463,8 +440,7 @@ class _FeedScreenState
 
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black
-                          .withOpacity(0.03),
+                      color: Color.fromRGBO(0, 0, 0, 0.03),
                       blurRadius: 10,
                       offset:
                           const Offset(0, 4),
@@ -540,31 +516,30 @@ class _FeedScreenState
 
             /// 🔥 FEED
             Expanded(
-              child: filtered.isEmpty
+              child: ValueListenableBuilder<int>(
+                valueListenable: UserData.notifier,
+                builder: (context, _, child) {
+                  final filtered = _filteredProperties();
 
-                  ? const Center(
-                      child:
-                          Text("Sin resultados"),
-                    )
+                  if (filtered.isEmpty) {
+                    return const Center(
+                      child: Text("Sin resultados"),
+                    );
+                  }
 
-                  : ListView.builder(
-                      physics:
-                          const BouncingScrollPhysics(),
-
-                      itemCount:
-                          filtered.length,
-
-                      itemBuilder:
-                          (_, index) {
-
-                        final property =
-                            filtered[index];
-
-                        return PropertyFeedCard(
-                          property: property,
-                        );
-                      },
-                    ),
+                  return ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: filtered.length,
+                    itemBuilder: (_, index) {
+                      final property = filtered[index];
+                      return PropertyFeedCard(
+                        key: ValueKey(property.id),
+                        property: property,
+                      );
+                    },
+                  );
+                },
+              ),
             ),
           ],
         ),

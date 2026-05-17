@@ -1,4 +1,4 @@
-/// 🔥 GOROUTER COMPLETO Y ACTUALIZADO
+// 🔥 GOROUTER COMPLETO Y ACTUALIZADO
 
 import 'package:app_hogar_ya/core/main_screen.dart';
 import 'package:app_hogar_ya/models/property.dart';
@@ -79,7 +79,7 @@ final router = GoRouter(
         GoRoute(
           path: '/search',
           builder: (context, state) =>
-              const SearchScreen(),
+              const MapSearchScreen(),
         ),
 
         /// 🔥 SETTINGS

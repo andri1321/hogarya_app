@@ -48,6 +48,10 @@ class Property {
   size;
   final String
   location;
+  final double?
+  latitude;
+  final double?
+  longitude;
   final bool
   hasKitchen;
   final int
@@ -103,6 +107,8 @@ class Property {
         0.0,
     this.location =
         '',
+    this.latitude,
+    this.longitude,
     this.hasKitchen =
         false,
     this.floor =
