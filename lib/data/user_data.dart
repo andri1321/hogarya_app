@@ -208,6 +208,23 @@ class UserData {
     return null;
   }
 
+  static List<Property>
+  propertiesByOwner(
+    Owner
+    owner,
+  ) {
+    return allPublications.where(
+      (
+        property,
+      ) {
+        return property.owner.id ==
+            owner.id ||
+            property.owner.name ==
+                owner.name;
+      },
+    ).toList();
+  }
+
   static bool
   isLiked(
     String

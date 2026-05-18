@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:app_hogar_ya/models/property.dart';
+import 'package:app_hogar_ya/widgets/profile_touchable.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -159,74 +160,88 @@ class _ChatConversationScreenState
 
                   const SizedBox(width: 14),
 
-                  /// 👤 USER
-                  Stack(
-                    children: [
-
-                      CircleAvatar(
-                        radius: 23,
-                        backgroundImage:
-                            _imageProvider(
-                          chatAvatar,
-                        ),
+                  /// 👤 USER & INFO
+                  Expanded(
+                    child: ProfileTouchable(
+                      owner: Owner(
+                        name: chatName,
+                        avatar: chatAvatar,
+                        verified: owner?.verified ?? false,
+                        id: owner?.id ?? chatName,
                       ),
+                      child: Row(
+                        children: [
+                          Stack(
+                            children: [
 
-                      Positioned(
-                        bottom: 0,
-                        right: 0,
+                              CircleAvatar(
+                                radius: 23,
+                                backgroundImage:
+                                    _imageProvider(
+                                  chatAvatar,
+                                ),
+                              ),
 
-                        child: Container(
-                          width: 13,
-                          height: 13,
+                              Positioned(
+                                bottom: 0,
+                                right: 0,
 
-                          decoration: BoxDecoration(
-                            color: Colors.green,
-                            shape: BoxShape.circle,
+                                child: Container(
+                                  width: 13,
+                                  height: 13,
 
-                            border: Border.all(
-                              color: Colors.white,
-                              width: 2,
+                                  decoration: BoxDecoration(
+                                    color: Colors.green,
+                                    shape: BoxShape.circle,
+
+                                    border: Border.all(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+
+                          const SizedBox(width: 12),
+
+                          /// 📝 INFO
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment:
+                                  CrossAxisAlignment.start,
+
+                              children: [
+
+                                Text(
+                                  chatName,
+
+                                  style: const TextStyle(
+                                    fontSize: 17,
+                                    fontWeight:
+                                        FontWeight.w700,
+                                    color: Colors.black,
+                                  ),
+                                ),
+
+                                const SizedBox(height: 2),
+
+                                const Text(
+                                  "Activo ahora",
+
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.green,
+                                    fontWeight:
+                                        FontWeight.w500,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
-
-                  const SizedBox(width: 12),
-
-                  /// 📝 INFO
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment:
-                          CrossAxisAlignment.start,
-
-                      children: [
-
-                        Text(
-                          chatName,
-
-                          style: const TextStyle(
-                            fontSize: 17,
-                            fontWeight:
-                                FontWeight.w700,
-                            color: Colors.black,
-                          ),
-                        ),
-
-                        const SizedBox(height: 2),
-
-                        const Text(
-                          "Activo ahora",
-
-                          style: TextStyle(
-                            fontSize: 13,
-                            color: Colors.green,
-                            fontWeight:
-                                FontWeight.w500,
-                          ),
-                        ),
-                      ],
                     ),
                   ),
 

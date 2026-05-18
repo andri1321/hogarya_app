@@ -1,0 +1,518 @@
+[
+  {
+    "region": "Valdesia",
+    "codigo_region": "R04",
+    "geo": {
+      "lat": 18.4907,
+      "lng": -70.4235
+    },
+    "provincias": [
+      {
+        "provincia": "San José de Ocoa",
+        "codigo_provincia": "31",
+        "iso": "DO-31",
+        "geo": {
+          "lat": 18.5439,
+          "lng": -70.5064
+        },
+        "municipios": [
+          {
+            "municipio": "San José de Ocoa",
+            "codigo_municipio": "3101",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 18.5466,
+              "lng": -70.5063
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "El Naranjal",
+                "codigo_distrito_municipal": "310101",
+                "geo": {
+                  "lat": 18.5211,
+                  "lng": -70.5408
+                },
+                "barrios": [
+                  {
+                    "barrio": "El Naranjal Centro",
+                    "codigo_barrio": "31010101",
+                    "geo": {
+                      "lat": 18.5215,
+                      "lng": -70.5412
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Placeta",
+                        "codigo_sector": "3101010101",
+                        "geo": {
+                          "lat": 18.5217,
+                          "lng": -70.5415
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "3101010102",
+                        "geo": {
+                          "lat": 18.5209,
+                          "lng": -70.5402
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Nizao-Las Auyamas",
+                "codigo_distrito_municipal": "310102",
+                "geo": {
+                  "lat": 18.4958,
+                  "lng": -70.4746
+                },
+                "barrios": [
+                  {
+                    "barrio": "Nizao",
+                    "codigo_barrio": "31010201",
+                    "geo": {
+                      "lat": 18.4961,
+                      "lng": -70.4742
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "3101020101",
+                        "geo": {
+                          "lat": 18.4967,
+                          "lng": -70.4738
+                        }
+                      },
+                      {
+                        "sector": "Los Ranchos",
+                        "codigo_sector": "3101020102",
+                        "geo": {
+                          "lat": 18.4952,
+                          "lng": -70.4754
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Rancho Arriba",
+            "codigo_municipio": "3102",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.4868,
+              "lng": -70.4192
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Sin Distrito Municipal",
+                "codigo_distrito_municipal": "310200",
+                "geo": {
+                  "lat": 18.4868,
+                  "lng": -70.4192
+                },
+                "barrios": [
+                  {
+                    "barrio": "Rancho Arriba Centro",
+                    "codigo_barrio": "31020001",
+                    "geo": {
+                      "lat": 18.4872,
+                      "lng": -70.4187
+                    },
+                    "sectores": [
+                      {
+                        "sector": "El Centro",
+                        "codigo_sector": "3102000101",
+                        "geo": {
+                          "lat": 18.4875,
+                          "lng": -70.4181
+                        }
+                      },
+                      {
+                        "sector": "La Gallera",
+                        "codigo_sector": "3102000102",
+                        "geo": {
+                          "lat": 18.4863,
+                          "lng": -70.4198
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "San Juan",
+        "codigo_provincia": "22",
+        "iso": "DO-22",
+        "geo": {
+          "lat": 18.8051,
+          "lng": -71.2295
+        },
+        "municipios": [
+          {
+            "municipio": "San Juan de la Maguana",
+            "codigo_municipio": "2201",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 18.807,
+              "lng": -71.2299
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Hato del Padre",
+                "codigo_distrito_municipal": "220101",
+                "geo": {
+                  "lat": 18.7715,
+                  "lng": -71.1843
+                },
+                "barrios": [
+                  {
+                    "barrio": "Hato del Padre",
+                    "codigo_barrio": "22010101",
+                    "geo": {
+                      "lat": 18.7718,
+                      "lng": -71.184
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Placeta",
+                        "codigo_sector": "2201010101",
+                        "geo": {
+                          "lat": 18.7721,
+                          "lng": -71.1837
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "2201010102",
+                        "geo": {
+                          "lat": 18.7712,
+                          "lng": -71.1849
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Las Maguanas-Hato Nuevo",
+                "codigo_distrito_municipal": "220102",
+                "geo": {
+                  "lat": 18.7458,
+                  "lng": -71.2141
+                },
+                "barrios": [
+                  {
+                    "barrio": "Las Maguanas",
+                    "codigo_barrio": "22010201",
+                    "geo": {
+                      "lat": 18.7462,
+                      "lng": -71.2145
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "2201020101",
+                        "geo": {
+                          "lat": 18.7467,
+                          "lng": -71.214
+                        }
+                      },
+                      {
+                        "sector": "Los Solares",
+                        "codigo_sector": "2201020102",
+                        "geo": {
+                          "lat": 18.7455,
+                          "lng": -71.2151
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Pedro Corto",
+                "codigo_distrito_municipal": "220103",
+                "geo": {
+                  "lat": 18.8435,
+                  "lng": -71.4104
+                },
+                "barrios": [
+                  {
+                    "barrio": "Pedro Corto",
+                    "codigo_barrio": "22010301",
+                    "geo": {
+                      "lat": 18.8438,
+                      "lng": -71.4101
+                    },
+                    "sectores": [
+                      {
+                        "sector": "El Centro",
+                        "codigo_sector": "2201030101",
+                        "geo": {
+                          "lat": 18.844,
+                          "lng": -71.4098
+                        }
+                      },
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "2201030102",
+                        "geo": {
+                          "lat": 18.8431,
+                          "lng": -71.4112
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Bohechío",
+            "codigo_municipio": "2202",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.7759,
+              "lng": -70.9887
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Arroyo Cano",
+                "codigo_distrito_municipal": "220201",
+                "geo": {
+                  "lat": 18.7416,
+                  "lng": -70.9681
+                },
+                "barrios": [
+                  {
+                    "barrio": "Arroyo Cano",
+                    "codigo_barrio": "22020101",
+                    "geo": {
+                      "lat": 18.742,
+                      "lng": -70.9685
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "2202010101",
+                        "geo": {
+                          "lat": 18.7423,
+                          "lng": -70.968
+                        }
+                      },
+                      {
+                        "sector": "Los Ranchos",
+                        "codigo_sector": "2202010102",
+                        "geo": {
+                          "lat": 18.7413,
+                          "lng": -70.9692
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "El Cercado",
+            "codigo_municipio": "2203",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.7028,
+              "lng": -71.5274
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Batista",
+                "codigo_distrito_municipal": "220301",
+                "geo": {
+                  "lat": 18.6769,
+                  "lng": -71.5012
+                },
+                "barrios": [
+                  {
+                    "barrio": "Batista",
+                    "codigo_barrio": "22030101",
+                    "geo": {
+                      "lat": 18.6773,
+                      "lng": -71.5016
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Placeta",
+                        "codigo_sector": "2203010101",
+                        "geo": {
+                          "lat": 18.6776,
+                          "lng": -71.5011
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "2203010102",
+                        "geo": {
+                          "lat": 18.6767,
+                          "lng": -71.502
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "San Pedro de Macorís",
+        "codigo_provincia": "23",
+        "iso": "DO-23",
+        "geo": {
+          "lat": 18.4539,
+          "lng": -69.3086
+        },
+        "municipios": [
+          {
+            "municipio": "San Pedro de Macorís",
+            "codigo_municipio": "2301",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 18.4539,
+              "lng": -69.3086
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "El Puerto",
+                "codigo_distrito_municipal": "230101",
+                "geo": {
+                  "lat": 18.4297,
+                  "lng": -69.2968
+                },
+                "barrios": [
+                  {
+                    "barrio": "El Puerto",
+                    "codigo_barrio": "23010101",
+                    "geo": {
+                      "lat": 18.43,
+                      "lng": -69.2965
+                    },
+                    "sectores": [
+                      {
+                        "sector": "Malecón",
+                        "codigo_sector": "2301010101",
+                        "geo": {
+                          "lat": 18.4304,
+                          "lng": -69.2961
+                        }
+                      },
+                      {
+                        "sector": "Los Pescadores",
+                        "codigo_sector": "2301010102",
+                        "geo": {
+                          "lat": 18.4293,
+                          "lng": -69.2974
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Gautier",
+                "codigo_distrito_municipal": "230102",
+                "geo": {
+                  "lat": 18.5094,
+                  "lng": -69.3877
+                },
+                "barrios": [
+                  {
+                    "barrio": "Gautier",
+                    "codigo_barrio": "23010201",
+                    "geo": {
+                      "lat": 18.5097,
+                      "lng": -69.3872
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "2301020101",
+                        "geo": {
+                          "lat": 18.5101,
+                          "lng": -69.3868
+                        }
+                      },
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "2301020102",
+                        "geo": {
+                          "lat": 18.509,
+                          "lng": -69.3883
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Consuelo",
+            "codigo_municipio": "2302",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.5606,
+              "lng": -69.2617
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Sin Distrito Municipal",
+                "codigo_distrito_municipal": "230200",
+                "geo": {
+                  "lat": 18.5606,
+                  "lng": -69.2617
+                },
+                "barrios": [
+                  {
+                    "barrio": "Consuelo Centro",
+                    "codigo_barrio": "23020001",
+                    "geo": {
+                      "lat": 18.561,
+                      "lng": -69.2612
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Gallera",
+                        "codigo_sector": "2302000101",
+                        "geo": {
+                          "lat": 18.5613,
+                          "lng": -69.2608
+                        }
+                      },
+                      {
+                        "sector": "Los Maestros",
+                        "codigo_sector": "2302000102",
+                        "geo": {
+                          "lat": 18.5602,
+                          "lng": -69.2621
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

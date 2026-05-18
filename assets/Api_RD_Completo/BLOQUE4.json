@@ -1,0 +1,531 @@
+[
+  {
+    "region": "Higuamo",
+    "codigo_region": "R09",
+    "geo": {
+      "lat": 18.7624,
+      "lng": -69.2551
+    },
+    "provincias": [
+      {
+        "provincia": "Hato Mayor",
+        "codigo_provincia": "30",
+        "iso": "DO-30",
+        "geo": {
+          "lat": 18.7624,
+          "lng": -69.2551
+        },
+        "municipios": [
+          {
+            "municipio": "Hato Mayor del Rey",
+            "codigo_municipio": "3001",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 18.7624,
+              "lng": -69.2551
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Yerba Buena",
+                "codigo_distrito_municipal": "300101",
+                "geo": {
+                  "lat": 18.7448,
+                  "lng": -69.2217
+                },
+                "barrios": [
+                  {
+                    "barrio": "Yerba Buena Centro",
+                    "codigo_barrio": "30010101",
+                    "geo": {
+                      "lat": 18.7455,
+                      "lng": -69.2210
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Placeta",
+                        "codigo_sector": "3001010101",
+                        "geo": {
+                          "lat": 18.7462,
+                          "lng": -69.2202
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "3001010102",
+                        "geo": {
+                          "lat": 18.7449,
+                          "lng": -69.2221
+                        }
+                      },
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "3001010103",
+                        "geo": {
+                          "lat": 18.7442,
+                          "lng": -69.2229
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "El Valle",
+            "codigo_municipio": "3002",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.9754,
+              "lng": -69.3786
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Sin Distrito Municipal",
+                "codigo_distrito_municipal": "300200",
+                "geo": {
+                  "lat": 18.9754,
+                  "lng": -69.3786
+                },
+                "barrios": [
+                  {
+                    "barrio": "El Valle Centro",
+                    "codigo_barrio": "30020001",
+                    "geo": {
+                      "lat": 18.9761,
+                      "lng": -69.3779
+                    },
+                    "sectores": [
+                      {
+                        "sector": "El Centro",
+                        "codigo_sector": "3002000101",
+                        "geo": {
+                          "lat": 18.9768,
+                          "lng": -69.3772
+                        }
+                      },
+                      {
+                        "sector": "Los Ranchos",
+                        "codigo_sector": "3002000102",
+                        "geo": {
+                          "lat": 18.9752,
+                          "lng": -69.3791
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Sabana de la Mar",
+            "codigo_municipio": "3003",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 19.0481,
+              "lng": -69.3887
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Elupina Cordero de las Cañitas",
+                "codigo_distrito_municipal": "300301",
+                "geo": {
+                  "lat": 19.0216,
+                  "lng": -69.4214
+                },
+                "barrios": [
+                  {
+                    "barrio": "Las Cañitas",
+                    "codigo_barrio": "30030101",
+                    "geo": {
+                      "lat": 19.0223,
+                      "lng": -69.4208
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Playa",
+                        "codigo_sector": "3003010101",
+                        "geo": {
+                          "lat": 19.0230,
+                          "lng": -69.4201
+                        }
+                      },
+                      {
+                        "sector": "Los Pescadores",
+                        "codigo_sector": "3003010102",
+                        "geo": {
+                          "lat": 19.0217,
+                          "lng": -69.4219
+                        }
+                      },
+                      {
+                        "sector": "El Puerto",
+                        "codigo_sector": "3003010103",
+                        "geo": {
+                          "lat": 19.0209,
+                          "lng": -69.4226
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "Hermanas Mirabal",
+        "codigo_provincia": "19",
+        "iso": "DO-19",
+        "geo": {
+          "lat": 19.3748,
+          "lng": -70.4173
+        },
+        "municipios": [
+          {
+            "municipio": "Salcedo",
+            "codigo_municipio": "1901",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 19.3787,
+              "lng": -70.4162
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Jamao Afuera",
+                "codigo_distrito_municipal": "190101",
+                "geo": {
+                  "lat": 19.3368,
+                  "lng": -70.4031
+                },
+                "barrios": [
+                  {
+                    "barrio": "Jamao Afuera Centro",
+                    "codigo_barrio": "19010101",
+                    "geo": {
+                      "lat": 19.3375,
+                      "lng": -70.4024
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "1901010101",
+                        "geo": {
+                          "lat": 19.3382,
+                          "lng": -70.4018
+                        }
+                      },
+                      {
+                        "sector": "Los Solares",
+                        "codigo_sector": "1901010102",
+                        "geo": {
+                          "lat": 19.3367,
+                          "lng": -70.4038
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Tenares",
+            "codigo_municipio": "1902",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 19.3741,
+              "lng": -70.3506
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Blanco Arriba",
+                "codigo_distrito_municipal": "190201",
+                "geo": {
+                  "lat": 19.3535,
+                  "lng": -70.3378
+                },
+                "barrios": [
+                  {
+                    "barrio": "Blanco Arriba",
+                    "codigo_barrio": "19020101",
+                    "geo": {
+                      "lat": 19.3542,
+                      "lng": -70.3371
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "1902010101",
+                        "geo": {
+                          "lat": 19.3549,
+                          "lng": -70.3364
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "1902010102",
+                        "geo": {
+                          "lat": 19.3534,
+                          "lng": -70.3385
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Villa Tapia",
+            "codigo_municipio": "1903",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 19.3004,
+              "lng": -70.4217
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Sin Distrito Municipal",
+                "codigo_distrito_municipal": "190300",
+                "geo": {
+                  "lat": 19.3004,
+                  "lng": -70.4217
+                },
+                "barrios": [
+                  {
+                    "barrio": "Villa Tapia Centro",
+                    "codigo_barrio": "19030001",
+                    "geo": {
+                      "lat": 19.3011,
+                      "lng": -70.4210
+                    },
+                    "sectores": [
+                      {
+                        "sector": "El Centro",
+                        "codigo_sector": "1903000101",
+                        "geo": {
+                          "lat": 19.3018,
+                          "lng": -70.4204
+                        }
+                      },
+                      {
+                        "sector": "La Gallera",
+                        "codigo_sector": "1903000102",
+                        "geo": {
+                          "lat": 19.3003,
+                          "lng": -70.4223
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "Independencia",
+        "codigo_provincia": "10",
+        "iso": "DO-10",
+        "geo": {
+          "lat": 18.4814,
+          "lng": -71.8512
+        },
+        "municipios": [
+          {
+            "municipio": "Jimaní",
+            "codigo_municipio": "1001",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 18.4917,
+              "lng": -71.8503
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "El Limón",
+                "codigo_distrito_municipal": "100101",
+                "geo": {
+                  "lat": 18.4748,
+                  "lng": -71.8267
+                },
+                "barrios": [
+                  {
+                    "barrio": "El Limón Centro",
+                    "codigo_barrio": "10010101",
+                    "geo": {
+                      "lat": 18.4755,
+                      "lng": -71.8261
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Frontera",
+                        "codigo_sector": "1001010101",
+                        "geo": {
+                          "lat": 18.4762,
+                          "lng": -71.8254
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "1001010102",
+                        "geo": {
+                          "lat": 18.4747,
+                          "lng": -71.8272
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Duvergé",
+            "codigo_municipio": "1002",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.3784,
+              "lng": -71.5248
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Vengan a Ver",
+                "codigo_distrito_municipal": "100201",
+                "geo": {
+                  "lat": 18.5406,
+                  "lng": -71.4993
+                },
+                "barrios": [
+                  {
+                    "barrio": "Vengan a Ver",
+                    "codigo_barrio": "10020101",
+                    "geo": {
+                      "lat": 18.5413,
+                      "lng": -71.4986
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "1002010101",
+                        "geo": {
+                          "lat": 18.5420,
+                          "lng": -71.4979
+                        }
+                      },
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "1002010102",
+                        "geo": {
+                          "lat": 18.5405,
+                          "lng": -71.4999
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "La Descubierta",
+            "codigo_municipio": "1003",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.5708,
+              "lng": -71.7285
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Sin Distrito Municipal",
+                "codigo_distrito_municipal": "100300",
+                "geo": {
+                  "lat": 18.5708,
+                  "lng": -71.7285
+                },
+                "barrios": [
+                  {
+                    "barrio": "La Descubierta Centro",
+                    "codigo_barrio": "10030001",
+                    "geo": {
+                      "lat": 18.5715,
+                      "lng": -71.7279
+                    },
+                    "sectores": [
+                      {
+                        "sector": "El Centro",
+                        "codigo_sector": "1003000101",
+                        "geo": {
+                          "lat": 18.5722,
+                          "lng": -71.7272
+                        }
+                      },
+                      {
+                        "sector": "Los Ranchos",
+                        "codigo_sector": "1003000102",
+                        "geo": {
+                          "lat": 18.5707,
+                          "lng": -71.7291
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Postrer Río",
+            "codigo_municipio": "1004",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.5436,
+              "lng": -71.6351
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Guayabal",
+                "codigo_distrito_municipal": "100401",
+                "geo": {
+                  "lat": 18.5268,
+                  "lng": -71.6129
+                },
+                "barrios": [
+                  {
+                    "barrio": "Guayabal",
+                    "codigo_barrio": "10040101",
+                    "geo": {
+                      "lat": 18.5275,
+                      "lng": -71.6122
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Placeta",
+                        "codigo_sector": "1004010101",
+                        "geo": {
+                          "lat": 18.5282,
+                          "lng": -71.6115
+                        }
+                      },
+                      {
+                        "sector": "Los Solares",
+                        "codigo_sector": "1004010102",
+                        "geo": {
+                          "lat": 18.5267,
+                          "lng": -71.6135
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

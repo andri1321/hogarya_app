@@ -1,0 +1,643 @@
+[
+  {
+    "region": "Yuma",
+    "codigo_region": "R08",
+    "geo": {
+      "lat": 18.6097,
+      "lng": -68.7120
+    },
+    "provincias": [
+      {
+        "provincia": "La Altagracia",
+        "codigo_provincia": "11",
+        "iso": "DO-11",
+        "geo": {
+          "lat": 18.6170,
+          "lng": -68.7079
+        },
+        "municipios": [
+          {
+            "municipio": "Salvaleón de Higüey",
+            "codigo_municipio": "1101",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 18.6150,
+              "lng": -68.7077
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "La Otra Banda",
+                "codigo_distrito_municipal": "110101",
+                "geo": {
+                  "lat": 18.6761,
+                  "lng": -68.6505
+                },
+                "barrios": [
+                  {
+                    "barrio": "La Otra Banda Centro",
+                    "codigo_barrio": "11010101",
+                    "geo": {
+                      "lat": 18.6768,
+                      "lng": -68.6498
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "1101010101",
+                        "geo": {
+                          "lat": 18.6775,
+                          "lng": -68.6491
+                        }
+                      },
+                      {
+                        "sector": "Los Solares",
+                        "codigo_sector": "1101010102",
+                        "geo": {
+                          "lat": 18.6760,
+                          "lng": -68.6509
+                        }
+                      },
+                      {
+                        "sector": "La Curva",
+                        "codigo_sector": "1101010103",
+                        "geo": {
+                          "lat": 18.6753,
+                          "lng": -68.6515
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Las Lagunas de Nisibón",
+                "codigo_distrito_municipal": "110102",
+                "geo": {
+                  "lat": 18.7952,
+                  "lng": -68.5874
+                },
+                "barrios": [
+                  {
+                    "barrio": "Nisibón Centro",
+                    "codigo_barrio": "11010201",
+                    "geo": {
+                      "lat": 18.7959,
+                      "lng": -68.5868
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Playa",
+                        "codigo_sector": "1101020101",
+                        "geo": {
+                          "lat": 18.7966,
+                          "lng": -68.5861
+                        }
+                      },
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "1101020102",
+                        "geo": {
+                          "lat": 18.7951,
+                          "lng": -68.5879
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Verón-Punta Cana",
+                "codigo_distrito_municipal": "110103",
+                "geo": {
+                  "lat": 18.5601,
+                  "lng": -68.3725
+                },
+                "barrios": [
+                  {
+                    "barrio": "Verón",
+                    "codigo_barrio": "11010301",
+                    "geo": {
+                      "lat": 18.5852,
+                      "lng": -68.4048
+                    },
+                    "sectores": [
+                      {
+                        "sector": "Friusa",
+                        "codigo_sector": "1101030101",
+                        "geo": {
+                          "lat": 18.5984,
+                          "lng": -68.4352
+                        }
+                      },
+                      {
+                        "sector": "Lotificación Verón",
+                        "codigo_sector": "1101030102",
+                        "geo": {
+                          "lat": 18.5863,
+                          "lng": -68.4036
+                        }
+                      },
+                      {
+                        "sector": "Residencial Bávaro Punta Cana",
+                        "codigo_sector": "1101030103",
+                        "geo": {
+                          "lat": 18.5844,
+                          "lng": -68.3987
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "barrio": "Bávaro",
+                    "codigo_barrio": "11010302",
+                    "geo": {
+                      "lat": 18.6298,
+                      "lng": -68.4043
+                    },
+                    "sectores": [
+                      {
+                        "sector": "Cortecito",
+                        "codigo_sector": "1101030201",
+                        "geo": {
+                          "lat": 18.6465,
+                          "lng": -68.4017
+                        }
+                      },
+                      {
+                        "sector": "Los Corales",
+                        "codigo_sector": "1101030202",
+                        "geo": {
+                          "lat": 18.6428,
+                          "lng": -68.3984
+                        }
+                      },
+                      {
+                        "sector": "Arena Gorda",
+                        "codigo_sector": "1101030203",
+                        "geo": {
+                          "lat": 18.7154,
+                          "lng": -68.4510
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "barrio": "Punta Cana",
+                    "codigo_barrio": "11010303",
+                    "geo": {
+                      "lat": 18.5820,
+                      "lng": -68.4055
+                    },
+                    "sectores": [
+                      {
+                        "sector": "Cap Cana",
+                        "codigo_sector": "1101030301",
+                        "geo": {
+                          "lat": 18.4971,
+                          "lng": -68.3835
+                        }
+                      },
+                      {
+                        "sector": "Punta Cana Village",
+                        "codigo_sector": "1101030302",
+                        "geo": {
+                          "lat": 18.5678,
+                          "lng": -68.3632
+                        }
+                      },
+                      {
+                        "sector": "BlueMall Punta Cana",
+                        "codigo_sector": "1101030303",
+                        "geo": {
+                          "lat": 18.5726,
+                          "lng": -68.3684
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "San Rafael del Yuma",
+            "codigo_municipio": "1102",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.4292,
+              "lng": -68.6738
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Bayahíbe",
+                "codigo_distrito_municipal": "110201",
+                "geo": {
+                  "lat": 18.3653,
+                  "lng": -68.8392
+                },
+                "barrios": [
+                  {
+                    "barrio": "Bayahíbe Centro",
+                    "codigo_barrio": "11020101",
+                    "geo": {
+                      "lat": 18.3659,
+                      "lng": -68.8386
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Playa",
+                        "codigo_sector": "1102010101",
+                        "geo": {
+                          "lat": 18.3666,
+                          "lng": -68.8379
+                        }
+                      },
+                      {
+                        "sector": "Los Hoteles",
+                        "codigo_sector": "1102010102",
+                        "geo": {
+                          "lat": 18.3651,
+                          "lng": -68.8398
+                        }
+                      },
+                      {
+                        "sector": "Dominicus",
+                        "codigo_sector": "1102010103",
+                        "geo": {
+                          "lat": 18.3478,
+                          "lng": -68.8265
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Boca de Yuma",
+                "codigo_distrito_municipal": "110202",
+                "geo": {
+                  "lat": 18.3788,
+                  "lng": -68.6119
+                },
+                "barrios": [
+                  {
+                    "barrio": "Boca de Yuma",
+                    "codigo_barrio": "11020201",
+                    "geo": {
+                      "lat": 18.3795,
+                      "lng": -68.6112
+                    },
+                    "sectores": [
+                      {
+                        "sector": "El Puerto",
+                        "codigo_sector": "1102020101",
+                        "geo": {
+                          "lat": 18.3802,
+                          "lng": -68.6105
+                        }
+                      },
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "1102020102",
+                        "geo": {
+                          "lat": 18.3787,
+                          "lng": -68.6125
+                        }
+                      },
+                      {
+                        "sector": "La Bahía",
+                        "codigo_sector": "1102020103",
+                        "geo": {
+                          "lat": 18.3779,
+                          "lng": -68.6131
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "La Romana",
+        "codigo_provincia": "12",
+        "iso": "DO-12",
+        "geo": {
+          "lat": 18.4310,
+          "lng": -68.9728
+        },
+        "municipios": [
+          {
+            "municipio": "La Romana",
+            "codigo_municipio": "1201",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 18.4273,
+              "lng": -68.9728
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Caleta",
+                "codigo_distrito_municipal": "120101",
+                "geo": {
+                  "lat": 18.4505,
+                  "lng": -68.9587
+                },
+                "barrios": [
+                  {
+                    "barrio": "Caleta Centro",
+                    "codigo_barrio": "12010101",
+                    "geo": {
+                      "lat": 18.4512,
+                      "lng": -68.9580
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Playa",
+                        "codigo_sector": "1201010101",
+                        "geo": {
+                          "lat": 18.4519,
+                          "lng": -68.9573
+                        }
+                      },
+                      {
+                        "sector": "Los Pescadores",
+                        "codigo_sector": "1201010102",
+                        "geo": {
+                          "lat": 18.4504,
+                          "lng": -68.9592
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Cumayasa",
+                "codigo_distrito_municipal": "120102",
+                "geo": {
+                  "lat": 18.3152,
+                  "lng": -68.8397
+                },
+                "barrios": [
+                  {
+                    "barrio": "Cumayasa",
+                    "codigo_barrio": "12010201",
+                    "geo": {
+                      "lat": 18.3159,
+                      "lng": -68.8390
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "1201020101",
+                        "geo": {
+                          "lat": 18.3166,
+                          "lng": -68.8383
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "1201020102",
+                        "geo": {
+                          "lat": 18.3151,
+                          "lng": -68.8402
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Guaymate",
+            "codigo_municipio": "1202",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.5874,
+              "lng": -68.9784
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Sin Distrito Municipal",
+                "codigo_distrito_municipal": "120200",
+                "geo": {
+                  "lat": 18.5874,
+                  "lng": -68.9784
+                },
+                "barrios": [
+                  {
+                    "barrio": "Guaymate Centro",
+                    "codigo_barrio": "12020001",
+                    "geo": {
+                      "lat": 18.5881,
+                      "lng": -68.9777
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "1202000101",
+                        "geo": {
+                          "lat": 18.5888,
+                          "lng": -68.9770
+                        }
+                      },
+                      {
+                        "sector": "Los Maestros",
+                        "codigo_sector": "1202000102",
+                        "geo": {
+                          "lat": 18.5873,
+                          "lng": -68.9790
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Villa Hermosa",
+            "codigo_municipio": "1203",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.4304,
+              "lng": -68.9612
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Sin Distrito Municipal",
+                "codigo_distrito_municipal": "120300",
+                "geo": {
+                  "lat": 18.4304,
+                  "lng": -68.9612
+                },
+                "barrios": [
+                  {
+                    "barrio": "Villa Hermosa Centro",
+                    "codigo_barrio": "12030001",
+                    "geo": {
+                      "lat": 18.4311,
+                      "lng": -68.9605
+                    },
+                    "sectores": [
+                      {
+                        "sector": "El Centro",
+                        "codigo_sector": "1203000101",
+                        "geo": {
+                          "lat": 18.4318,
+                          "lng": -68.9598
+                        }
+                      },
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "1203000102",
+                        "geo": {
+                          "lat": 18.4303,
+                          "lng": -68.9618
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "La Vega",
+        "codigo_provincia": "13",
+        "iso": "DO-13",
+        "geo": {
+          "lat": 19.2227,
+          "lng": -70.5297
+        },
+        "municipios": [
+          {
+            "municipio": "Concepción de La Vega",
+            "codigo_municipio": "1301",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 19.2221,
+              "lng": -70.5290
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Buena Vista",
+                "codigo_distrito_municipal": "130101",
+                "geo": {
+                  "lat": 19.2404,
+                  "lng": -70.5403
+                },
+                "barrios": [
+                  {
+                    "barrio": "Buena Vista",
+                    "codigo_barrio": "13010101",
+                    "geo": {
+                      "lat": 19.2411,
+                      "lng": -70.5396
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Placeta",
+                        "codigo_sector": "1301010101",
+                        "geo": {
+                          "lat": 19.2418,
+                          "lng": -70.5389
+                        }
+                      },
+                      {
+                        "sector": "Los Solares",
+                        "codigo_sector": "1301010102",
+                        "geo": {
+                          "lat": 19.2403,
+                          "lng": -70.5409
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Cutupú",
+                "codigo_distrito_municipal": "130102",
+                "geo": {
+                  "lat": 19.2084,
+                  "lng": -70.5637
+                },
+                "barrios": [
+                  {
+                    "barrio": "Cutupú",
+                    "codigo_barrio": "13010201",
+                    "geo": {
+                      "lat": 19.2091,
+                      "lng": -70.5630
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "1301020101",
+                        "geo": {
+                          "lat": 19.2098,
+                          "lng": -70.5623
+                        }
+                      },
+                      {
+                        "sector": "La Gallera",
+                        "codigo_sector": "1301020102",
+                        "geo": {
+                          "lat": 19.2083,
+                          "lng": -70.5643
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "El Ranchito",
+                "codigo_distrito_municipal": "130103",
+                "geo": {
+                  "lat": 19.1897,
+                  "lng": -70.5156
+                },
+                "barrios": [
+                  {
+                    "barrio": "El Ranchito",
+                    "codigo_barrio": "13010301",
+                    "geo": {
+                      "lat": 19.1904,
+                      "lng": -70.5149
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "1301030101",
+                        "geo": {
+                          "lat": 19.1911,
+                          "lng": -70.5142
+                        }
+                      },
+                      {
+                        "sector": "Los Ranchos",
+                        "codigo_sector": "1301030102",
+                        "geo": {
+                          "lat": 19.1896,
+                          "lng": -70.5162
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

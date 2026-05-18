@@ -1,0 +1,429 @@
+[
+  {
+    "region": "Ozama",
+    "codigo_region": "R10",
+    "provincias": [
+      {
+        "provincia": "Distrito Nacional",
+        "codigo_provincia": "01",
+        "iso": "DO-01",
+        "municipios": [
+          {
+            "municipio": "Santo Domingo de Guzmán",
+            "codigo_municipio": "0101",
+            "tipo": "Municipio Cabecera",
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Sin Distrito Municipal",
+                "codigo_distrito_municipal": "010100",
+                "barrios": [
+                  {
+                    "barrio": "Ciudad Colonial",
+                    "codigo_barrio": "01010001",
+                    "sectores": [
+                      {
+                        "sector": "Calle El Conde",
+                        "codigo_sector": "0101000101"
+                      },
+                      {
+                        "sector": "Parque Colón",
+                        "codigo_sector": "0101000102"
+                      },
+                      {
+                        "sector": "Fortaleza Ozama",
+                        "codigo_sector": "0101000103"
+                      },
+                      {
+                        "sector": "Las Damas",
+                        "codigo_sector": "0101000104"
+                      }
+                    ]
+                  },
+                  {
+                    "barrio": "Gazcue",
+                    "codigo_barrio": "01010002",
+                    "sectores": [
+                      {
+                        "sector": "Zona Universitaria",
+                        "codigo_sector": "0101000201"
+                      },
+                      {
+                        "sector": "La Primavera",
+                        "codigo_sector": "0101000202"
+                      },
+                      {
+                        "sector": "Avenida Independencia",
+                        "codigo_sector": "0101000203"
+                      },
+                      {
+                        "sector": "Plaza de la Cultura",
+                        "codigo_sector": "0101000204"
+                      }
+                    ]
+                  },
+                  {
+                    "barrio": "Ensanche Naco",
+                    "codigo_barrio": "01010003",
+                    "sectores": [
+                      {
+                        "sector": "Naco Central",
+                        "codigo_sector": "0101000301"
+                      },
+                      {
+                        "sector": "Silver Sun",
+                        "codigo_sector": "0101000302"
+                      },
+                      {
+                        "sector": "Tiradentes",
+                        "codigo_sector": "0101000303"
+                      },
+                      {
+                        "sector": "Ensanche Paraíso",
+                        "codigo_sector": "0101000304"
+                      }
+                    ]
+                  },
+                  {
+                    "barrio": "Piantini",
+                    "codigo_barrio": "01010004",
+                    "sectores": [
+                      {
+                        "sector": "BlueMall",
+                        "codigo_sector": "0101000401"
+                      },
+                      {
+                        "sector": "Acrópolis",
+                        "codigo_sector": "0101000402"
+                      },
+                      {
+                        "sector": "Serrallés",
+                        "codigo_sector": "0101000403"
+                      },
+                      {
+                        "sector": "Lincoln Norte",
+                        "codigo_sector": "0101000404"
+                      }
+                    ]
+                  },
+                  {
+                    "barrio": "Bella Vista",
+                    "codigo_barrio": "01010005",
+                    "sectores": [
+                      {
+                        "sector": "Bella Vista Sur",
+                        "codigo_sector": "0101000501"
+                      },
+                      {
+                        "sector": "Mirador Norte",
+                        "codigo_sector": "0101000502"
+                      },
+                      {
+                        "sector": "Avenida Sarasota",
+                        "codigo_sector": "0101000503"
+                      },
+                      {
+                        "sector": "El Portal",
+                        "codigo_sector": "0101000504"
+                      }
+                    ]
+                  },
+                  {
+                    "barrio": "Villa Juana",
+                    "codigo_barrio": "01010006",
+                    "sectores": [
+                      {
+                        "sector": "Villa Juana Norte",
+                        "codigo_sector": "0101000601"
+                      },
+                      {
+                        "sector": "Villa Juana Sur",
+                        "codigo_sector": "0101000602"
+                      },
+                      {
+                        "sector": "Ensanche Luperón",
+                        "codigo_sector": "0101000603"
+                      }
+                    ]
+                  },
+                  {
+                    "barrio": "Villa Consuelo",
+                    "codigo_barrio": "01010007",
+                    "sectores": [
+                      {
+                        "sector": "Mercado Villa Consuelo",
+                        "codigo_sector": "0101000701"
+                      },
+                      {
+                        "sector": "Expreso V Centenario",
+                        "codigo_sector": "0101000702"
+                      },
+                      {
+                        "sector": "San Martín",
+                        "codigo_sector": "0101000703"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "Azua",
+        "codigo_provincia": "02",
+        "iso": "DO-02",
+        "municipios": [
+          {
+            "municipio": "Azua de Compostela",
+            "codigo_municipio": "0201",
+            "tipo": "Municipio Cabecera",
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Barro Arriba",
+                "codigo_distrito_municipal": "020101",
+                "barrios": [
+                  {
+                    "barrio": "Barro Arriba Centro",
+                    "codigo_barrio": "02010101",
+                    "sectores": [
+                      {
+                        "sector": "La Placeta",
+                        "codigo_sector": "0201010101"
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "0201010102"
+                      },
+                      {
+                        "sector": "La Cañada",
+                        "codigo_sector": "0201010103"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Clavellina",
+                "codigo_distrito_municipal": "020102",
+                "barrios": [
+                  {
+                    "barrio": "Clavellina Centro",
+                    "codigo_barrio": "02010201",
+                    "sectores": [
+                      {
+                        "sector": "El Centro",
+                        "codigo_sector": "0201020101"
+                      },
+                      {
+                        "sector": "La Ceiba",
+                        "codigo_sector": "0201020102"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Puerto Viejo",
+                "codigo_distrito_municipal": "020103",
+                "barrios": [
+                  {
+                    "barrio": "Puerto Viejo",
+                    "codigo_barrio": "02010301",
+                    "sectores": [
+                      {
+                        "sector": "La Playa",
+                        "codigo_sector": "0201030101"
+                      },
+                      {
+                        "sector": "Los Pescadores",
+                        "codigo_sector": "0201030102"
+                      },
+                      {
+                        "sector": "El Muelle",
+                        "codigo_sector": "0201030103"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Padre Las Casas",
+            "codigo_municipio": "0202",
+            "tipo": "Municipio",
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "La Siembra",
+                "codigo_distrito_municipal": "020201",
+                "barrios": [
+                  {
+                    "barrio": "La Siembra Centro",
+                    "codigo_barrio": "02020101",
+                    "sectores": [
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "0202010101"
+                      },
+                      {
+                        "sector": "El Cruce",
+                        "codigo_sector": "0202010102"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "Bahoruco",
+        "codigo_provincia": "03",
+        "iso": "DO-03",
+        "municipios": [
+          {
+            "municipio": "Neiba",
+            "codigo_municipio": "0301",
+            "tipo": "Municipio Cabecera",
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "El Palmar",
+                "codigo_distrito_municipal": "030101",
+                "barrios": [
+                  {
+                    "barrio": "El Palmar Centro",
+                    "codigo_barrio": "03010101",
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "0301010101"
+                      },
+                      {
+                        "sector": "Los Solares",
+                        "codigo_sector": "0301010102"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+  "distrito_municipal": "Las Clavellinas",
+  "codigo_distrito_municipal": "030102",
+  "geo": {
+    "lat": 18.5124,
+    "lng": -71.3678
+  },
+  "barrios": [
+    {
+      "barrio": "Las Clavellinas",
+      "codigo_barrio": "03010201",
+      "geo": {
+        "lat": 18.5131,
+        "lng": -71.3669
+      },
+      "sectores": [
+        {
+          "sector": "La Placeta",
+          "codigo_sector": "0301020101",
+          "geo": {
+            "lat": 18.5137,
+            "lng": -71.3661
+          }
+        },
+        {
+          "sector": "La Gallera",
+          "codigo_sector": "0301020102",
+          "geo": {
+            "lat": 18.5122,
+            "lng": -71.3675
+          }
+        }
+      ]
+    }
+  ]
+},
+{
+  "municipio": "Tamayo",
+  "codigo_municipio": "0302",
+  "tipo": "Municipio",
+  "geo": {
+    "lat": 18.3947,
+    "lng": -71.2028
+  },
+  "distritos_municipales": [
+    {
+      "distrito_municipal": "Mena",
+      "codigo_distrito_municipal": "030201",
+      "geo": {
+        "lat": 18.4294,
+        "lng": -71.1891
+      },
+      "barrios": [
+        {
+          "barrio": "Mena",
+          "codigo_barrio": "03020101",
+          "geo": {
+            "lat": 18.4302,
+            "lng": -71.1886
+          },
+          "sectores": [
+            {
+              "sector": "La Placeta",
+              "codigo_sector": "0302010101",
+              "geo": {
+                "lat": 18.4308,
+                "lng": -71.1879
+              }
+            },
+            {
+              "sector": "Los Parceleros",
+              "codigo_sector": "0302010102",
+              "geo": {
+                "lat": 18.4295,
+                "lng": -71.1898
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "distrito_municipal": "Monserrat",
+      "codigo_distrito_municipal": "030202",
+      "geo": {
+        "lat": 18.3765,
+        "lng": -71.2152
+      },
+      "barrios": [
+        {
+          "barrio": "Monserrat",
+          "codigo_barrio": "03020201",
+          "geo": {
+            "lat": 18.3771,
+            "lng": -71.2144
+          },
+          "sectores": [
+            {
+              "sector": "La Entrada",
+              "codigo_sector": "0302020101",
+              "geo": {
+                "lat": 18.3778,
+                "lng": -71.2138
+              }
+            },
+            {
+              "sector": "La Colonia",
+              "codigo_sector": "0302020102",
+              "geo": {
+                "lat": 18.3764,
+                "lng": -71.2156
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

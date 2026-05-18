@@ -1,0 +1,479 @@
+[
+  {
+    "region": "Enriquillo",
+    "codigo_region": "R06",
+    "geo": {
+      "lat": 18.7357,
+      "lng": -71.1053
+    },
+    "provincias": [
+      {
+        "provincia": "Santo Domingo",
+        "codigo_provincia": "32",
+        "iso": "DO-32",
+        "geo": {
+          "lat": 18.4861,
+          "lng": -69.9312
+        },
+        "municipios": [
+          {
+            "municipio": "Santo Domingo Este",
+            "codigo_municipio": "3201",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.5107,
+              "lng": -69.8571
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "San Luis",
+                "codigo_distrito_municipal": "320101",
+                "geo": {
+                  "lat": 18.5436,
+                  "lng": -69.7368
+                },
+                "barrios": [
+                  {
+                    "barrio": "San Luis Centro",
+                    "codigo_barrio": "32010101",
+                    "geo": {
+                      "lat": 18.5436,
+                      "lng": -69.7368
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Colonial",
+                        "codigo_sector": "3201010101",
+                        "geo": {
+                          "lat": 18.5442,
+                          "lng": -69.7359
+                        }
+                      },
+                      {
+                        "sector": "Vietnam",
+                        "codigo_sector": "3201010102",
+                        "geo": {
+                          "lat": 18.5428,
+                          "lng": -69.7376
+                        }
+                      },
+                      {
+                        "sector": "Los Prados de San Luis",
+                        "codigo_sector": "3201010103",
+                        "geo": {
+                          "lat": 18.5451,
+                          "lng": -69.7348
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Santo Domingo Norte",
+            "codigo_municipio": "3202",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.5822,
+              "lng": -69.8636
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "La Victoria",
+                "codigo_distrito_municipal": "320201",
+                "geo": {
+                  "lat": 18.6434,
+                  "lng": -69.8207
+                },
+                "barrios": [
+                  {
+                    "barrio": "La Victoria Centro",
+                    "codigo_barrio": "32020101",
+                    "geo": {
+                      "lat": 18.6434,
+                      "lng": -69.8207
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "3202010101",
+                        "geo": {
+                          "lat": 18.6443,
+                          "lng": -69.8198
+                        }
+                      },
+                      {
+                        "sector": "Los Castillos",
+                        "codigo_sector": "3202010102",
+                        "geo": {
+                          "lat": 18.6426,
+                          "lng": -69.8216
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Santo Domingo Oeste",
+            "codigo_municipio": "3203",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.5001,
+              "lng": -70.0008
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Palmarejo-Villa Linda",
+                "codigo_distrito_municipal": "320301",
+                "geo": {
+                  "lat": 18.5295,
+                  "lng": -70.0491
+                },
+                "barrios": [
+                  {
+                    "barrio": "Palmarejo",
+                    "codigo_barrio": "32030101",
+                    "geo": {
+                      "lat": 18.5295,
+                      "lng": -70.0491
+                    },
+                    "sectores": [
+                      {
+                        "sector": "Villa Linda",
+                        "codigo_sector": "3203010101",
+                        "geo": {
+                          "lat": 18.5302,
+                          "lng": -70.0481
+                        }
+                      },
+                      {
+                        "sector": "Las Caobas",
+                        "codigo_sector": "3203010102",
+                        "geo": {
+                          "lat": 18.5287,
+                          "lng": -70.0502
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Pantoja",
+                "codigo_distrito_municipal": "320302",
+                "geo": {
+                  "lat": 18.5108,
+                  "lng": -70.0324
+                },
+                "barrios": [
+                  {
+                    "barrio": "Pantoja Centro",
+                    "codigo_barrio": "32030201",
+                    "geo": {
+                      "lat": 18.5108,
+                      "lng": -70.0324
+                    },
+                    "sectores": [
+                      {
+                        "sector": "Villa Morada",
+                        "codigo_sector": "3203020101",
+                        "geo": {
+                          "lat": 18.5115,
+                          "lng": -70.0315
+                        }
+                      },
+                      {
+                        "sector": "Los Alcarrizos Viejo",
+                        "codigo_sector": "3203020102",
+                        "geo": {
+                          "lat": 18.5099,
+                          "lng": -70.0333
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Boca Chica",
+            "codigo_municipio": "3204",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.4539,
+              "lng": -69.6098
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "La Caleta",
+                "codigo_distrito_municipal": "320401",
+                "geo": {
+                  "lat": 18.4686,
+                  "lng": -69.6875
+                },
+                "barrios": [
+                  {
+                    "barrio": "La Caleta Centro",
+                    "codigo_barrio": "32040101",
+                    "geo": {
+                      "lat": 18.4686,
+                      "lng": -69.6875
+                    },
+                    "sectores": [
+                      {
+                        "sector": "Valiente",
+                        "codigo_sector": "3204010101",
+                        "geo": {
+                          "lat": 18.4702,
+                          "lng": -69.6858
+                        }
+                      },
+                      {
+                        "sector": "La Ureña",
+                        "codigo_sector": "3204010102",
+                        "geo": {
+                          "lat": 18.4671,
+                          "lng": -69.6893
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "Valverde",
+        "codigo_provincia": "27",
+        "iso": "DO-27",
+        "geo": {
+          "lat": 19.5889,
+          "lng": -71.0750
+        },
+        "municipios": [
+          {
+            "municipio": "Mao",
+            "codigo_municipio": "2701",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 19.5519,
+              "lng": -71.0781
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Amina",
+                "codigo_distrito_municipal": "270101",
+                "geo": {
+                  "lat": 19.5758,
+                  "lng": -71.1046
+                },
+                "barrios": [
+                  {
+                    "barrio": "Amina Centro",
+                    "codigo_barrio": "27010101",
+                    "geo": {
+                      "lat": 19.5758,
+                      "lng": -71.1046
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "2701010101",
+                        "geo": {
+                          "lat": 19.5766,
+                          "lng": -71.1037
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "2701010102",
+                        "geo": {
+                          "lat": 19.5749,
+                          "lng": -71.1055
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Jaibón Pueblo",
+                "codigo_distrito_municipal": "270102",
+                "geo": {
+                  "lat": 19.6114,
+                  "lng": -71.1489
+                },
+                "barrios": [
+                  {
+                    "barrio": "Jaibón",
+                    "codigo_barrio": "27010201",
+                    "geo": {
+                      "lat": 19.6114,
+                      "lng": -71.1489
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "2701020101",
+                        "geo": {
+                          "lat": 19.6122,
+                          "lng": -71.1478
+                        }
+                      },
+                      {
+                        "sector": "Los Ranchos",
+                        "codigo_sector": "2701020102",
+                        "geo": {
+                          "lat": 19.6106,
+                          "lng": -71.1499
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Esperanza",
+            "codigo_municipio": "2702",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 19.5843,
+              "lng": -70.9848
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Jicomé",
+                "codigo_distrito_municipal": "270201",
+                "geo": {
+                  "lat": 19.6282,
+                  "lng": -71.0214
+                },
+                "barrios": [
+                  {
+                    "barrio": "Jicomé Centro",
+                    "codigo_barrio": "27020101",
+                    "geo": {
+                      "lat": 19.6282,
+                      "lng": -71.0214
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Placeta",
+                        "codigo_sector": "2702010101",
+                        "geo": {
+                          "lat": 19.6290,
+                          "lng": -71.0203
+                        }
+                      },
+                      {
+                        "sector": "Los Maestros",
+                        "codigo_sector": "2702010102",
+                        "geo": {
+                          "lat": 19.6274,
+                          "lng": -71.0222
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Maizal",
+                "codigo_distrito_municipal": "270202",
+                "geo": {
+                  "lat": 19.5608,
+                  "lng": -71.0105
+                },
+                "barrios": [
+                  {
+                    "barrio": "Maizal",
+                    "codigo_barrio": "27020201",
+                    "geo": {
+                      "lat": 19.5608,
+                      "lng": -71.0105
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "2702020101",
+                        "geo": {
+                          "lat": 19.5617,
+                          "lng": -71.0096
+                        }
+                      },
+                      {
+                        "sector": "Los Solares",
+                        "codigo_sector": "2702020102",
+                        "geo": {
+                          "lat": 19.5599,
+                          "lng": -71.0114
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Laguna Salada",
+            "codigo_municipio": "2703",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 19.6505,
+              "lng": -71.0934
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Cruce de Guayacanes",
+                "codigo_distrito_municipal": "270301",
+                "geo": {
+                  "lat": 19.6621,
+                  "lng": -71.0818
+                },
+                "barrios": [
+                  {
+                    "barrio": "Cruce de Guayacanes",
+                    "codigo_barrio": "27030101",
+                    "geo": {
+                      "lat": 19.6621,
+                      "lng": -71.0818
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Curva",
+                        "codigo_sector": "2703010101",
+                        "geo": {
+                          "lat": 19.6629,
+                          "lng": -71.0809
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "2703010102",
+                        "geo": {
+                          "lat": 19.6612,
+                          "lng": -71.0827
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

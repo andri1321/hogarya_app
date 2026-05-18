@@ -7,6 +7,7 @@ import '../data/user_data.dart';
 import '../models/property.dart';
 import '../widgets/stat_item.dart';
 import '../widgets/property_card.dart';
+import '../core/profile_navigation.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -210,7 +211,9 @@ class ProfileScreen extends StatefulWidget {
 
                     SizedBox(width: 10),
 
-                    Text("Ver perfil"),
+                    Expanded(
+                      child: Text("Ver perfil", overflow: TextOverflow.ellipsis),
+                    ),
                   ],
                 ),
               ),
@@ -225,7 +228,9 @@ class ProfileScreen extends StatefulWidget {
 
                     SizedBox(width: 10),
 
-                    Text("Editar perfil"),
+                    Expanded(
+                      child: Text("Editar perfil", overflow: TextOverflow.ellipsis),
+                    ),
                   ],
                 ),
               ),
@@ -240,7 +245,9 @@ class ProfileScreen extends StatefulWidget {
 
                     SizedBox(width: 10),
 
-                    Text("Compartir perfil"),
+                    Expanded(
+                      child: Text("Compartir perfil", overflow: TextOverflow.ellipsis),
+                    ),
                   ],
                 ),
               ),
@@ -255,7 +262,9 @@ class ProfileScreen extends StatefulWidget {
 
                     SizedBox(width: 10),
 
-                    Text("Cerrar sesión"),
+                    Expanded(
+                      child: Text("Cerrar sesión", overflow: TextOverflow.ellipsis),
+                    ),
                   ],
                 ),
               ),
@@ -344,25 +353,30 @@ class ProfileScreen extends StatefulWidget {
 
                           Text(
                             userName,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
 
                             style:
                                 const TextStyle(
-                              fontSize: 34,
+                              fontSize: 30,
                               fontWeight:
                                   FontWeight.w900,
                               fontStyle:
                                   FontStyle.italic,
+                              height: 1.1,
                             ),
                           ),
 
                           Text(
                             fullName,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
 
                             style:
                                 const TextStyle(
                               color:
                                   Colors.grey,
-                              fontSize: 18,
+                              fontSize: 16,
                               fontWeight:
                                   FontWeight.w500,
                             ),
@@ -374,11 +388,13 @@ class ProfileScreen extends StatefulWidget {
 
                           Text(
                             description,
+                            maxLines: 4,
+                            overflow: TextOverflow.ellipsis,
 
                             style:
                                 const TextStyle(
                               fontSize: 11,
-                              height: 1.4,
+                              height: 1.3,
                               fontWeight:
                                   FontWeight.w500,
                             ),
@@ -531,6 +547,17 @@ class ProfileScreen extends StatefulWidget {
                                         index];
 
                                 return ListTile(
+                                  onTap: () {
+                                    ProfileNavigation.openOwnerProfile(
+                                      context,
+                                      Owner(
+                                        name: user["name"]!,
+                                        avatar: user["avatar"]!,
+                                        verified: false,
+                                        id: user["username"]!,
+                                      ),
+                                    );
+                                  },
 
                                   leading:
                                       CircleAvatar(
@@ -737,6 +764,17 @@ class ProfileScreen extends StatefulWidget {
                                         index];
 
                                 return ListTile(
+                                  onTap: () {
+                                    ProfileNavigation.openOwnerProfile(
+                                      context,
+                                      Owner(
+                                        name: user["name"]!,
+                                        avatar: user["avatar"]!,
+                                        verified: false,
+                                        id: user["username"]!,
+                                      ),
+                                    );
+                                  },
 
                                   leading:
                                       CircleAvatar(

@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:app_hogar_ya/data/user_data.dart';
 import 'package:app_hogar_ya/models/property.dart';
-import 'package:app_hogar_ya/screen/owner_profile_screen.dart';
+import 'package:app_hogar_ya/widgets/profile_touchable.dart';
 import 'package:app_hogar_ya/widgets/property_social_actions.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -14,20 +14,6 @@ class PropertyFeedCard extends StatelessWidget {
     super.key,
     required this.property,
   });
-
-  void _openOwnerProfile(BuildContext context, Property property) {
-    final ownerProperties = [property];
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (_) => OwnerProfileScreen(
-          owner: property.owner,
-          properties: ownerProperties,
-        ),
-      ),
-    );
-  }
 
   ImageProvider _imageProvider(String image) {
     if (image.startsWith('http')) {
@@ -131,26 +117,29 @@ class PropertyFeedCard extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: Row(
                 children: [
-                  GestureDetector(
-                    onTap: () => _openOwnerProfile(context, currentProperty),
-                    child: CircleAvatar(
-                      radius: 18,
-                      backgroundImage: _imageProvider(currentProperty.owner.avatar),
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  GestureDetector(
-                    onTap: () => _openOwnerProfile(context, currentProperty),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                  ProfileTouchable(
+                    owner: currentProperty.owner,
+                    borderRadius: BorderRadius.circular(12),
+                    padding: EdgeInsets.zero,
+                    child: Row(
                       children: [
-                        Text(
-                          currentProperty.owner.name,
-                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        CircleAvatar(
+                          radius: 18,
+                          backgroundImage: _imageProvider(currentProperty.owner.avatar),
                         ),
-                        Text(
-                          currentProperty.city,
-                          style: const TextStyle(fontSize: 12, color: Colors.grey),
+                        const SizedBox(width: 10),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              currentProperty.owner.name,
+                              style: const TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              currentProperty.city,
+                              style: const TextStyle(fontSize: 12, color: Colors.grey),
+                            ),
+                          ],
                         ),
                       ],
                     ),

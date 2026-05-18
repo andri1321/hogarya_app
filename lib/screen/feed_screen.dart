@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:app_hogar_ya/data/user_data.dart';
 import 'package:app_hogar_ya/models/property.dart';
+import 'package:app_hogar_ya/core/profile_navigation.dart';
 import 'package:app_hogar_ya/widgets/property_feed_card.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class FeedScreen extends StatefulWidget {
   const FeedScreen({super.key});
@@ -640,9 +640,7 @@ class _FeedScreenState
                   UserData.profileImage;
 
               return GestureDetector(
-                onTap: () {
-                  context.go('/profile');
-                },
+                onTap: () => ProfileNavigation.openMyProfile(context),
                 child: CircleAvatar(
                   radius: 20,
                   backgroundColor: Colors.grey.shade300,

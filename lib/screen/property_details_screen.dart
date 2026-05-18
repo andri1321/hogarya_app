@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:app_hogar_ya/data/user_data.dart';
 import 'package:app_hogar_ya/models/property.dart';
 import 'package:app_hogar_ya/widgets/property_social_actions.dart';
+import 'package:app_hogar_ya/widgets/profile_touchable.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -496,55 +497,64 @@ class _PropertyDetailsScreenState
                     ),
                     child: Row(
                       children: [
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundImage: _imageProvider(
-                            property.owner.avatar,
-                          ),
-                        ),
-
-                        const SizedBox(
-                          width: 14,
-                        ),
-
                         Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    property.owner.name,
-                                    style: const TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                          child: ProfileTouchable(
+                            owner: property.owner,
+                            child: Row(
+                              children: [
+                                CircleAvatar(
+                                  radius: 30,
+                                  backgroundImage: _imageProvider(
+                                    property.owner.avatar,
                                   ),
-
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-
-                                  if (property.owner.verified)
-                                    const Icon(
-                                      Icons.verified,
-                                      color: Colors.blue,
-                                      size: 18,
-                                    ),
-                                ],
-                              ),
-
-                              const SizedBox(
-                                height: 4,
-                              ),
-
-                              const Text(
-                                "Propietario verificado",
-                                style: TextStyle(
-                                  color: Colors.grey,
                                 ),
-                              ),
-                            ],
+
+                                const SizedBox(
+                                  width: 14,
+                                ),
+
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Text(
+                                            property.owner.name,
+                                            style: const TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+
+                                          if (property.owner.verified)
+                                            const Icon(
+                                              Icons.verified,
+                                              color: Colors.blue,
+                                              size: 18,
+                                            ),
+                                        ],
+                                      ),
+
+                                      const SizedBox(
+                                        height: 4,
+                                      ),
+
+                                      const Text(
+                                        "Propietario verificado",
+                                        style: TextStyle(
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
 

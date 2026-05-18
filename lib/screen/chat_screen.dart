@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:app_hogar_ya/models/property.dart';
+import 'package:app_hogar_ya/widgets/profile_touchable.dart';
+import 'package:app_hogar_ya/core/profile_navigation.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -207,39 +210,47 @@ class _ChatScreenState extends State<ChatScreen> {
                     child: Column(
                       children: [
 
-                        Stack(
-                          children: [
+                        ProfileTouchable(
+                          owner: Owner(
+                            name: user["name"],
+                            avatar: user["image"],
+                            verified: false,
+                            id: user["name"],
+                          ),
+                          child: Stack(
+                            children: [
 
-                            CircleAvatar(
-                              radius: 28,
-                              backgroundImage:
-                                  NetworkImage(
-                                user["image"],
+                              CircleAvatar(
+                                radius: 28,
+                                backgroundImage:
+                                    NetworkImage(
+                                  user["image"],
+                                ),
                               ),
-                            ),
 
-                            if (user["online"])
-                              Positioned(
-                                bottom: 0,
-                                right: 0,
-                                child: Container(
-                                  width: 15,
-                                  height: 15,
+                              if (user["online"])
+                                Positioned(
+                                  bottom: 0,
+                                  right: 0,
+                                  child: Container(
+                                    width: 15,
+                                    height: 15,
 
-                                  decoration:
-                                      BoxDecoration(
-                                    color: Colors.green,
-                                    shape:
-                                        BoxShape.circle,
+                                    decoration:
+                                        BoxDecoration(
+                                      color: Colors.green,
+                                      shape:
+                                          BoxShape.circle,
 
-                                    border: Border.all(
-                                      color: Colors.white,
-                                      width: 2,
+                                      border: Border.all(
+                                        color: Colors.white,
+                                        width: 2,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                          ],
+                            ],
+                          ),
                         ),
 
                         const SizedBox(height: 6),
@@ -332,38 +343,46 @@ class _ChatScreenState extends State<ChatScreen> {
           children: [
 
             /// 👤 AVATAR
-            Stack(
-              children: [
+            ProfileTouchable(
+              owner: Owner(
+                name: chat["name"],
+                avatar: chat["image"],
+                verified: false,
+                id: chat["name"],
+              ),
+              child: Stack(
+                children: [
 
-                CircleAvatar(
-                  radius: 30,
-                  backgroundImage:
-                      NetworkImage(
-                    chat["image"],
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundImage:
+                        NetworkImage(
+                      chat["image"],
+                    ),
                   ),
-                ),
 
-                if (chat["online"])
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
+                  if (chat["online"])
+                    Positioned(
+                      bottom: 0,
+                      right: 0,
 
-                    child: Container(
-                      width: 15,
-                      height: 15,
+                      child: Container(
+                        width: 15,
+                        height: 15,
 
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        shape: BoxShape.circle,
+                        decoration: BoxDecoration(
+                          color: Colors.green,
+                          shape: BoxShape.circle,
 
-                        border: Border.all(
-                          color: Colors.white,
-                          width: 2,
+                          border: Border.all(
+                            color: Colors.white,
+                            width: 2,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-              ],
+                ],
+              ),
             ),
 
             const SizedBox(width: 14),
@@ -561,7 +580,15 @@ class _ChatScreenState extends State<ChatScreen> {
 
     switch (selected) {
       case 1:
-        debugPrint("Ver perfil");
+        ProfileNavigation.openOwnerProfile(
+          context,
+          Owner(
+            name: chats[index]["name"],
+            avatar: chats[index]["image"],
+            verified: false,
+            id: chats[index]["name"],
+          ),
+        );
         break;
 
       case 2:

@@ -1,0 +1,653 @@
+[
+  {
+    "region": "Cibao Norte",
+    "codigo_region": "R01",
+    "geo": {
+      "lat": 19.6500,
+      "lng": -70.7000
+    },
+    "provincias": [
+      {
+        "provincia": "Puerto Plata",
+        "codigo_provincia": "18",
+        "iso": "DO-18",
+        "geo": {
+          "lat": 19.7902,
+          "lng": -70.6884
+        },
+        "municipios": [
+          {
+            "municipio": "San Felipe de Puerto Plata",
+            "codigo_municipio": "1801",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 19.7902,
+              "lng": -70.6884
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Maimón",
+                "codigo_distrito_municipal": "180101",
+                "geo": {
+                  "lat": 19.8854,
+                  "lng": -70.7201
+                },
+                "barrios": [
+                  {
+                    "barrio": "Maimón Centro",
+                    "codigo_barrio": "18010101",
+                    "geo": {
+                      "lat": 19.8861,
+                      "lng": -70.7194
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Bahía",
+                        "codigo_sector": "1801010101",
+                        "geo": {
+                          "lat": 19.8868,
+                          "lng": -70.7187
+                        }
+                      },
+                      {
+                        "sector": "Los Pescadores",
+                        "codigo_sector": "1801010102",
+                        "geo": {
+                          "lat": 19.8855,
+                          "lng": -70.7208
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Yásica Arriba",
+                "codigo_distrito_municipal": "180102",
+                "geo": {
+                  "lat": 19.7078,
+                  "lng": -70.6182
+                },
+                "barrios": [
+                  {
+                    "barrio": "Yásica Arriba",
+                    "codigo_barrio": "18010201",
+                    "geo": {
+                      "lat": 19.7085,
+                      "lng": -70.6176
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "1801020101",
+                        "geo": {
+                          "lat": 19.7091,
+                          "lng": -70.6168
+                        }
+                      },
+                      {
+                        "sector": "Los Ranchos",
+                        "codigo_sector": "1801020102",
+                        "geo": {
+                          "lat": 19.7072,
+                          "lng": -70.6189
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Altamira",
+            "codigo_municipio": "1802",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 19.6779,
+              "lng": -70.8447
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Río Grande",
+                "codigo_distrito_municipal": "180201",
+                "geo": {
+                  "lat": 19.6615,
+                  "lng": -70.8234
+                },
+                "barrios": [
+                  {
+                    "barrio": "Río Grande",
+                    "codigo_barrio": "18020101",
+                    "geo": {
+                      "lat": 19.6622,
+                      "lng": -70.8228
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "1802010101",
+                        "geo": {
+                          "lat": 19.6629,
+                          "lng": -70.8220
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "1802010102",
+                        "geo": {
+                          "lat": 19.6610,
+                          "lng": -70.8239
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Sosúa",
+            "codigo_municipio": "1803",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 19.7522,
+              "lng": -70.5199
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Cabarete",
+                "codigo_distrito_municipal": "180301",
+                "geo": {
+                  "lat": 19.7498,
+                  "lng": -70.4083
+                },
+                "barrios": [
+                  {
+                    "barrio": "Cabarete Centro",
+                    "codigo_barrio": "18030101",
+                    "geo": {
+                      "lat": 19.7504,
+                      "lng": -70.4077
+                    },
+                    "sectores": [
+                      {
+                        "sector": "Kite Beach",
+                        "codigo_sector": "1803010101",
+                        "geo": {
+                          "lat": 19.7516,
+                          "lng": -70.4048
+                        }
+                      },
+                      {
+                        "sector": "Encuentro",
+                        "codigo_sector": "1803010102",
+                        "geo": {
+                          "lat": 19.7742,
+                          "lng": -70.4311
+                        }
+                      },
+                      {
+                        "sector": "La Ciénaga",
+                        "codigo_sector": "1803010103",
+                        "geo": {
+                          "lat": 19.7487,
+                          "lng": -70.4095
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Sabaneta de Yásica",
+                "codigo_distrito_municipal": "180302",
+                "geo": {
+                  "lat": 19.6891,
+                  "lng": -70.5832
+                },
+                "barrios": [
+                  {
+                    "barrio": "Sabaneta",
+                    "codigo_barrio": "18030201",
+                    "geo": {
+                      "lat": 19.6897,
+                      "lng": -70.5825
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "1803020101",
+                        "geo": {
+                          "lat": 19.6903,
+                          "lng": -70.5818
+                        }
+                      },
+                      {
+                        "sector": "La Gallera",
+                        "codigo_sector": "1803020102",
+                        "geo": {
+                          "lat": 19.6886,
+                          "lng": -70.5839
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "Samaná",
+        "codigo_provincia": "20",
+        "iso": "DO-20",
+        "geo": {
+          "lat": 19.2056,
+          "lng": -69.3369
+        },
+        "municipios": [
+          {
+            "municipio": "Santa Bárbara de Samaná",
+            "codigo_municipio": "2001",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 19.2056,
+              "lng": -69.3369
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Arroyo Barril",
+                "codigo_distrito_municipal": "200101",
+                "geo": {
+                  "lat": 19.1937,
+                  "lng": -69.4298
+                },
+                "barrios": [
+                  {
+                    "barrio": "Arroyo Barril",
+                    "codigo_barrio": "20010101",
+                    "geo": {
+                      "lat": 19.1943,
+                      "lng": -69.4292
+                    },
+                    "sectores": [
+                      {
+                        "sector": "El Puerto",
+                        "codigo_sector": "2001010101",
+                        "geo": {
+                          "lat": 19.1950,
+                          "lng": -69.4285
+                        }
+                      },
+                      {
+                        "sector": "La Playa",
+                        "codigo_sector": "2001010102",
+                        "geo": {
+                          "lat": 19.1934,
+                          "lng": -69.4304
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "El Limón",
+                "codigo_distrito_municipal": "200102",
+                "geo": {
+                  "lat": 19.2764,
+                  "lng": -69.3802
+                },
+                "barrios": [
+                  {
+                    "barrio": "El Limón",
+                    "codigo_barrio": "20010201",
+                    "geo": {
+                      "lat": 19.2770,
+                      "lng": -69.3796
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Cascada",
+                        "codigo_sector": "2001020101",
+                        "geo": {
+                          "lat": 19.2781,
+                          "lng": -69.3788
+                        }
+                      },
+                      {
+                        "sector": "Los Ranchos",
+                        "codigo_sector": "2001020102",
+                        "geo": {
+                          "lat": 19.2760,
+                          "lng": -69.3809
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Las Galeras",
+                "codigo_distrito_municipal": "200103",
+                "geo": {
+                  "lat": 19.2816,
+                  "lng": -69.1885
+                },
+                "barrios": [
+                  {
+                    "barrio": "Las Galeras",
+                    "codigo_barrio": "20010301",
+                    "geo": {
+                      "lat": 19.2822,
+                      "lng": -69.1878
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Playa",
+                        "codigo_sector": "2001030101",
+                        "geo": {
+                          "lat": 19.2830,
+                          "lng": -69.1870
+                        }
+                      },
+                      {
+                        "sector": "La Bahía",
+                        "codigo_sector": "2001030102",
+                        "geo": {
+                          "lat": 19.2810,
+                          "lng": -69.1889
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Las Terrenas",
+            "codigo_municipio": "2002",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 19.3110,
+              "lng": -69.5428
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Sin Distrito Municipal",
+                "codigo_distrito_municipal": "200200",
+                "geo": {
+                  "lat": 19.3110,
+                  "lng": -69.5428
+                },
+                "barrios": [
+                  {
+                    "barrio": "Pueblo de los Pescadores",
+                    "codigo_barrio": "20020001",
+                    "geo": {
+                      "lat": 19.3120,
+                      "lng": -69.5419
+                    },
+                    "sectores": [
+                      {
+                        "sector": "Playa Bonita",
+                        "codigo_sector": "2002000101",
+                        "geo": {
+                          "lat": 19.3037,
+                          "lng": -69.5565
+                        }
+                      },
+                      {
+                        "sector": "Cosón",
+                        "codigo_sector": "2002000102",
+                        "geo": {
+                          "lat": 19.2899,
+                          "lng": -69.5787
+                        }
+                      },
+                      {
+                        "sector": "Las Ballenas",
+                        "codigo_sector": "2002000103",
+                        "geo": {
+                          "lat": 19.3192,
+                          "lng": -69.5361
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Sánchez",
+            "codigo_municipio": "2003",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 19.2281,
+              "lng": -69.6137
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "El Catey",
+                "codigo_distrito_municipal": "200301",
+                "geo": {
+                  "lat": 19.2678,
+                  "lng": -69.7415
+                },
+                "barrios": [
+                  {
+                    "barrio": "El Catey",
+                    "codigo_barrio": "20030101",
+                    "geo": {
+                      "lat": 19.2684,
+                      "lng": -69.7409
+                    },
+                    "sectores": [
+                      {
+                        "sector": "Aeropuerto",
+                        "codigo_sector": "2003010101",
+                        "geo": {
+                          "lat": 19.2670,
+                          "lng": -69.7425
+                        }
+                      },
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "2003010102",
+                        "geo": {
+                          "lat": 19.2691,
+                          "lng": -69.7401
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "San Cristóbal",
+        "codigo_provincia": "21",
+        "iso": "DO-21",
+        "geo": {
+          "lat": 18.4167,
+          "lng": -70.1167
+        },
+        "municipios": [
+          {
+            "municipio": "San Cristóbal",
+            "codigo_municipio": "2101",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 18.4167,
+              "lng": -70.1167
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Hato Damas",
+                "codigo_distrito_municipal": "210101",
+                "geo": {
+                  "lat": 18.4552,
+                  "lng": -70.1641
+                },
+                "barrios": [
+                  {
+                    "barrio": "Hato Damas",
+                    "codigo_barrio": "21010101",
+                    "geo": {
+                      "lat": 18.4558,
+                      "lng": -70.1634
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Placeta",
+                        "codigo_sector": "2101010101",
+                        "geo": {
+                          "lat": 18.4565,
+                          "lng": -70.1627
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "2101010102",
+                        "geo": {
+                          "lat": 18.4547,
+                          "lng": -70.1649
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Hatillo",
+                "codigo_distrito_municipal": "210102",
+                "geo": {
+                  "lat": 18.3831,
+                  "lng": -70.1315
+                },
+                "barrios": [
+                  {
+                    "barrio": "Hatillo",
+                    "codigo_barrio": "21010201",
+                    "geo": {
+                      "lat": 18.3838,
+                      "lng": -70.1309
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "2101020101",
+                        "geo": {
+                          "lat": 18.3844,
+                          "lng": -70.1302
+                        }
+                      },
+                      {
+                        "sector": "Los Maestros",
+                        "codigo_sector": "2101020102",
+                        "geo": {
+                          "lat": 18.3825,
+                          "lng": -70.1321
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "La Cuchilla",
+                "codigo_distrito_municipal": "210103",
+                "geo": {
+                  "lat": 18.4372,
+                  "lng": -70.0953
+                },
+                "barrios": [
+                  {
+                    "barrio": "La Cuchilla",
+                    "codigo_barrio": "21010301",
+                    "geo": {
+                      "lat": 18.4378,
+                      "lng": -70.0946
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "2101030101",
+                        "geo": {
+                          "lat": 18.4384,
+                          "lng": -70.0939
+                        }
+                      },
+                      {
+                        "sector": "Los Ranchos",
+                        "codigo_sector": "2101030102",
+                        "geo": {
+                          "lat": 18.4366,
+                          "lng": -70.0959
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Bajos de Haina",
+            "codigo_municipio": "2102",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.4150,
+              "lng": -70.0333
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Quita Sueño",
+                "codigo_distrito_municipal": "210201",
+                "geo": {
+                  "lat": 18.4017,
+                  "lng": -70.0478
+                },
+                "barrios": [
+                  {
+                    "barrio": "Quita Sueño",
+                    "codigo_barrio": "21020101",
+                    "geo": {
+                      "lat": 18.4023,
+                      "lng": -70.0472
+                    },
+                    "sectores": [
+                      {
+                        "sector": "Zona Industrial",
+                        "codigo_sector": "2102010101",
+                        "geo": {
+                          "lat": 18.4030,
+                          "lng": -70.0465
+                        }
+                      },
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "2102010102",
+                        "geo": {
+                          "lat": 18.4011,
+                          "lng": -70.0485
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

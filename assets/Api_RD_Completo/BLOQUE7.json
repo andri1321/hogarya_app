@@ -1,0 +1,471 @@
+[
+  {
+    "region": "Yamasá",
+    "codigo_region": "R05",
+    "geo": {
+      "lat": 18.8765,
+      "lng": -69.7502
+    },
+    "provincias": [
+      {
+        "provincia": "Monte Plata",
+        "codigo_provincia": "29",
+        "iso": "DO-29",
+        "geo": {
+          "lat": 18.8070,
+          "lng": -69.7837
+        },
+        "municipios": [
+          {
+            "municipio": "Monte Plata",
+            "codigo_municipio": "2901",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 18.8070,
+              "lng": -69.7837
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Boyá",
+                "codigo_distrito_municipal": "290101",
+                "geo": {
+                  "lat": 18.8204,
+                  "lng": -69.7451
+                },
+                "barrios": [
+                  {
+                    "barrio": "Boyá Centro",
+                    "codigo_barrio": "29010101",
+                    "geo": {
+                      "lat": 18.8211,
+                      "lng": -69.7445
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "2901010101",
+                        "geo": {
+                          "lat": 18.8217,
+                          "lng": -69.7438
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "2901010102",
+                        "geo": {
+                          "lat": 18.8205,
+                          "lng": -69.7459
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Chirino",
+                "codigo_distrito_municipal": "290102",
+                "geo": {
+                  "lat": 18.7632,
+                  "lng": -69.6924
+                },
+                "barrios": [
+                  {
+                    "barrio": "Chirino",
+                    "codigo_barrio": "29010201",
+                    "geo": {
+                      "lat": 18.7638,
+                      "lng": -69.6917
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "2901020101",
+                        "geo": {
+                          "lat": 18.7641,
+                          "lng": -69.6908
+                        }
+                      },
+                      {
+                        "sector": "Los Ranchos",
+                        "codigo_sector": "2901020102",
+                        "geo": {
+                          "lat": 18.7629,
+                          "lng": -69.6929
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Don Juan",
+                "codigo_distrito_municipal": "290103",
+                "geo": {
+                  "lat": 18.8276,
+                  "lng": -69.9462
+                },
+                "barrios": [
+                  {
+                    "barrio": "Don Juan Centro",
+                    "codigo_barrio": "29010301",
+                    "geo": {
+                      "lat": 18.8281,
+                      "lng": -69.9453
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Placeta",
+                        "codigo_sector": "2901030101",
+                        "geo": {
+                          "lat": 18.8285,
+                          "lng": -69.9446
+                        }
+                      },
+                      {
+                        "sector": "Los Solares",
+                        "codigo_sector": "2901030102",
+                        "geo": {
+                          "lat": 18.8272,
+                          "lng": -69.9468
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Bayaguana",
+            "codigo_municipio": "2902",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.7611,
+              "lng": -69.6376
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Majagual",
+                "codigo_distrito_municipal": "290201",
+                "geo": {
+                  "lat": 18.7458,
+                  "lng": -69.6215
+                },
+                "barrios": [
+                  {
+                    "barrio": "Majagual",
+                    "codigo_barrio": "29020101",
+                    "geo": {
+                      "lat": 18.7463,
+                      "lng": -69.6209
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "2902010101",
+                        "geo": {
+                          "lat": 18.7470,
+                          "lng": -69.6201
+                        }
+                      },
+                      {
+                        "sector": "Los Maestros",
+                        "codigo_sector": "2902010102",
+                        "geo": {
+                          "lat": 18.7454,
+                          "lng": -69.6223
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Sabana Grande de Boyá",
+            "codigo_municipio": "2903",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.9448,
+              "lng": -69.7938
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Gonzalo",
+                "codigo_distrito_municipal": "290301",
+                "geo": {
+                  "lat": 18.9275,
+                  "lng": -69.7602
+                },
+                "barrios": [
+                  {
+                    "barrio": "Gonzalo",
+                    "codigo_barrio": "29030101",
+                    "geo": {
+                      "lat": 18.9280,
+                      "lng": -69.7596
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "2903010101",
+                        "geo": {
+                          "lat": 18.9286,
+                          "lng": -69.7588
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "2903010102",
+                        "geo": {
+                          "lat": 18.9272,
+                          "lng": -69.7609
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "Pedernales",
+        "codigo_provincia": "16",
+        "iso": "DO-16",
+        "geo": {
+          "lat": 18.0384,
+          "lng": -71.7412
+        },
+        "municipios": [
+          {
+            "municipio": "Pedernales",
+            "codigo_municipio": "1601",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 18.0384,
+              "lng": -71.7412
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "José Francisco Peña Gómez",
+                "codigo_distrito_municipal": "160101",
+                "geo": {
+                  "lat": 17.9723,
+                  "lng": -71.6441
+                },
+                "barrios": [
+                  {
+                    "barrio": "Oviedo",
+                    "codigo_barrio": "16010101",
+                    "geo": {
+                      "lat": 17.9716,
+                      "lng": -71.6435
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "1601010101",
+                        "geo": {
+                          "lat": 17.9721,
+                          "lng": -71.6428
+                        }
+                      },
+                      {
+                        "sector": "Los Solares",
+                        "codigo_sector": "1601010102",
+                        "geo": {
+                          "lat": 17.9710,
+                          "lng": -71.6443
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "Peravia",
+        "codigo_provincia": "17",
+        "iso": "DO-17",
+        "geo": {
+          "lat": 18.2796,
+          "lng": -70.3319
+        },
+        "municipios": [
+          {
+            "municipio": "Baní",
+            "codigo_municipio": "1701",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 18.2796,
+              "lng": -70.3319
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Catalina",
+                "codigo_distrito_municipal": "170101",
+                "geo": {
+                  "lat": 18.2667,
+                  "lng": -70.2984
+                },
+                "barrios": [
+                  {
+                    "barrio": "Catalina Centro",
+                    "codigo_barrio": "17010101",
+                    "geo": {
+                      "lat": 18.2672,
+                      "lng": -70.2978
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "1701010101",
+                        "geo": {
+                          "lat": 18.2677,
+                          "lng": -70.2970
+                        }
+                      },
+                      {
+                        "sector": "Los Ranchos",
+                        "codigo_sector": "1701010102",
+                        "geo": {
+                          "lat": 18.2664,
+                          "lng": -70.2991
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "El Carretón",
+                "codigo_distrito_municipal": "170102",
+                "geo": {
+                  "lat": 18.2335,
+                  "lng": -70.5287
+                },
+                "barrios": [
+                  {
+                    "barrio": "El Carretón",
+                    "codigo_barrio": "17010201",
+                    "geo": {
+                      "lat": 18.2341,
+                      "lng": -70.5280
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Playa",
+                        "codigo_sector": "1701020101",
+                        "geo": {
+                          "lat": 18.2347,
+                          "lng": -70.5273
+                        }
+                      },
+                      {
+                        "sector": "Los Pescadores",
+                        "codigo_sector": "1701020102",
+                        "geo": {
+                          "lat": 18.2330,
+                          "lng": -70.5295
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Villa Fundación",
+                "codigo_distrito_municipal": "170103",
+                "geo": {
+                  "lat": 18.2865,
+                  "lng": -70.3621
+                },
+                "barrios": [
+                  {
+                    "barrio": "Villa Fundación",
+                    "codigo_barrio": "17010301",
+                    "geo": {
+                      "lat": 18.2871,
+                      "lng": -70.3615
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Placeta",
+                        "codigo_sector": "1701030101",
+                        "geo": {
+                          "lat": 18.2878,
+                          "lng": -70.3607
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "1701030102",
+                        "geo": {
+                          "lat": 18.2862,
+                          "lng": -70.3629
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Nizao",
+            "codigo_municipio": "1702",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.2464,
+              "lng": -70.2105
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Pizarrete",
+                "codigo_distrito_municipal": "170201",
+                "geo": {
+                  "lat": 18.2182,
+                  "lng": -70.1807
+                },
+                "barrios": [
+                  {
+                    "barrio": "Pizarrete",
+                    "codigo_barrio": "17020101",
+                    "geo": {
+                      "lat": 18.2188,
+                      "lng": -70.1801
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "1702010101",
+                        "geo": {
+                          "lat": 18.2195,
+                          "lng": -70.1794
+                        }
+                      },
+                      {
+                        "sector": "La Gallera",
+                        "codigo_sector": "1702010102",
+                        "geo": {
+                          "lat": 18.2179,
+                          "lng": -70.1815
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,609 @@
+[
+  {
+    "region": "El Valle",
+    "codigo_region": "R07",
+    "geo": {
+      "lat": 18.8731,
+      "lng": -71.7042
+    },
+    "provincias": [
+      {
+        "provincia": "Elías Piña",
+        "codigo_provincia": "07",
+        "iso": "DO-07",
+        "geo": {
+          "lat": 18.8764,
+          "lng": -71.7048
+        },
+        "municipios": [
+          {
+            "municipio": "Comendador",
+            "codigo_municipio": "0701",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 18.8756,
+              "lng": -71.7024
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Guayabo",
+                "codigo_distrito_municipal": "070101",
+                "geo": {
+                  "lat": 18.8615,
+                  "lng": -71.6839
+                },
+                "barrios": [
+                  {
+                    "barrio": "Guayabo Centro",
+                    "codigo_barrio": "07010101",
+                    "geo": {
+                      "lat": 18.8621,
+                      "lng": -71.6832
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "0701010101",
+                        "geo": {
+                          "lat": 18.8628,
+                          "lng": -71.6825
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "0701010102",
+                        "geo": {
+                          "lat": 18.8614,
+                          "lng": -71.6841
+                        }
+                      },
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "0701010103",
+                        "geo": {
+                          "lat": 18.8609,
+                          "lng": -71.6850
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Sabana Larga",
+                "codigo_distrito_municipal": "070102",
+                "geo": {
+                  "lat": 18.8936,
+                  "lng": -71.7317
+                },
+                "barrios": [
+                  {
+                    "barrio": "Sabana Larga Centro",
+                    "codigo_barrio": "07010201",
+                    "geo": {
+                      "lat": 18.8942,
+                      "lng": -71.7309
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Placeta",
+                        "codigo_sector": "0701020101",
+                        "geo": {
+                          "lat": 18.8949,
+                          "lng": -71.7302
+                        }
+                      },
+                      {
+                        "sector": "Los Solares",
+                        "codigo_sector": "0701020102",
+                        "geo": {
+                          "lat": 18.8935,
+                          "lng": -71.7321
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Bánica",
+            "codigo_municipio": "0702",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 19.0821,
+              "lng": -71.7063
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Sabana Cruz",
+                "codigo_distrito_municipal": "070201",
+                "geo": {
+                  "lat": 19.0668,
+                  "lng": -71.6844
+                },
+                "barrios": [
+                  {
+                    "barrio": "Sabana Cruz",
+                    "codigo_barrio": "07020101",
+                    "geo": {
+                      "lat": 19.0675,
+                      "lng": -71.6838
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Frontera",
+                        "codigo_sector": "0702010101",
+                        "geo": {
+                          "lat": 19.0682,
+                          "lng": -71.6831
+                        }
+                      },
+                      {
+                        "sector": "El Centro",
+                        "codigo_sector": "0702010102",
+                        "geo": {
+                          "lat": 19.0671,
+                          "lng": -71.6847
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "El Llano",
+            "codigo_municipio": "0703",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.8167,
+              "lng": -71.6331
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Guanito",
+                "codigo_distrito_municipal": "070301",
+                "geo": {
+                  "lat": 18.8045,
+                  "lng": -71.6194
+                },
+                "barrios": [
+                  {
+                    "barrio": "Guanito",
+                    "codigo_barrio": "07030101",
+                    "geo": {
+                      "lat": 18.8052,
+                      "lng": -71.6187
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "0703010101",
+                        "geo": {
+                          "lat": 18.8059,
+                          "lng": -71.6181
+                        }
+                      },
+                      {
+                        "sector": "Los Ranchos",
+                        "codigo_sector": "0703010102",
+                        "geo": {
+                          "lat": 18.8047,
+                          "lng": -71.6201
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "El Seibo",
+        "codigo_provincia": "08",
+        "iso": "DO-08",
+        "geo": {
+          "lat": 18.7659,
+          "lng": -69.0389
+        },
+        "municipios": [
+          {
+            "municipio": "Santa Cruz del Seibo",
+            "codigo_municipio": "0801",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 18.7659,
+              "lng": -69.0389
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Pedro Sánchez",
+                "codigo_distrito_municipal": "080101",
+                "geo": {
+                  "lat": 18.8604,
+                  "lng": -69.1082
+                },
+                "barrios": [
+                  {
+                    "barrio": "Pedro Sánchez Centro",
+                    "codigo_barrio": "08010101",
+                    "geo": {
+                      "lat": 18.8611,
+                      "lng": -69.1076
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Placeta",
+                        "codigo_sector": "0801010101",
+                        "geo": {
+                          "lat": 18.8618,
+                          "lng": -69.1069
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "0801010102",
+                        "geo": {
+                          "lat": 18.8605,
+                          "lng": -69.1087
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "San Francisco-Vicentillo",
+                "codigo_distrito_municipal": "080102",
+                "geo": {
+                  "lat": 18.7397,
+                  "lng": -69.0213
+                },
+                "barrios": [
+                  {
+                    "barrio": "Vicentillo",
+                    "codigo_barrio": "08010201",
+                    "geo": {
+                      "lat": 18.7403,
+                      "lng": -69.0208
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "0801020101",
+                        "geo": {
+                          "lat": 18.7410,
+                          "lng": -69.0201
+                        }
+                      },
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "0801020102",
+                        "geo": {
+                          "lat": 18.7396,
+                          "lng": -69.0219
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Miches",
+            "codigo_municipio": "0802",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.9835,
+              "lng": -69.0476
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "La Gina",
+                "codigo_distrito_municipal": "080201",
+                "geo": {
+                  "lat": 18.9484,
+                  "lng": -69.0725
+                },
+                "barrios": [
+                  {
+                    "barrio": "La Gina",
+                    "codigo_barrio": "08020101",
+                    "geo": {
+                      "lat": 18.9491,
+                      "lng": -69.0718
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Playa",
+                        "codigo_sector": "0802010101",
+                        "geo": {
+                          "lat": 18.9498,
+                          "lng": -69.0711
+                        }
+                      },
+                      {
+                        "sector": "Los Pescadores",
+                        "codigo_sector": "0802010102",
+                        "geo": {
+                          "lat": 18.9485,
+                          "lng": -69.0730
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "Espaillat",
+        "codigo_provincia": "09",
+        "iso": "DO-09",
+        "geo": {
+          "lat": 19.4042,
+          "lng": -70.5261
+        },
+        "municipios": [
+          {
+            "municipio": "Moca",
+            "codigo_municipio": "0901",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 19.4042,
+              "lng": -70.5261
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Canca La Reina",
+                "codigo_distrito_municipal": "090101",
+                "geo": {
+                  "lat": 19.3825,
+                  "lng": -70.5088
+                },
+                "barrios": [
+                  {
+                    "barrio": "Canca La Reina",
+                    "codigo_barrio": "09010101",
+                    "geo": {
+                      "lat": 19.3831,
+                      "lng": -70.5081
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Placeta",
+                        "codigo_sector": "0901010101",
+                        "geo": {
+                          "lat": 19.3838,
+                          "lng": -70.5075
+                        }
+                      },
+                      {
+                        "sector": "Los Maestros",
+                        "codigo_sector": "0901010102",
+                        "geo": {
+                          "lat": 19.3824,
+                          "lng": -70.5092
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "José Contreras",
+                "codigo_distrito_municipal": "090102",
+                "geo": {
+                  "lat": 19.3574,
+                  "lng": -70.5572
+                },
+                "barrios": [
+                  {
+                    "barrio": "José Contreras",
+                    "codigo_barrio": "09010201",
+                    "geo": {
+                      "lat": 19.3581,
+                      "lng": -70.5565
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "0901020101",
+                        "geo": {
+                          "lat": 19.3588,
+                          "lng": -70.5559
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "0901020102",
+                        "geo": {
+                          "lat": 19.3573,
+                          "lng": -70.5578
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Las Lagunas",
+                "codigo_distrito_municipal": "090103",
+                "geo": {
+                  "lat": 19.3936,
+                  "lng": -70.5488
+                },
+                "barrios": [
+                  {
+                    "barrio": "Las Lagunas",
+                    "codigo_barrio": "09010301",
+                    "geo": {
+                      "lat": 19.3942,
+                      "lng": -70.5481
+                    },
+                    "sectores": [
+                      {
+                        "sector": "El Centro",
+                        "codigo_sector": "0901030101",
+                        "geo": {
+                          "lat": 19.3949,
+                          "lng": -70.5475
+                        }
+                      },
+                      {
+                        "sector": "La Gallera",
+                        "codigo_sector": "0901030102",
+                        "geo": {
+                          "lat": 19.3935,
+                          "lng": -70.5493
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Cayetano Germosén",
+            "codigo_municipio": "0902",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 19.3441,
+              "lng": -70.4837
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Sin Distrito Municipal",
+                "codigo_distrito_municipal": "090200",
+                "geo": {
+                  "lat": 19.3441,
+                  "lng": -70.4837
+                },
+                "barrios": [
+                  {
+                    "barrio": "Cayetano Germosén Centro",
+                    "codigo_barrio": "09020001",
+                    "geo": {
+                      "lat": 19.3448,
+                      "lng": -70.4830
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "0902000101",
+                        "geo": {
+                          "lat": 19.3455,
+                          "lng": -70.4824
+                        }
+                      },
+                      {
+                        "sector": "Los Ranchos",
+                        "codigo_sector": "0902000102",
+                        "geo": {
+                          "lat": 19.3442,
+                          "lng": -70.4841
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Gaspar Hernández",
+            "codigo_municipio": "0903",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 19.6275,
+              "lng": -70.2814
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Joba Arriba",
+                "codigo_distrito_municipal": "090301",
+                "geo": {
+                  "lat": 19.5981,
+                  "lng": -70.2985
+                },
+                "barrios": [
+                  {
+                    "barrio": "Joba Arriba",
+                    "codigo_barrio": "09030101",
+                    "geo": {
+                      "lat": 19.5987,
+                      "lng": -70.2978
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "0903010101",
+                        "geo": {
+                          "lat": 19.5994,
+                          "lng": -70.2971
+                        }
+                      },
+                      {
+                        "sector": "Los Solares",
+                        "codigo_sector": "0903010102",
+                        "geo": {
+                          "lat": 19.5980,
+                          "lng": -70.2991
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Veragua",
+                "codigo_distrito_municipal": "090302",
+                "geo": {
+                  "lat": 19.6374,
+                  "lng": -70.3216
+                },
+                "barrios": [
+                  {
+                    "barrio": "Veragua",
+                    "codigo_barrio": "09030201",
+                    "geo": {
+                      "lat": 19.6381,
+                      "lng": -70.3209
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Playa",
+                        "codigo_sector": "0903020101",
+                        "geo": {
+                          "lat": 19.6388,
+                          "lng": -70.3202
+                        }
+                      },
+                      {
+                        "sector": "Los Pescadores",
+                        "codigo_sector": "0903020102",
+                        "geo": {
+                          "lat": 19.6373,
+                          "lng": -70.3221
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -110,37 +110,42 @@ class PropertyCard extends StatelessWidget {
 
                     Text(
                       'RD\$${property.price.toInt()}',
-
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
+                        fontSize: 12,
                       ),
                     ),
 
                     Text(
                       property.type,
-
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         color: Colors.white70,
-                        fontSize: 10,
+                        fontSize: 9,
                       ),
                     ),
 
                     Text(
                       property.city,
-
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         color: Colors.white70,
-                        fontSize: 10,
+                        fontSize: 9,
                       ),
                     ),
 
                     const Text(
                       'Ver detalles',
-
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 10,
+                        fontSize: 9,
                         decoration:
                             TextDecoration.underline,
                       ),

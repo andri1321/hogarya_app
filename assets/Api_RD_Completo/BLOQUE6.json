@@ -1,0 +1,601 @@
+[
+  {
+    "region": "Cibao Nordeste",
+    "codigo_region": "R03",
+    "geo": {
+      "lat": 19.300000,
+      "lng": -69.850000
+    },
+    "provincias": [
+      {
+        "provincia": "María Trinidad Sánchez",
+        "codigo_provincia": "14",
+        "iso": "DO-14",
+        "geo": {
+          "lat": 19.383333,
+          "lng": -69.850000
+        },
+        "municipios": [
+          {
+            "municipio": "Nagua",
+            "codigo_municipio": "1401",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 19.383333,
+              "lng": -69.850000
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Arroyo al Medio",
+                "codigo_distrito_municipal": "140101",
+                "geo": {
+                  "lat": 19.400000,
+                  "lng": -69.816667
+                },
+                "barrios": [
+                  {
+                    "barrio": "Arroyo al Medio Centro",
+                    "codigo_barrio": "14010101",
+                    "geo": {
+                      "lat": 19.401000,
+                      "lng": -69.817000
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "1401010101",
+                        "geo": {
+                          "lat": 19.401100,
+                          "lng": -69.817100
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "1401010102",
+                        "geo": {
+                          "lat": 19.401200,
+                          "lng": -69.817200
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Las Gordas",
+                "codigo_distrito_municipal": "140102",
+                "geo": {
+                  "lat": 19.450000,
+                  "lng": -69.783333
+                },
+                "barrios": [
+                  {
+                    "barrio": "Las Gordas",
+                    "codigo_barrio": "14010201",
+                    "geo": {
+                      "lat": 19.451000,
+                      "lng": -69.784000
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Playa",
+                        "codigo_sector": "1401020101",
+                        "geo": {
+                          "lat": 19.451100,
+                          "lng": -69.784100
+                        }
+                      },
+                      {
+                        "sector": "Los Pescadores",
+                        "codigo_sector": "1401020102",
+                        "geo": {
+                          "lat": 19.451200,
+                          "lng": -69.784200
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "San José de Matanzas",
+                "codigo_distrito_municipal": "140103",
+                "geo": {
+                  "lat": 19.333333,
+                  "lng": -69.766667
+                },
+                "barrios": [
+                  {
+                    "barrio": "Matanzas",
+                    "codigo_barrio": "14010301",
+                    "geo": {
+                      "lat": 19.334000,
+                      "lng": -69.767000
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "1401030101",
+                        "geo": {
+                          "lat": 19.334100,
+                          "lng": -69.767100
+                        }
+                      },
+                      {
+                        "sector": "Los Ranchos",
+                        "codigo_sector": "1401030102",
+                        "geo": {
+                          "lat": 19.334200,
+                          "lng": -69.767200
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Cabrera",
+            "codigo_municipio": "1402",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 19.633333,
+              "lng": -69.900000
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Arroyo Salado",
+                "codigo_distrito_municipal": "140201",
+                "geo": {
+                  "lat": 19.616667,
+                  "lng": -69.866667
+                },
+                "barrios": [
+                  {
+                    "barrio": "Arroyo Salado",
+                    "codigo_barrio": "14020101",
+                    "geo": {
+                      "lat": 19.617000,
+                      "lng": -69.867000
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Playa",
+                        "codigo_sector": "1402010101",
+                        "geo": {
+                          "lat": 19.617100,
+                          "lng": -69.867100
+                        }
+                      },
+                      {
+                        "sector": "El Puerto",
+                        "codigo_sector": "1402010102",
+                        "geo": {
+                          "lat": 19.617200,
+                          "lng": -69.867200
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Río San Juan",
+            "codigo_municipio": "1403",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 19.650000,
+              "lng": -70.083333
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Sin Distrito Municipal",
+                "codigo_distrito_municipal": "140300",
+                "geo": {
+                  "lat": 19.650000,
+                  "lng": -70.083333
+                },
+                "barrios": [
+                  {
+                    "barrio": "Río San Juan Centro",
+                    "codigo_barrio": "14030001",
+                    "geo": {
+                      "lat": 19.651000,
+                      "lng": -70.084000
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Laguna",
+                        "codigo_sector": "1403000101",
+                        "geo": {
+                          "lat": 19.651100,
+                          "lng": -70.084100
+                        }
+                      },
+                      {
+                        "sector": "La Playa",
+                        "codigo_sector": "1403000102",
+                        "geo": {
+                          "lat": 19.651200,
+                          "lng": -70.084200
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "Monseñor Nouel",
+        "codigo_provincia": "28",
+        "iso": "DO-28",
+        "geo": {
+          "lat": 18.950000,
+          "lng": -70.416667
+        },
+        "municipios": [
+          {
+            "municipio": "Bonao",
+            "codigo_municipio": "2801",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 18.950000,
+              "lng": -70.416667
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Jayaco",
+                "codigo_distrito_municipal": "280101",
+                "geo": {
+                  "lat": 18.933333,
+                  "lng": -70.450000
+                },
+                "barrios": [
+                  {
+                    "barrio": "Jayaco Centro",
+                    "codigo_barrio": "28010101",
+                    "geo": {
+                      "lat": 18.934000,
+                      "lng": -70.451000
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "2801010101",
+                        "geo": {
+                          "lat": 18.934100,
+                          "lng": -70.451100
+                        }
+                      },
+                      {
+                        "sector": "Los Maestros",
+                        "codigo_sector": "2801010102",
+                        "geo": {
+                          "lat": 18.934200,
+                          "lng": -70.451200
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Juma Bejucal",
+                "codigo_distrito_municipal": "280102",
+                "geo": {
+                  "lat": 18.966667,
+                  "lng": -70.400000
+                },
+                "barrios": [
+                  {
+                    "barrio": "Juma",
+                    "codigo_barrio": "28010201",
+                    "geo": {
+                      "lat": 18.967000,
+                      "lng": -70.401000
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Placeta",
+                        "codigo_sector": "2801020101",
+                        "geo": {
+                          "lat": 18.967100,
+                          "lng": -70.401100
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "2801020102",
+                        "geo": {
+                          "lat": 18.967200,
+                          "lng": -70.401200
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Sabana del Puerto",
+                "codigo_distrito_municipal": "280103",
+                "geo": {
+                  "lat": 19.000000,
+                  "lng": -70.500000
+                },
+                "barrios": [
+                  {
+                    "barrio": "Sabana del Puerto",
+                    "codigo_barrio": "28010301",
+                    "geo": {
+                      "lat": 19.001000,
+                      "lng": -70.501000
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "2801030101",
+                        "geo": {
+                          "lat": 19.001100,
+                          "lng": -70.501100
+                        }
+                      },
+                      {
+                        "sector": "Los Ranchos",
+                        "codigo_sector": "2801030102",
+                        "geo": {
+                          "lat": 19.001200,
+                          "lng": -70.501200
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Maimón",
+            "codigo_municipio": "2802",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 18.883333,
+              "lng": -70.300000
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Sin Distrito Municipal",
+                "codigo_distrito_municipal": "280200",
+                "geo": {
+                  "lat": 18.883333,
+                  "lng": -70.300000
+                },
+                "barrios": [
+                  {
+                    "barrio": "Maimón Centro",
+                    "codigo_barrio": "28020001",
+                    "geo": {
+                      "lat": 18.884000,
+                      "lng": -70.301000
+                    },
+                    "sectores": [
+                      {
+                        "sector": "El Centro",
+                        "codigo_sector": "2802000101",
+                        "geo": {
+                          "lat": 18.884100,
+                          "lng": -70.301100
+                        }
+                      },
+                      {
+                        "sector": "La Gallera",
+                        "codigo_sector": "2802000102",
+                        "geo": {
+                          "lat": 18.884200,
+                          "lng": -70.301200
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "provincia": "Monte Cristi",
+        "codigo_provincia": "15",
+        "iso": "DO-15",
+        "geo": {
+          "lat": 19.850000,
+          "lng": -71.650000
+        },
+        "municipios": [
+          {
+            "municipio": "San Fernando de Monte Cristi",
+            "codigo_municipio": "1501",
+            "tipo": "Municipio Cabecera",
+            "geo": {
+              "lat": 19.850000,
+              "lng": -71.650000
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Hatillo Palma",
+                "codigo_distrito_municipal": "150101",
+                "geo": {
+                  "lat": 19.766667,
+                  "lng": -71.716667
+                },
+                "barrios": [
+                  {
+                    "barrio": "Hatillo Palma",
+                    "codigo_barrio": "15010101",
+                    "geo": {
+                      "lat": 19.767000,
+                      "lng": -71.717000
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Entrada",
+                        "codigo_sector": "1501010101",
+                        "geo": {
+                          "lat": 19.767100,
+                          "lng": -71.717100
+                        }
+                      },
+                      {
+                        "sector": "Los Solares",
+                        "codigo_sector": "1501010102",
+                        "geo": {
+                          "lat": 19.767200,
+                          "lng": -71.717200
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "distrito_municipal": "Villa Elisa",
+                "codigo_distrito_municipal": "150102",
+                "geo": {
+                  "lat": 19.683333,
+                  "lng": -71.733333
+                },
+                "barrios": [
+                  {
+                    "barrio": "Villa Elisa",
+                    "codigo_barrio": "15010201",
+                    "geo": {
+                      "lat": 19.684000,
+                      "lng": -71.734000
+                    },
+                    "sectores": [
+                      {
+                        "sector": "El Centro",
+                        "codigo_sector": "1501020101",
+                        "geo": {
+                          "lat": 19.684100,
+                          "lng": -71.734100
+                        }
+                      },
+                      {
+                        "sector": "Los Ranchos",
+                        "codigo_sector": "1501020102",
+                        "geo": {
+                          "lat": 19.684200,
+                          "lng": -71.734200
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Castañuelas",
+            "codigo_municipio": "1502",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 19.716667,
+              "lng": -71.500000
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Palo Verde",
+                "codigo_distrito_municipal": "150201",
+                "geo": {
+                  "lat": 19.783333,
+                  "lng": -71.550000
+                },
+                "barrios": [
+                  {
+                    "barrio": "Palo Verde",
+                    "codigo_barrio": "15020101",
+                    "geo": {
+                      "lat": 19.784000,
+                      "lng": -71.551000
+                    },
+                    "sectores": [
+                      {
+                        "sector": "La Colonia",
+                        "codigo_sector": "1502010101",
+                        "geo": {
+                          "lat": 19.784100,
+                          "lng": -71.551100
+                        }
+                      },
+                      {
+                        "sector": "Los Parceleros",
+                        "codigo_sector": "1502010102",
+                        "geo": {
+                          "lat": 19.784200,
+                          "lng": -71.551200
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "municipio": "Pepillo Salcedo",
+            "codigo_municipio": "1503",
+            "tipo": "Municipio",
+            "geo": {
+              "lat": 19.683333,
+              "lng": -71.750000
+            },
+            "distritos_municipales": [
+              {
+                "distrito_municipal": "Manzanillo",
+                "codigo_distrito_municipal": "150301",
+                "geo": {
+                  "lat": 19.700000,
+                  "lng": -71.766667
+                },
+                "barrios": [
+                  {
+                    "barrio": "Manzanillo",
+                    "codigo_barrio": "15030101",
+                    "geo": {
+                      "lat": 19.701000,
+                      "lng": -71.767000
+                    },
+                    "sectores": [
+                      {
+                        "sector": "El Puerto",
+                        "codigo_sector": "1503010101",
+                        "geo": {
+                          "lat": 19.701100,
+                          "lng": -71.767100
+                        }
+                      },
+                      {
+                        "sector": "La Bahía",
+                        "codigo_sector": "1503010102",
+                        "geo": {
+                          "lat": 19.701200,
+                          "lng": -71.767200
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

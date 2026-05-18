@@ -1,9 +1,15 @@
+import 'dart:ui' as ui;
 import 'dart:ui';
 
+import 'package:app_hogar_ya/data/user_data.dart';
+import 'package:app_hogar_ya/models/map_property.dart';
+import 'package:app_hogar_ya/models/property.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapSearchScreen extends StatefulWidget {
@@ -33,6 +39,11 @@ class _MapSearchScreenState extends State<MapSearchScreen> {
   /// ESTILO MAPA OSCURO
   String? darkMapStyle;
 
+  /// ANIMACIÓN MAPA ENTRADA
+  bool _mapEntered = false;
+
+  String? _selectedPropertyId;
+
   /// FILTROS
   String selectedOperation = "Venta";
   String selectedType = "Apartamento";
@@ -50,49 +61,111 @@ class _MapSearchScreenState extends State<MapSearchScreen> {
     "Penthouse",
   ];
 
-  /// MARCADORES
-  final Set<Marker> _markers = {
-    Marker(
-      markerId: const MarkerId('home_1'),
-      position: const LatLng(19.4550, -70.6990),
-      infoWindow: const InfoWindow(
-        title: 'Casa Moderna',
-        snippet: 'DOP 35K',
-      ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(
-        BitmapDescriptor.hueAzure,
-      ),
-    ),
+  final Set<Marker> _locationMarkers = {};
+  Set<Marker> _markersState = {};
+  List<MapProperty> _visibleProperties = [];
+  LatLngBounds? _currentBounds;
 
-    Marker(
-      markerId: const MarkerId('home_2'),
-      position: const LatLng(19.4490, -70.6940),
-      infoWindow: const InfoWindow(
-        title: 'Apartamento Premium',
-        snippet: 'DOP 45K',
+  final List<Property> _fallbackProperties = [
+    Property(
+      id: "map_1",
+      title: "Apartamento moderno",
+      description: "Apartamento moderno cerca del centro de Santiago.",
+      city: "Santiago",
+      type: "Apartamento",
+      price: 4500000,
+      images: const [
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      ],
+      likes: 120,
+      comments: 45,
+      shares: 10,
+      views: 500,
+      owner: Owner(
+        name: "Pedro Almonte",
+        avatar: "https://i.pravatar.cc/150?img=3",
+        verified: true,
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(
-        BitmapDescriptor.hueRose,
-      ),
+      isFavorite: false,
+      latitude: 19.4550,
+      longitude: -70.6990,
+      bedrooms: 3,
+      bathrooms: 2,
+      size: 145,
     ),
-
-    Marker(
-      markerId: const MarkerId('home_3'),
-      position: const LatLng(19.4470, -70.7010),
-      infoWindow: const InfoWindow(
-        title: 'Villa Exclusiva',
-        snippet: 'DOP 85K',
+    Property(
+      id: "map_2",
+      title: "Casa familiar acogedora",
+      description: "Casa familiar con patio y buena ubicación.",
+      city: "Santiago",
+      type: "Casa",
+      price: 6500000,
+      images: const [
+        "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+      ],
+      likes: 230,
+      comments: 60,
+      shares: 25,
+      views: 980,
+      owner: Owner(
+        name: "Ana Garcia",
+        avatar: "https://i.pravatar.cc/150?img=9",
+        verified: true,
       ),
-      icon: BitmapDescriptor.defaultMarkerWithHue(
-        BitmapDescriptor.hueGreen,
-      ),
+      isFavorite: false,
+      latitude: 19.4490,
+      longitude: -70.6940,
+      bedrooms: 3,
+      bathrooms: 2,
+      parking: 1,
+      size: 200,
     ),
-  };
+    Property(
+      id: "map_3",
+      title: "Villa exclusiva",
+      description: "Villa con espacios amplios y terminaciones premium.",
+      city: "Santiago",
+      type: "Villa",
+      price: 12000000,
+      images: const [
+        "https://images.unsplash.com/photo-1613977257363-707ba9348227",
+      ],
+      likes: 560,
+      comments: 120,
+      shares: 80,
+      views: 2400,
+      owner: Owner(
+        name: "Maria Lopez",
+        avatar: "https://i.pravatar.cc/150?img=5",
+        verified: true,
+      ),
+      isFavorite: true,
+      latitude: 19.4470,
+      longitude: -70.7010,
+      bedrooms: 4,
+      bathrooms: 3,
+      parking: 2,
+      size: 450,
+    ),
+  ];
 
   @override
   void initState() {
     super.initState();
     _loadMapStyle();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      setState(() {
+        _mapEntered = true;
+      });
+      _updateVisibleProperties().then((_) {
+        if (mounted && _visibleProperties.isNotEmpty) {
+          setState(() {
+            _selectedPropertyId = _visibleProperties.first.property.id;
+          });
+        }
+      });
+    });
   }
 
   @override
@@ -119,14 +192,218 @@ class _MapSearchScreenState extends State<MapSearchScreen> {
     );
   }
 
+  Future<void> _onCameraIdle() async {
+    if (mapController == null) return;
+    final bounds = await mapController!.getVisibleRegion();
+    setState(() {
+      _currentBounds = bounds;
+    });
+    _updateVisibleProperties();
+  }
+
+  Future<void> _updateVisibleProperties() async {
+    final source = UserData.allPublications.isNotEmpty
+        ? UserData.allPublications
+        : _fallbackProperties;
+
+    final filtered = source.where((property) {
+      final operationMatch = selectedOperation == "Venta"
+          ? property.isForSale
+          : !property.isForSale;
+      final typeMatch = selectedType.isEmpty || property.type == selectedType;
+      final minPrice = double.tryParse(_minPriceController.text.trim()) ?? 0;
+      final maxPrice = double.tryParse(_maxPriceController.text.trim()) ??
+          double.infinity;
+      final priceMatch = property.price >= minPrice && property.price <= maxPrice;
+
+      return operationMatch && typeMatch && priceMatch;
+    }).toList();
+
+    List<MapProperty> mapped = List.generate(filtered.length, (index) {
+      return MapProperty.fromProperty(
+        filtered[index],
+        fallbackPosition: LatLng(
+          _center.latitude + (index * 0.003),
+          _center.longitude + (index * 0.003),
+        ),
+      );
+    });
+
+    if (_currentBounds != null) {
+      mapped = mapped.where((item) {
+        return _currentBounds!.contains(item.position);
+      }).toList();
+    }
+
+    setState(() {
+      _visibleProperties = mapped;
+    });
+
+    await _updateMarkers();
+  }
+
+  String _formatPriceShort(double price) {
+    if (price >= 1000000) {
+      return "DOP ${(price / 1000000).toStringAsFixed(1)}M";
+    } else if (price >= 1000) {
+      return "DOP ${(price / 1000).toStringAsFixed(0)}K";
+    }
+    return "DOP ${price.toStringAsFixed(0)}";
+  }
+
+  Future<BitmapDescriptor> _createCustomMarker(String text, bool isSelected) async {
+    final ui.PictureRecorder pictureRecorder = ui.PictureRecorder();
+    final Canvas canvas = Canvas(pictureRecorder);
+
+    final Paint paint = Paint()
+      ..color = isSelected ? Colors.black : Colors.white;
+
+    final Paint borderPaint = Paint()
+      ..color = isSelected ? Colors.transparent : Colors.grey.shade300
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2.0;
+
+    final double width = 100.0;
+    final double height = 45.0;
+    final Radius radius = const Radius.circular(20.0);
+
+    final RRect rRect = RRect.fromRectAndRadius(
+      Rect.fromLTWH(0.0, 0.0, width, height),
+      radius,
+    );
+
+    final Path path = Path()..addRRect(rRect);
+    canvas.drawShadow(path, Colors.black, 4.0, true);
+
+    canvas.drawRRect(rRect, paint);
+    canvas.drawRRect(rRect, borderPaint);
+
+    final TextPainter painter = TextPainter(textDirection: ui.TextDirection.ltr);
+    painter.text = TextSpan(
+      text: text,
+      style: TextStyle(
+        fontSize: 15.0,
+        color: isSelected ? Colors.white : Colors.black,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+
+    painter.layout();
+    painter.paint(
+      canvas,
+      Offset(
+        (width * 0.5) - painter.width * 0.5,
+        (height * 0.5) - painter.height * 0.5,
+      ),
+    );
+
+    final img = await pictureRecorder.endRecording().toImage(
+          width.toInt(),
+          height.toInt(),
+        );
+    final data = await img.toByteData(format: ui.ImageByteFormat.png);
+
+    return BitmapDescriptor.fromBytes(data!.buffer.asUint8List());
+  }
+
+  Future<void> _updateMarkers() async {
+    final Set<Marker> newMarkers = {};
+
+    for (final item in _visibleProperties) {
+      final selected = item.property.id == _selectedPropertyId;
+      final icon = await _createCustomMarker(
+          _formatPriceShort(item.property.price), selected);
+
+      newMarkers.add(Marker(
+        markerId: MarkerId(item.property.id),
+        position: item.position,
+        icon: icon,
+        onTap: () => _selectProperty(item),
+      ));
+    }
+
+    newMarkers.addAll(_locationMarkers);
+
+    if (mounted) {
+      setState(() {
+        _markersState = newMarkers;
+      });
+    }
+  }
+
+  Future<void> _selectProperty(
+    MapProperty item,
+  ) async {
+    setState(() {
+      _selectedPropertyId = item.property.id;
+    });
+
+    await _goToPosition(item.position);
+    await _updateMarkers();
+  }
+
+  Widget _cachedPropertyImage(String? imageUrl) {
+    return imageUrl == null
+        ? Container(
+            width: 130,
+            height: double.infinity,
+            color: Colors.grey.shade200,
+            child: const Icon(
+              Icons.home_outlined,
+              size: 44,
+              color: Colors.grey,
+            ),
+          )
+        : CachedNetworkImage(
+            imageUrl: imageUrl,
+            width: 130,
+            height: double.infinity,
+            fit: BoxFit.cover,
+            placeholder: (context, url) => Container(
+              width: 130,
+              height: double.infinity,
+              color: Colors.grey.shade200,
+              child: const Center(
+                child: CircularProgressIndicator(
+                  strokeWidth: 2.2,
+                ),
+              ),
+            ),
+            errorWidget: (context, url, error) => Container(
+              width: 130,
+              height: double.infinity,
+              color: Colors.grey.shade200,
+              child: const Icon(
+                Icons.broken_image,
+                size: 44,
+                color: Colors.grey,
+              ),
+            ),
+          );
+  }
+
+  String _formatPrice(double price) {
+    final formatted = price
+        .toStringAsFixed(0)
+        .replaceAllMapped(RegExp(r"\B(?=(\d{3})+(?!\d))"),
+            (match) => ",");
+
+    return "DOP $formatted";
+  }
+
   Future<void> _searchLocation(
     String query,
   ) async {
     if (query.trim().isEmpty) return;
 
+    final queryWithCountry = query.trim().toLowerCase().contains("republica dominicana") || 
+                             query.trim().toLowerCase().contains("república dominicana")
+        ? query.trim()
+        : "${query.trim()}, República Dominicana";
+
     try {
       final locations = await locationFromAddress(
-        query.trim(),
+        queryWithCountry,
       );
 
       if (locations.isEmpty) {
@@ -151,13 +428,13 @@ class _MapSearchScreenState extends State<MapSearchScreen> {
       );
 
       setState(() {
-        _markers.removeWhere(
+        _locationMarkers.removeWhere(
           (marker) =>
               marker.markerId.value ==
               'search_location',
         );
 
-        _markers.add(
+        _locationMarkers.add(
           Marker(
             markerId: const MarkerId(
               'search_location',
@@ -176,6 +453,8 @@ class _MapSearchScreenState extends State<MapSearchScreen> {
           ),
         );
       });
+
+      await _updateMarkers();
 
       await _goToPosition(position);
     } catch (e) {
@@ -244,13 +523,13 @@ class _MapSearchScreenState extends State<MapSearchScreen> {
     );
 
     setState(() {
-      _markers.removeWhere(
+      _locationMarkers.removeWhere(
         (marker) =>
             marker.markerId.value ==
             'current_location',
       );
 
-      _markers.add(
+      _locationMarkers.add(
         Marker(
           markerId: const MarkerId(
             'current_location',
@@ -269,6 +548,8 @@ class _MapSearchScreenState extends State<MapSearchScreen> {
         ),
       );
     });
+
+    await _updateMarkers();
 
     await _goToPosition(target);
   }
@@ -708,58 +989,73 @@ class _MapSearchScreenState extends State<MapSearchScreen> {
       body: Stack(
         children: [
           /// MAPA
-          GoogleMap(
-            initialCameraPosition:
-                CameraPosition(
-              target: _center,
-              zoom: 14,
+          AnimatedOpacity(
+            duration: const Duration(milliseconds: 650),
+            curve: Curves.easeOutCubic,
+            opacity: _mapEntered ? 1 : 0,
+            child: AnimatedScale(
+              duration: const Duration(milliseconds: 650),
+              curve: Curves.easeOutCubic,
+              scale: _mapEntered ? 1 : 1.04,
+              child: GoogleMap(
+                initialCameraPosition:
+                    CameraPosition(
+                  target: _center,
+                  zoom: 14,
+                ),
+
+                markers: _markersState,
+                onCameraIdle: _onCameraIdle,
+
+                zoomControlsEnabled: false,
+                myLocationButtonEnabled:
+                    false,
+
+                compassEnabled: false,
+
+                buildingsEnabled: true,
+
+                mapToolbarEnabled: false,
+
+                style: darkMapStyle,
+
+                onMapCreated: (controller) {
+                  mapController = controller;
+                },
+              ),
             ),
-
-            markers: _markers,
-
-            zoomControlsEnabled: false,
-            myLocationButtonEnabled:
-                false,
-
-            compassEnabled: false,
-
-            buildingsEnabled: true,
-
-            mapToolbarEnabled: false,
-
-            style: darkMapStyle,
-
-            onMapCreated: (controller) {
-              mapController = controller;
-            },
           ),
 
           /// OVERLAY
-          Container(
-            color: Colors.black.withValues(
-              alpha: 0.08,
+          IgnorePointer(
+            child: Container(
+              color: Colors.black.withValues(
+                alpha: 0.08,
+              ),
             ),
           ),
 
           /// GRADIENTE
-          Container(
-            height: 220,
+          IgnorePointer(
+            child: Container(
+              height: 220,
 
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin:
-                    Alignment.topCenter,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin:
+                      Alignment.topCenter,
 
-                end:
-                    Alignment.bottomCenter,
+                  end:
+                      Alignment.bottomCenter,
 
-                colors: [
-                  Colors.black.withValues(
-                    alpha: 0.45,
-                  ),
+                  colors: [
+                    Colors.black.withValues(
+                      alpha: 0.45,
+                    ),
 
-                  Colors.transparent,
-                ],
+                    Colors.transparent,
+                  ],
+                ),
               ),
             ),
           ),
@@ -948,36 +1244,7 @@ class _MapSearchScreenState extends State<MapSearchScreen> {
             ),
           ),
 
-          /// MARKERS
-          Positioned(
-            left: 60,
-            top: 280,
-
-            child: _priceMarker(
-              "DOP 35K",
-              true,
-            ),
-          ),
-
-          Positioned(
-            right: 80,
-            top: 340,
-
-            child: _priceMarker(
-              "DOP 45K",
-              false,
-            ),
-          ),
-
-          Positioned(
-            left: 130,
-            top: 420,
-
-            child: _priceMarker(
-              "DOP 85K",
-              false,
-            ),
-          ),
+          /// MARKERS RENUEVOS
 
           /// BOTTOM SHEET
           DraggableScrollableSheet(
@@ -1064,13 +1331,13 @@ class _MapSearchScreenState extends State<MapSearchScreen> {
                                 .spaceBetween,
 
                         children: [
-                          const Column(
+                          Column(
                             crossAxisAlignment:
                                 CrossAxisAlignment
                                     .start,
 
                             children: [
-                              Text(
+                              const Text(
                                 "Propiedades",
 
                                 style:
@@ -1084,15 +1351,15 @@ class _MapSearchScreenState extends State<MapSearchScreen> {
                                 ),
                               ),
 
-                              SizedBox(
+                              const SizedBox(
                                 height: 3,
                               ),
 
                               Text(
-                                "12 resultados cerca",
+                                "${_visibleProperties.length} resultados cerca",
 
                                 style:
-                                    TextStyle(
+                                    const TextStyle(
                                   color:
                                       Colors
                                           .grey,
@@ -1174,112 +1441,91 @@ class _MapSearchScreenState extends State<MapSearchScreen> {
                           horizontal: 20,
                         ),
 
-                        itemCount: 10,
+                        itemCount: _visibleProperties.length,
 
                         itemBuilder:
                             (
                           context,
                           index,
                         ) {
+                          final item = _visibleProperties[index];
+                          final selected =
+                              item.property.id == _selectedPropertyId;
+                          final property = item.property;
+                          final imageUrl = property.images.isNotEmpty
+                              ? property.images.first
+                              : null;
+
                           return GestureDetector(
                             onTap:
                                 () async {
-                              final controller =
-                                  mapController;
-
-                              if (controller ==
-                                  null) {
-                                return;
-                              }
-
-                              await controller
-                                  .animateCamera(
-                                CameraUpdate.newLatLngZoom(
-                                  LatLng(
-                                    19.4517 +
-                                        (index *
-                                            0.001),
-
-                                    -70.6970,
-                                  ),
-
-                                  16,
-                                ),
-                              );
+                              await _selectProperty(item);
                             },
-
                             child:
                                 AnimatedContainer(
                               duration:
                                   const Duration(
                                 milliseconds:
-                                    250,
+                                    300,
                               ),
-
+                              curve: Curves.easeOutCubic,
                               margin:
-                                  const EdgeInsets.only(
+                                  EdgeInsets.only(
                                 bottom:
                                     20,
+                                left: selected ? 0 : 4,
+                                right: selected ? 0 : 4,
                               ),
-
                               height:
-                                  145,
-
+                                  selected ? 156 : 145,
                               decoration:
                                   BoxDecoration(
                                 color:
                                     Colors.white,
-
                                 borderRadius:
                                     BorderRadius.circular(
-                                  28,
+                                  selected ? 28 : 24,
                                 ),
-
+                                border: Border.all(
+                                  color: selected
+                                      ? Colors.black.withValues(
+                                          alpha:
+                                              0.12,
+                                        )
+                                      : Colors.transparent,
+                                  width: 1.2,
+                                ),
                                 boxShadow: [
                                   BoxShadow(
                                     color: Colors.black.withValues(
-                                      alpha:
-                                          0.05,
+                                      alpha: selected ? 0.12 : 0.05,
                                     ),
-
                                     blurRadius:
-                                        18,
+                                        selected ? 26 : 18,
+                                    offset:
+                                        const Offset(0, 10),
                                   ),
                                 ],
                               ),
-
                               child:
                                   Row(
                                 children: [
                                   Hero(
                                     tag:
-                                        'house$index',
-
+                                        'map-house-${property.id}-$index',
                                     child:
                                         ClipRRect(
                                       borderRadius:
                                           const BorderRadius.horizontal(
                                         left:
                                             Radius.circular(
-                                          28,
+                                          24,
                                         ),
                                       ),
-
                                       child:
-                                          Image.network(
-                                        'https://images.unsplash.com/photo-1568605114967-8130f3a36994',
-
-                                        width:
-                                            130,
-
-                                        height:
-                                            double.infinity,
-
-                                        fit: BoxFit.cover,
-                                      ),
+                                          _cachedPropertyImage(imageUrl),
                                     ),
                                   ),
-
                                   Expanded(
                                     child:
                                         Padding(
@@ -1287,143 +1533,154 @@ class _MapSearchScreenState extends State<MapSearchScreen> {
                                           const EdgeInsets.all(
                                         15,
                                       ),
-
                                       child:
                                           Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
-
                                         children: [
                                           Row(
                                             children: [
                                               Expanded(
                                                 child:
                                                     Text(
-                                                  "Apartamento Moderno",
-
+                                                  property.title,
+                                                  maxLines:
+                                                      1,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                   style:
-                                                      TextStyle(
+                                                      const TextStyle(
                                                     fontWeight:
                                                         FontWeight.bold,
-
                                                     fontSize:
                                                         17,
                                                   ),
                                                 ),
                                               ),
-
-                                              Icon(
-                                                Icons.favorite_border,
-
-                                                color:
-                                                    Colors.grey.shade700,
+                                              GestureDetector(
+                                                onTap:
+                                                    () =>
+                                                        UserData.toggleFavorite(
+                                                          property,
+                                                        ),
+                                                child:
+                                                    Icon(
+                                                  property.isFavorite
+                                                      ? Icons.favorite
+                                                      : Icons.favorite_border,
+                                                  color: property.isFavorite
+                                                      ? Colors.redAccent
+                                                      : Colors.grey.shade700,
+                                                ),
                                               ),
                                             ],
                                           ),
-
                                           const SizedBox(
                                             height:
                                                 5,
                                           ),
-
                                           Text(
-                                            "Santiago, República Dominicana",
-
+                                            "${property.city}, República Dominicana",
+                                            maxLines: 1,
+                                            overflow:
+                                                TextOverflow.ellipsis,
                                             style:
                                                 TextStyle(
                                               color:
                                                   Colors.grey.shade600,
                                             ),
                                           ),
-
                                           const SizedBox(
                                             height:
                                                 12,
                                           ),
-
                                           Row(
                                             children: [
                                               _miniInfo(
                                                 Icons.bed,
-                                                "3",
+                                                "${property.bedrooms}",
                                               ),
-
                                               const SizedBox(
                                                 width:
                                                     12,
                                               ),
-
                                               _miniInfo(
                                                 Icons.bathtub,
-                                                "2",
+                                                "${property.bathrooms}",
                                               ),
-
                                               const SizedBox(
                                                 width:
                                                     12,
                                               ),
-
                                               _miniInfo(
                                                 Icons.square_foot,
-                                                "145m",
+                                                "${property.size.toInt()}m",
                                               ),
                                             ],
                                           ),
-
                                           const Spacer(),
-
                                           Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
-
                                             children: [
-                                              Text(
-                                                "DOP 45,000",
-
-                                                style:
-                                                    TextStyle(
-                                                  color:
-                                                      Colors.blue.shade900,
-
-                                                  fontWeight:
-                                                      FontWeight.bold,
-
-                                                  fontSize:
-                                                      20,
-                                                ),
-                                              ),
-
-                                              Container(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                  horizontal:
-                                                      15,
-                                                  vertical:
-                                                      10,
-                                                ),
-
-                                                decoration:
-                                                    BoxDecoration(
-                                                  color:
-                                                      Colors.black,
-
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                    16,
-                                                  ),
-                                                ),
-
+                                              Flexible(
                                                 child:
-                                                    const Text(
-                                                  "Detalles",
-
+                                                    Text(
+                                                  _formatPrice(
+                                                      property.price),
+                                                  maxLines:
+                                                      1,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                   style:
                                                       TextStyle(
                                                     color:
-                                                        Colors.white,
-
+                                                        Colors.blue.shade900,
                                                     fontWeight:
-                                                        FontWeight.w600,
+                                                        FontWeight.bold,
+                                                    fontSize:
+                                                        20,
+                                                  ),
+                                                ),
+                                              ),
+                                              GestureDetector(
+                                                onTap:
+                                                    () =>
+                                                        context.push(
+                                                          '/property-details',
+                                                          extra:
+                                                              property,
+                                                        ),
+                                                child:
+                                                    Container(
+                                                  padding:
+                                                      const EdgeInsets.symmetric(
+                                                    horizontal:
+                                                        15,
+                                                    vertical:
+                                                        10,
+                                                  ),
+                                                  decoration:
+                                                      BoxDecoration(
+                                                    color:
+                                                        selected
+                                                            ? Colors.black
+                                                            : Colors.grey.shade900,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                      16,
+                                                    ),
+                                                  ),
+                                                  child:
+                                                      const Text(
+                                                    "Detalles",
+                                                    style:
+                                                        TextStyle(
+                                                      color:
+                                                          Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -1495,58 +1752,6 @@ class _MapSearchScreenState extends State<MapSearchScreen> {
               color: Colors.white,
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  /// MARKER PRECIO
-  Widget _priceMarker(
-    String price,
-    bool selected,
-  ) {
-    return AnimatedContainer(
-      duration: const Duration(
-        milliseconds: 250,
-      ),
-
-      padding:
-          const EdgeInsets.symmetric(
-        horizontal: 16,
-        vertical: 10,
-      ),
-
-      decoration: BoxDecoration(
-        color:
-            selected
-                ? Colors.white
-                : Colors.black,
-
-        borderRadius:
-            BorderRadius.circular(20),
-
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(
-              alpha: 0.25,
-            ),
-
-            blurRadius: 15,
-          ),
-        ],
-      ),
-
-      child: Text(
-        price,
-
-        style: TextStyle(
-          color:
-              selected
-                  ? Colors.black
-                  : Colors.white,
-
-          fontWeight:
-              FontWeight.bold,
         ),
       ),
     );

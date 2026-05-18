@@ -1,5 +1,6 @@
 import 'package:app_hogar_ya/data/user_data.dart';
 import 'package:app_hogar_ya/models/property.dart';
+import 'package:app_hogar_ya/widgets/profile_touchable.dart';
 import 'package:flutter/material.dart';
 
 class PropertySocialActions {
@@ -135,6 +136,7 @@ class PropertySocialActions {
                                   CrossAxisAlignment.start,
                               children: [
                                 _buildCommentItem(
+                                  context,
                                   comment,
                                   onLike: () {
                                     setModalState(() {
@@ -200,6 +202,7 @@ class PropertySocialActions {
                                     ...comment["replies"]
                                         .map<Widget>((reply) {
                                       return _buildCommentItem(
+                                        context,
                                         reply,
                                         isReply: true,
                                         onLike: () =>
@@ -282,6 +285,7 @@ class PropertySocialActions {
   }
 
   static Widget _buildCommentItem(
+    BuildContext context,
     Map<String, dynamic> data, {
     bool isReply = false,
     VoidCallback? onLike,
@@ -295,12 +299,20 @@ class PropertySocialActions {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CircleAvatar(
-            radius: isReply ? 14 : 18,
-            backgroundColor: Colors.grey.shade200,
-            child: Text(
-              data["name"][0],
-              style: const TextStyle(fontSize: 12),
+          ProfileTouchable(
+            owner: Owner(
+              name: data["name"],
+              avatar: "https://via.placeholder.com/150",
+              verified: false,
+              id: data["name"],
+            ),
+            child: CircleAvatar(
+              radius: isReply ? 14 : 18,
+              backgroundColor: Colors.grey.shade200,
+              child: Text(
+                data["name"][0],
+                style: const TextStyle(fontSize: 12),
+              ),
             ),
           ),
           const SizedBox(width: 12),
